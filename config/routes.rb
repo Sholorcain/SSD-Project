@@ -14,6 +14,13 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
+  get '/cart', to: 'cart#index'
+  get '/cart/:id', to: 'cart#add'
+  get '/clearcart' => 'cart#clear'
+  get '/cart/remove/:id' => 'cart#remove'
+  get '/cart/increase/:id' => 'cart#increase'
+  get '/cart/decrease/:id' => 'cart#decrease'
   resources :users
   
 end
