@@ -1,1 +1,5 @@
-# empty
+gearoid:
+  name: Gearoid de Cleir
+  email: gearoid@example.com
+  password_digest: <%= User.digest('password') %>
+  admin: true
