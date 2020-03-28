@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   get '/cart/increase/:id' => 'cart#increase'
   get '/cart/decrease/:id' => 'cart#decrease'
   resources :users
+  resources :account_activations, only: [:edit]
   
 end
