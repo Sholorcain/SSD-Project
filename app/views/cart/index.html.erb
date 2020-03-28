@@ -16,8 +16,8 @@
  </div>
 
  </td>
-
  <td class="title"><%= link_to item.title, item %></td>
+  
  <td><a href="#">Remove From Cart</a></td>
 <td> <a href="/cart/increase/<%= item.id %>">Increase</a></td>
  <td><a href="/cart/decrease/<%= item.id %>">Decrease</a></td>
@@ -25,8 +25,7 @@
  <td class="quantity"><%= quantity %></td>
  <td class="price"><%= number_to_currency(quantity * item.price, :unit =>"€") %></td>
  <td><a href="/cart/remove/<%= item.id %>">Remove From Cart</a></td>
- 
-    
+
 
  </tr>
 

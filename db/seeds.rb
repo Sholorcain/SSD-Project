@@ -13,9 +13,10 @@ User.create!(name:  "Example User",
              activated: true,
              activated_at: Time.zone.now)
              
-Item.create!(title: MyString,
-  author: MyString,
-  description: MyText,
-  price: 9.99,
-  image_url: MyString,
-  category: MyString)
+Item.create!(
+    title: "name",
+    author: "name",
+    description: "text",
+    price: 9.99,
+    image_url: "http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01098/opgs/edr/fcam/FLB_494969665EDR_D0492338TRAV00369M_-br2.jpg",
+    category: "text")

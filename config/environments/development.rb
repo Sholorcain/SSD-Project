@@ -27,17 +27,22 @@ Rails.application.configure do
   end
 
   # Care if the mailer can't send.
-  #config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = true
   #config.action_mailer.delivery_method = :test
-  #host = 'localhost:3000'                     # Local server
+  host = 'localhost:3000'                     # Local server
 #config.action_mailer.default_url_options = { host: host, protocol: 'http' }
   #config.action_mailer.default_url_options = { host: host, protocol: 'https' }
   # Use this if developing on localhost.
   # config.action_mailer.default_url_options = { host: host, protocol: 'http' }
-  ActionMailer::Base.add_delivery_method :ses, AWS::SES::Base,
-  access_key_id: ENV['AMAZON_ACCESS_KEY'],
-  secret_access_key: ENV['AMAZON_SECRET_KEY']
-  config.action_mailer.delivery_method = :ses
+  #ActionMailer::Base.add_delivery_method :ses, AWS::SES::Base,
+  #access_key_id: ENV['AMAZON_ACCESS_KEY'],
+  #secret_access_key: ENV['AMAZON_SECRET_KEY']
+  
+  aws_credentials = Aws::Credentials.new('AKIAJPFAGGJHYRCVQ5JA', '+fRWDnwQQStuX/nKBQQUYZIj35/bvsR/JXxrcFB3')
+Aws::Rails.add_action_mailer_delivery_method(:aws_ses, credentials: aws_credentials, region: 'eu-west-1')
+
+config.action_mailer.delivery_method = :aws_ses
+  #config.action_mailer.delivery_method = :ses
 
   config.action_mailer.perform_caching = false
 
