@@ -22,7 +22,8 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
-gem 'aws-ses', '~> 0.4.4', require: 'aws/ses'
+gem 'aws-sdk', '~> 2'
+gem 'aws-sdk-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

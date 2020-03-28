@@ -72,10 +72,10 @@ Rails.application.configure do
   #  :domain         => 'heroku.com',
   #  :enable_starttls_auto => true
   #}
-  ActionMailer::Base.add_delivery_method :ses, AWS::SES::Base,
-  access_key_id: ENV['AMAZON_ACCESS_KEY'],
-  secret_access_key: ENV['AMAZON_SECRET_KEY']
-  config.action_mailer.delivery_method = :ses
+aws_credentials = Aws::Credentials.new(ENV['AKIAJPFAGGJHYRCVQ5JA'], ENV['+fRWDnwQQStuX/nKBQQUYZIj35/bvsR/JXxrcFB3'])
+Aws::Rails.add_action_mailer_delivery_method(:aws_ses, credentials: aws_credentials, region: ENV['Ireland'])
+
+config.action_mailer.delivery_method = :aws_ses
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
