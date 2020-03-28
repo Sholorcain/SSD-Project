@@ -73,7 +73,7 @@ Rails.application.configure do
   #  :enable_starttls_auto => true
   #}
 aws_credentials = Aws::Credentials.new(ENV['AKIAJPFAGGJHYRCVQ5JA'], ENV['+fRWDnwQQStuX/nKBQQUYZIj35/bvsR/JXxrcFB3'])
-Aws::Rails.add_action_mailer_delivery_method(:aws_ses, credentials: aws_credentials, region: ENV['eu-west-1'])
+Aws::Rails.add_action_mailer_delivery_method(:aws_ses, credentials: aws_credentials, region: 'eu-west-1')
 
 config.action_mailer.delivery_method = :aws_ses
 
