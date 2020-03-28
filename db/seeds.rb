@@ -12,3 +12,10 @@ User.create!(name:  "Example User",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+             
+Item.create!(title: MyString,
+  author: MyString,
+  description: MyText,
+  price: 9.99,
+  image_url: MyString,
+  category: MyString)
