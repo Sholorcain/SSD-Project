@@ -40,7 +40,7 @@
  <% if !@cart.empty? %>
   <p><a href="/clearcart" class="button">Empty Cart</a></p>
   <h2>
- Grang Total: <%= number_to_currency(total, :unit => "€") %>
+ Grand Total: <%= number_to_currency(total, :unit => "€") %>
  </h2>
  <%end%>
   <% if @cart.empty? %>
