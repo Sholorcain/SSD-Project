@@ -13,10 +13,78 @@ User.create!(name:  "Example User",
              activated: true,
              activated_at: Time.zone.now)
              
+Category.create!(
+    title: "Fiction",
+)
+
+Category.create!(
+    title: "Non-Fiction",
+)
+
+Category.create!(
+    title: "Anthologies",
+)
+
+Category.create!(
+    title: "Poetry",
+)
+
+Category.create!(
+    title: "Periodicals",
+)
+             
 Item.create!(
-    title: "name",
-    author: "name",
-    description: "text",
+    title: "A Ghost in the Throat",
+    author: "Doireann Ni Ghriofa",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    price: 12.99,
+    image_url: "ghost.jpg",
+    category: "Fiction")
+    
+Item.create!(
+    title: "Minor Monuments",
+    author: "Ian Maleney",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    price: 13.99,
+    image_url: "minormonuments.jpg",
+    category: "Non-Fiction")
+
+Item.create!(
+    title: "Handiwork",
+    author: "Sara Baume",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    price: 13.99,
+    image_url: "handiwork.jpg",
+    category: "Fiction")
+    
+Item.create!(
+    title: "A Brilliant Void",
+    author: "Jack Fennell (Editor)",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    price: 11.99,
+    image_url: "brilliantvoid.png",
+    category: "Anthologies")
+    
+Item.create!(
+    title: "The Red Word",
+    author: "Sarah Henstra",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    price: 10.99,
+    image_url: "theredword.jpg",
+    category: "Fiction")
+    
+Item.create!(
+    title: "A Farewell to Poetry",
+    author: "Gabriel Fitzmaurice",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     price: 9.99,
-    image_url: "http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01098/opgs/edr/fcam/FLB_494969665EDR_D0492338TRAV00369M_-br2.jpg",
-    category: "text")
+    image_url: "farewell.jpg",
+    category: "Poetry")
+    
+Item.create!(
+    title: "Banshee, Summer 2019",
+    author: "Various",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    price: 8.99,
+    image_url: "banshee.jpg",
+    category: "Periodicals")
