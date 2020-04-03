@@ -14,23 +14,23 @@ User.create!(name:  "Example User",
              activated_at: Time.zone.now)
              
 Category.create!(
-    title: "Fiction",
+    title: "Fiction"
 )
 
 Category.create!(
-    title: "Non-Fiction",
+    title: "Non-Fiction"
 )
 
 Category.create!(
-    title: "Anthologies",
+    title: "Anthologies"
 )
 
 Category.create!(
-    title: "Poetry",
+    title: "Poetry"
 )
 
 Category.create!(
-    title: "Periodicals",
+    title: "Periodicals"
 )
              
 Item.create!(
