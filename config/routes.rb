@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  get 'orderitems/index'
+
+  get 'orderitems/show'
+
+  get 'orderitems/new'
+
+  get 'orderitems/edit'
+
+  resources :orders do 
+    resources:orderitems
+  end
+  
+  # can be enable later on
+  
+  # devise_for :users do 
+  #   resources :orders 
+  # end
+  
+  get '/checkout' => 'cart#createOrder'
+
   resources :categories
   resources :items
   get 'sessions/new'

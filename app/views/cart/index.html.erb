@@ -36,14 +36,26 @@
 
 
  </table>
- <p><a href="/items" class="button">Continue Shopping</a></p>
- <% if !@cart.empty? %>
-  <p><a href="/clearcart" class="button">Empty Cart</a></p>
-  <h2>
- Grand Total: <%= number_to_currency(total, :unit => "€") %>
- </h2>
- <%end%>
-  <% if @cart.empty? %>
-  <h1> Your cart is empty</h1>
+ <!--<p><a href="/items" class="button">Continue Shopping</a></p>-->
+ <!--<% if !@cart.empty? %>-->
+ <!-- <p><a href="/clearcart" class="button">Empty Cart</a></p>-->
+ <!-- <h2>-->
+ <!--Grand Total: <%= number_to_currency(total, :unit => "€") %>-->
+ <!--</h2>-->
+ <!--<%end%>-->
+ <!-- <% if @cart.empty? %>-->
+ <!-- <h1> Your cart is empty</h1>-->
+ <!-- <%end%>-->
+  
+   <!-- these design for checkout -->
+   <% if @cart.empty? %>
+     <h1> Your cart is empty</h1>
+   <%else%>
+    <div class="container text-center" style="margin-top:25px;">
+      <%= link_to "Continue Shopping", items_path, class: 'btn btn-md btn-primary' ,style: 'color: white;'%>
+      <%= link_to "Checkout", checkout_path, class: 'btn btn-md btn-success',style: 'color: white;' %>
+      <%= link_to "Empty Cart", clearcart_path, class: 'btn btn-md btn-danger',style: 'color: white;' %>
+    </div>
   <%end%>
+  <!-- end of check link -->
  </div>
