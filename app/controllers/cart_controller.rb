@@ -83,8 +83,8 @@ class CartController < ApplicationController
  # Creating an order
  def createOrder
    # Step 1: Get the current user
-   #@user = User.find(current_user.id)
-   @user = User.find(1)
+   @user = User.find(current_user.id)
+   #@user = User.find(1)
   
    # Step 2: Create a new order and associate it with the current user
    @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')

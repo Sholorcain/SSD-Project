@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class StaticPagesController < ApplicationController
   def home
     @categories = Category.all
@@ -25,7 +24,6 @@ class StaticPagesController < ApplicationController
   end
   
 end
-=======
 class StaticPagesController < ApplicationController
   def home
     @categories = Category.all
@@ -48,4 +46,3 @@ class StaticPagesController < ApplicationController
   
   
 end
->>>>>>> 0c8461e2b0e19bdd2dfc6a2b4724003fe1102c5a

@@ -1,31 +1,36 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Orders</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Order date</th>
-      <th>User</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
+<!--<% if @orders.empty? %>-->
+<!--  <h1>You don't have any order to display.</h1>-->
+<!--<% else %>-->
+  <h1>Orders</h1>
+  
+  <table id="customers">
+    <thead>
       <tr>
-        <td><%= order.order_date %></td>
-        <td><%= order.user %></td>
-        <td><%= order.status %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Order date</th>
+        <th>Customer Name</th>
+        <th>Order Status</th>
+        <th>Action</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+  
+    <tbody>
+      <% @orders.each do |order| %>
+        <% @user = User.find(order.user_id).name %>
+        <tr>
+          <td><%= order.order_date %></td>
+          <td><%= @user %></td>
+          <td><%= order.status %></td>
+          <td>
+              <%= link_to "Show", order, class: 'btn btn-md btn-success',style: 'color: white;' %>
+              <%= link_to "Edit", edit_order_path(order), class: 'btn btn-md btn-warning' ,style: 'color: white;'%>
+              <% if order.status.eql? "Pending" %>
+                <%= link_to "Delete", @order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-danger',style: 'color: white;' %>
+              <%end%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<!--<% end %>-->
 
-<br>
-
-<%= link_to 'New Order', new_order_path %>
