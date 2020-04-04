@@ -18,5 +18,9 @@ class StaticPagesController < ApplicationController
   def contact
   end
   
+  def paypalSendBox
+    @order = Order.find(params[:id])
+    @order.update_attribute(:status, "Paid by Paypal")
+  end
   
 end

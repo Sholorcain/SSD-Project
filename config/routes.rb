@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # end
   
   get '/checkout' => 'cart#createOrder'
+  get '/paypalSendBox/:id' => 'static_pages#paypalSendBox'
 
   resources :categories
   resources :items
