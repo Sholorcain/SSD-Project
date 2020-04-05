@@ -5,6 +5,7 @@
 <div id="itemsContainer">
  <table id="customers">
  <% total = 0 %>
+ <% if !@cart.empty? %>
  <tr>
   <td></td>
   <td>Title</td>
@@ -15,6 +16,7 @@
   <td>Total Price</td>
   <td></td>
  </tr>
+ <% end %>
  <% @cart.each do |id, quantity| %>
 
  <% item = Item.find_by_id(id) %>
