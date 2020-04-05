@@ -1,6 +1,7 @@
 <% provide(:title, "Cart") %>
-
+ <% if !@cart.empty? %>
 <h1>Cart</h1>
+ <% end %>
 <p id="notice"><%= notice %></p>
 <div id="itemsContainer">
  <table id="customers">
