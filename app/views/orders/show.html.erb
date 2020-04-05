@@ -14,7 +14,7 @@
                 <td colspan="2">
                     <h5>Order no # <%= @order.id %></h5>
                     <h5>Order Date # <%= @order.order_date %></h5>
-                    <h5>Delivery Status # <%= @order.status %></h5>
+                    <h5>Order Status # <%= @order.status %></h5>
                 </td>
             </tr>
             <tr>
@@ -85,10 +85,9 @@
     </table>
     <div class="container text-center" style="margin-top:25px;">
         <%= link_to "Back", orders_path, class: 'btn btn-md btn-success',style: 'color: white;' %>
-        <%= link_to "Edit", edit_order_path(@order), class: 'btn btn-md btn-warning' ,style: 'color: white;'%>
-        <%#= link_to "Delete", @order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-danger',style: 'color: white;' %>
         <% if @order.status.eql? "Pending" %>
-            <%= link_to "Delete", @order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-danger',style: 'color: white;' %>
+            <%= link_to "Edit", edit_order_path(@order), class: 'btn btn-md btn-warning' ,style: 'color: white;'%>
+            <%= link_to "Delete", order_path(id: @order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-danger',style: 'color: white;' %>
         <%end%>
     </div>
 </div>
