@@ -1,36 +1,38 @@
 <p id="notice"><%= notice %></p>
-<% if @orders.empty? %>
-  <h1>You don't have any order to display.</h1>
-<% else %>
-  <h1>Orders</h1>
-  
-  <table id="customers">
-    <thead>
-      <tr>
-        <th>Order date</th>
-        <th>Customer Name</th>
-        <th>Order Status</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <% @orders.each do |order| %>
-        <% @user = User.find(order.user_id).name %>
+<div id="itemsContainer">
+  <% if @orders.empty? %>
+    <h1>You don't have any order to display.</h1>
+  <% else %>
+    <h1>My Orders</h1>
+    
+    <table id="customers">
+      <thead>
         <tr>
-          <td><%= order.order_date %></td>
-          <td><%= @user %></td>
-          <td><%= order.status %></td>
-          <td>
-              <%= link_to "Show", order, class: 'btn btn-md btn-success',style: 'color: white;' %>
-              <%= link_to "Edit", edit_order_path(order), class: 'btn btn-md btn-warning' ,style: 'color: white;'%>
-              <% if order.status.eql? "Pending" %>
-                <%= link_to "Delete", @order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-danger',style: 'color: white;' %>
-              <%end%>
-          </td>
+          <th>Order date</th>
+          <th>Customer Name</th>
+          <th>Order Status</th>
+          <th>Action</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+      </thead>
+    
+      <tbody>
+        <% @orders.each do |order| %>
+          <% @user = User.find(order.user_id).name %>
+          <tr>
+            <td><%= order.order_date %></td>
+            <td><%= @user %></td>
+            <td><%= order.status %></td>
+            <td>
+                <%= link_to "Show", order, class: 'btn btn-md btn-success',style: 'color: white;' %>
+                <%= link_to "Edit", edit_order_path(order), class: 'btn btn-md btn-warning' ,style: 'color: white;'%>
+                <% if order.status.eql? "Pending" %>
+                  <%= link_to "Delete", order_path(id: order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-danger',style: 'color: white;' %>
+                <%end%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
 

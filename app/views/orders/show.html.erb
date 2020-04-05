@@ -3,7 +3,7 @@
 <% @user = User.find(current_user.id) %>
 
 <div id="itemsContainer">
-    <h1>You have successfully placed an order.</h1>
+    <h1>Your order details.</h1>
     <table id="customers">
         <thead>
             <tr>
@@ -86,7 +86,10 @@
     <div class="container text-center" style="margin-top:25px;">
         <%= link_to "Back", orders_path, class: 'btn btn-md btn-success',style: 'color: white;' %>
         <%= link_to "Edit", edit_order_path(@order), class: 'btn btn-md btn-warning' ,style: 'color: white;'%>
-        <%= link_to "Delete", @order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-danger',style: 'color: white;' %>
+        <%#= link_to "Delete", @order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-danger',style: 'color: white;' %>
+        <% if @order.status.eql? "Pending" %>
+            <%= link_to "Delete", @order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-danger',style: 'color: white;' %>
+        <%end%>
     </div>
 </div>
 

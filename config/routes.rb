@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   get 'orderitems/index'
-
   get 'orderitems/show'
-
   get 'orderitems/new'
-
   get 'orderitems/edit'
+  
+  
+  get '/delete', to: 'order#delete'
+
 
   resources :orders do 
     resources:orderitems
