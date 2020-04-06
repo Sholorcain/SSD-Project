@@ -4,7 +4,6 @@
     <title><%= yield(:title) %> | The Book Nook </title>
     <%= render 'layouts/head' %>
     <%= render 'layouts/shim' %>
-    
   </head>
   <body>
     <%= render 'layouts/header' %>
@@ -13,8 +12,8 @@
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

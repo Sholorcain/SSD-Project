@@ -62,8 +62,12 @@ class ItemsController < ApplicationController
   end
   
   def search
-   st = "%#{params[:q]}%"
-   @items = Item.where("title like ?", st)
+    if params[:q].eql? ""
+      @items = Item.all
+    else
+      st = "%#{params[:q]}%"
+      @items = Item.where("title like ?", st)
+    end
   end
 
   private

@@ -1,5 +1,12 @@
-<%= form_tag("/search", :method => "post") do %>
-<%= label_tag() %>
-<%= text_field_tag(:q) %>
-<%= submit_tag("Search") %>
-<% end %>
+<form class="navbar-form navbar-right" action="/search/">
+    <div class="form-group">
+        <input type="text" class="form-control" id="q" name="q" placeholder="Search by item's title">
+    </div>
+    <button type="submit" class="btn btn-success" value="search">Search</button>
+</form>
+
+
+<!--<%= form_tag("/search", :method => "post", :class=>"navbar-form navbar-right") do %>-->
+<!--    <%= text_field_tag :q, "", class: 'form-group' %>-->
+<!--    <%= submit_tag("Search",:class=>"btn btn-success") %>-->
+<!--<% end %>-->

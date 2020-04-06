@@ -50,6 +50,6 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   
-  post '/search' => 'items#search'
+  get '/search' => 'items#search'
   
 end
