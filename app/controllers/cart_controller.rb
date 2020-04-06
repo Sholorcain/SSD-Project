@@ -41,33 +41,33 @@ class CartController < ApplicationController
  
  def decrease
 
- id = params[:id]
- cart = session[:cart]
- if cart[id] == 1 then
- cart.delete id
- else
- cart[id] = cart[id] - 1
- end
- #Taking us to cart index[view] page
- redirect_to :action => :index
+  id = params[:id]
+  cart = session[:cart]
+  if cart[id] == 1 then
+   cart.delete id
+  else
+   cart[id] = cart[id] - 1
+  end
+  #Taking us to cart index[view] page
+  redirect_to :action => :index
 
  end
 
  
  def clear
- #sets session variable to nil and bring back to index
- session[:cart] = nil
- redirect_to :action => :index
+  #sets session variable to nil and bring back to index
+  session[:cart] = nil
+  redirect_to :action => :index
  end
 
 
  def index
-  # passes a cart to display
-  if session[:cart] then
-    @cart = session[:cart]
-  else
-    @cart = {}
-  end
+   # passes a cart to display
+   if session[:cart] then
+     @cart = session[:cart]
+   else
+     @cart = {}
+   end
  end
  
  def remove
@@ -76,12 +76,12 @@ class CartController < ApplicationController
   cart = session[:cart]
   cart.delete id
 
-  redirect_to :root
+  redirect_to :action => :index
  end
 
  
  # Creating an order
- def createOrder
+ def checkout
    # Step 1: Get the current user
    @user = User.find(current_user.id)
    #@user = User.find(1)

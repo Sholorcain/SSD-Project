@@ -42,7 +42,7 @@
                 <td colspan="5" style="text-align:right"> <h3>Total # <%= number_to_currency(number_with_precision(@total, :precision => 2), :unit => "€") %></h3> </td>
             </tr>
             <tr>
-                <td colspan="5">
+                <td colspan="5" style="text-align:center;">
                     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                       <!-- Identify your business so that you can collect the payments. -->
                       <!-- for real account -->

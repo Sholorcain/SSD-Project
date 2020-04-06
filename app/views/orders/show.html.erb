@@ -21,7 +21,7 @@
                 <th>Title</th>
                 <th>Qty.</th>
                 <th>Price</th>
-                <th>Sub-total</th>
+                <th style="text-align:right;">Sub-total</th>
             </tr>
         </thead>
         <tbody>
@@ -41,11 +41,10 @@
         <tfoot>
             <tr>
                 <td colspan="5" style="text-align:right"> <h3>Total # <%= number_to_currency(number_with_precision(@total, :precision => 2), :unit => "€") %></h3> </td>
-
             </tr>
             <% if @order.status.eql? "Pending" %>
                 <tr>
-                    <td colspan="5">
+                    <td colspan="5" style="text-align:center;">
                         <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                           <!-- Identify your business so that you can collect the payments. -->
                           <!-- for real account -->
