@@ -39,6 +39,15 @@ input, textarea, select, .uneditable-input {
     color: white;
 }
 
+// for carousel
+  .carousel-caption{
+    color:black;
+    margin-left:120px;
+  }
+
+// 
+
+
 /* forms */
 
 input,
@@ -138,10 +147,10 @@ p {
 #logo {
   float: left;
   // margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2em;
   color: white;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: -2px;
   // padding-top: 9px;
   font-weight: bold;
   &:hover {
