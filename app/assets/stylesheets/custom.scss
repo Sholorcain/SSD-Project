@@ -47,6 +47,15 @@ input, textarea, select, .uneditable-input {
 
 // 
 
+/* for margin top and bottom*/
+
+.margin-top{
+  margin-top:30px;
+}
+.margin-bottom{
+  margin-bottom:30px;
+}
+
 
 /* forms */
 
@@ -128,7 +137,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
