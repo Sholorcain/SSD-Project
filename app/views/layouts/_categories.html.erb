@@ -2,11 +2,11 @@
 <br>
 
     <% @categories.each do |category| %>
-       <div class="itemhols">
+       <div class="categoryhols">
            <p><%= category.description %></p>
 
 
-    <h2><a href="/category/<%= category.title %>" class="button"><%= category.title %></a></h2>         
+    <h2><a href="/category/<%= category.title %>" class="categorybutton"><%= category.title %></a></h2>         
     </div>
     <% end %>
     
