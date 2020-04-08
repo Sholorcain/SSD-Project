@@ -1,6 +1,6 @@
 <h1>Categories</h1>
 <br>
-
+<div id="CategoryContainer">
     <% @categories.each do |category| %>
        <div class="categoryhols">
            <p><%= category.description %></p>
@@ -9,5 +9,6 @@
     <h2><a href="/category/<%= category.title %>" class="categorybutton"><%= category.title %></a></h2>         
     </div>
     <% end %>
+</div>
     
 
