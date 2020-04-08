@@ -11,10 +11,10 @@
        <h1><%= item.title %></h1>
        
        <%= link_to (image_tag item.image_url, :class => "itemholsIm"), item %>
-        <p><br>
-        Author: <%= item.author %></p>
-        <p><%= item.description %></p>
-       <p>Price <%= number_to_currency(item.price, :unit => "€") %>
+        <p>
+        Author: <%= item.author %>
+        <br>
+       Price: <%= number_to_currency(item.price, :unit => "€") %>
        <br>
         Category: <%= item.category %>
         </p>
