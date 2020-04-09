@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 gem 'bcrypt', '3.1.12'
 gem 'bootstrap-sass', '3.3.7'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

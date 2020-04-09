@@ -4,138 +4,149 @@
 <!--  <h1>Welcome to The Book Nook</h1>-->
 <!--  <h3>This is our home page</h3>-->
 <!--</div>-->
-<div class="margin-top"></div>
-
-   <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <%= image_tag ("carousel1.jpg"), size: "350x250" %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Years 150</h1>
-              <p align="left">Lorem do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="margin-top"></div>
+      <%=render 'layouts/categories'%>
+    </div>
+    <div class="col-md-10">
+      <div class="margin-top"></div>
+      
+         <!-- Carousel
+          ================================================== -->
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <%= image_tag ("carousel1.jpg"), size: "250x150" %>
+                <div class="container">
+                  <div class="carousel-caption">
+                    <h1>Years 150</h1>
+                    <p align="left">Lorem do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag ("carousel2.jpg"), size: "250x150"%>
+                <div class="container">
+                  <div class="carousel-caption">
+                    <h1>The State of Ireland</h1>
+                    <p align="left">Lorem ipsum consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag ("carousel3.jpg"), size: "250x150" %>
+                <div class="container">
+                  <div class="carousel-caption">
+                    <h1>Tales & Imaginings</h1>
+                    <p align="left">Lorem ipsum  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag ("carousel2.jpg"), size: "350x250"%>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>The State of Ireland</h1>
-              <p align="left">Lorem ipsum consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div><!-- /.carousel -->
+        <hr class="featurette-divider">
+        <div class="margin-top"></div>
+         <!-- Marketing messaging and featurettes
+          ================================================== -->
+          <!-- Wrap the rest of the page in another container to center all the content. -->
+      
+          <div class="marketing mt-3">
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+              <div class="col-lg-4 center">
+                <%= image_tag ("theredword.jpg"), size: "170x250" %>
+                <h2 style="color:#009d00">Years 150</h2>
+                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+              </div><!-- /.col-lg-4 -->
+              <div class="col-lg-4 center">
+                <%= image_tag ("minormonuments.jpg"), size: "170x250" %>
+                <h2 style="color:#009d00">The State of Ireland</h2>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+              </div><!-- /.col-lg-4 -->
+              <div class="col-lg-4 center">
+                <%= image_tag ("farewell.jpg"), size: "170x250" %>
+                <!--<%= image_tag ("farewell.jpg"), size: "200x150", class: "img-circle" %>-->
+                <h2 style="color:#009d00">Tales & Imaginings</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+              </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+          
+          <div class="margin-top"></div>
+      
+            <!-- START THE FEATURETTES -->
+      
+            <hr class="featurette-divider">
+      
+            <div class="row featurette">
+              <div class="col-md-7">
+                <h2 class="featurette-heading" style="color:#009d00">Years 150. <span class="text-muted">It'll blow your mind.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+              </div>
+              <div class="col-md-5">
+                <%= image_tag ("banshee.jpg"), size: "300x300", class: "featurette-image img-responsive center-block" %>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag ("carousel3.jpg"), size: "350x250" %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Tales & Imaginings</h1>
-              <p align="left">Lorem ipsum  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+      
+            <hr class="featurette-divider">
+      
+            <div class="row featurette">
+              <div class="col-md-7 col-md-push-5">
+                <h2 class="featurette-heading" style="color:#009d00">The State of Ireland. <span class="text-muted">See for yourself.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+              </div>
+              <div class="col-md-5 col-md-pull-7">
+                <%= image_tag ("brilliantvoid.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
+              </div>
             </div>
-          </div>
-        </div>
+      
+            <hr class="featurette-divider">
+      
+            <div class="row featurette">
+              <div class="col-md-7">
+                <h2 class="featurette-heading" style="color:#009d00">Tales & Imaginings. <span class="text-muted">Checkmate.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+              </div>
+              <div class="col-md-5">
+                <%= image_tag ("carousel3.jpg"), size: "300x300", class: "featurette-image img-responsive center-block" %>
+              </div>
+            </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
-  <hr class="featurette-divider">
-  <div class="margin-top"></div>
-   <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing mt-3">
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4 center">
-          <%= image_tag ("theredword.jpg"), size: "140x140", class: "img-circle" %>
-          <h2 style="color:#009d00">Years 150</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4 center">
-          <%= image_tag ("minormonuments.jpg"), size: "140x140", class: "img-circle" %>
-          <h2 style="color:#009d00">The State of Ireland</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4 center">
-          <%= image_tag ("farewell.jpg"), size: "140x140", class: "img-circle" %>
-          <h2 style="color:#009d00">Tales & Imaginings</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-    
-    <div class="margin-top"></div>
-
-      <!-- START THE FEATURETTES -->
-
+      
       <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading" style="color:#009d00">Years 150. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      <div class="margin-bottom"></div>
+      
+      
+      <br>
+      <%=render 'layouts/popular'%>
+      
+      <% @categories.each do |category| %>
+        <div class="itemhols">
+          <p><%= category.description %></p>
         </div>
-        <div class="col-md-5">
-          <%= image_tag ("banshee.jpg"), size: "300x300", class: "featurette-image img-responsive center-block" %>
-        </div>
+      <% end %>
       </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading" style="color:#009d00">The State of Ireland. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <%= image_tag ("brilliantvoid.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading" style="color:#009d00">Tales & Imaginings. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <%= image_tag ("carousel3.jpg"), size: "300x300", class: "featurette-image img-responsive center-block" %>
-        </div>
-      </div>
-</div>
-
-<hr class="featurette-divider">
-<div class="margin-bottom"></div>
-
-<%=render 'layouts/categories'%>
-<br>
-<%=render 'layouts/popular'%>
-
-<% @categories.each do |category| %>
-  <div class="itemhols">
-    <p><%= category.description %></p>
+    </div>
   </div>
-<% end %>
 </div>

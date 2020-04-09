@@ -1,13 +1,9 @@
-<h1>Categories</h1>
-<br>
-
+<div class="container">
+    <h3 class="text-left"><b>Categories</b></h3>
     <% @categories.each do |category| %>
-       <div class="itemhols">
-           <p><%= category.description %></p>
-
-
-    <h2><a href="/category/<%= category.title %>" class="button"><%= category.title %></a></h2>         
-    </div>
+           <p><%#= category.description %></p>
+            <a href="/category/<%= category.id %>" class="button btn-success btn-lg text-left" style="color:white"><%= category.title %></a>       
     <% end %>
+</div>
     
 
