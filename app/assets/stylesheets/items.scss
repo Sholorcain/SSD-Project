@@ -19,11 +19,11 @@
 
 
 .itemhols {
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
     margin-bottom: 10px;
     display: inline-block;
-    width: 30%;
+    width: 33%;
     padding:10px;
     min-height: 300px;
    
@@ -33,34 +33,39 @@
 .itemhols h1 {
    display: block;
     color: #4CAF50;
-    text-align: center;
+    // text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 20px
+    font-size: 20px;
     
 }
 
 
 .itemhols p {
    display: block;
-    color: #4CAF50;
-    text-align: center;
-    padding: 14px 16px;
+    color: black;
+    text-align: left;
+    // padding: 14px 16px;
     text-decoration: none;
-    font-size: 16px
+    font-size: 16px;
+    margin: 15px;
     
 }
 
 
 
 .itemholsIm {
-    width: 40%; 
+    width: 90%; 
+    height:450px !important;
     margin-left: auto; 
     margin-right: auto; 
     display: block;
     
 }
 
+.btn{
+    color:white !important;
+}
 
 .button {
     background-color: #4CAF50;

@@ -1,36 +1,46 @@
 <% provide(:title, "Items") %>
 <p id="notice"><%= notice %></p>
 
- <div id="itemsContainer">
-  
-  <h1>Full Catalogue:</h1>
-  <br>
-     
+  <h1>Full Catalogue</h1>
       <% @items.each do |item| %>
-       <div class="itemhols">
-       <h1><%= item.title %></h1>
-       
-       <%= link_to (image_tag item.image_url, :class => "itemholsIm"), item %>
-        <p>
-        Author: <%= item.author %>
-        <br>
-       Price: <%= number_to_currency(item.price, :unit => "€") %>
-       <br>
-        Category: <%= item.category %>
-        </p>
-       
-       <p>
-         <%= link_to 'Show',  item, :class => "button", :role => "button" %>
-         <%= link_to 'Edit',  edit_item_path(item), :class => "button", :role => "button" %>
-         <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
-         <a href="/cart/<%= item.id %>" class="button">Add To Cart</a>
-       </p>
-        
-      </div>
-    <% end %>
+         <div class="itemhols">
+            <h1 style"text-align: left;"><%= item.title %></h1>
+            <%= link_to (image_tag item.image_url, :class => "itemholsIm", :size=>"170x250"), item %>
+            <p>Author: <%= item.author %></p>
+            <p>Price: <%= number_to_currency(item.price, :unit => "€") %></p>
+            <p>Category: <%= item.category %></p>
+            <p><%= link_to 'Add to cart', cart_path(:item_id => item.id), :class => "btn btn-md btn-primary" %></p>
+            <p>
+               <%= link_to 'Show',  item, :class => "btn btn-md btn-success", :role => "button" %>
+               <%= link_to 'Edit',  edit_item_path(item), :class => "btn btn-md btn-warning", :role => "button" %>
+               <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-md btn-danger", :role => "button" %>
+               <!--<a href="/cart/add/<%= item.id %>" class="btn btn-md btn-prinary" id="cart">Add To Cart</a>-->
+            </p>
+         </div>
+      <% end %>
       
-</div>
+<p><%= link_to 'New Item',  new_item_path, :class => "btn btn-md btn-primary", :role => "button" %>[Admin funtion : ]</p>
 
-<br>
-<%= link_to 'New Item',  new_item_path, :class => "button", :role => "button" %>
 
+
+<!--<% provide(:title, "Items") %>-->
+<!--<p id="notice"><%= notice %></p>-->
+
+<!--  <h1>Full Catalogue</h1>-->
+<!--      <% @items.each do |item| %>-->
+<!--         <div class="itemhols">-->
+<!--            <h1><%= item.title %></h1>-->
+<!--            <%= link_to (image_tag item.image_url, :class => "itemholsIm", :size=>"180x250"), item %>-->
+<!--            <p>Author: <%= item.author %></p>-->
+<!--            <p>Price: <%= number_to_currency(item.price, :unit => "€") %></p>-->
+<!--            <p>Category: <%= item.category %></p>-->
+<!--            <p>-->
+<!--               <%= link_to 'Show',  item, :class => "btn btn-md btn-success", :role => "button" %>-->
+<!--               <%= link_to 'Edit',  edit_item_path(item), :class => "btn btn-md btn-warning", :role => "button" %>-->
+<!--               <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-md btn-danger", :role => "button" %>-->
+<!--               <a href="/cart/<%= item.id %>" class="button">Add To Cart</a>-->
+<!--            </p>-->
+<!--      </div>-->
+<!--    <% end %>-->
+      
+<!--<%= link_to 'New Item',  new_item_path, :class => "button", :role => "button" %>-->

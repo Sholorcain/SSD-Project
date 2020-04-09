@@ -4,7 +4,6 @@ class CartController < ApplicationController
   def add
    # get the Id of the product
    id = params[:id]
-  
    # if the cart is already been created, use existing cart else create a blank cart
    if session[:cart] then
     cart = session[:cart]

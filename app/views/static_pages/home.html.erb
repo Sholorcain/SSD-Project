@@ -139,13 +139,12 @@
       
       
       <br>
-      <%=render 'layouts/popular'%>
-      
-      <% @categories.each do |category| %>
-        <div class="itemhols">
-          <p><%= category.description %></p>
-        </div>
-      <% end %>
+      <%= render 'layouts/popular'%>
+      <!--<% @categories.each do |category| %>-->
+      <!--  <div class="itemhols">-->
+      <!--    <p class="lead"><%= category.description %></p>-->
+      <!--  </div>-->
+      <!--<% end %>-->
       </div>
     </div>
   </div>
