@@ -66,7 +66,7 @@ class ItemsController < ApplicationController
       @items = Item.all
     else
       st = "%#{params[:q]}%"
-      @items = Item.where("title like ?", st)
+      @items = Item.where("title ILIKE ?", st)
     end
   end
 

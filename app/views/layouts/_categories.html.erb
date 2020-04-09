@@ -1,5 +1,5 @@
 <h3 class="text-left"><b>Categories</b></h3>
 <% @categories.each do |category| %>
-    <a href="/category/<%= category.id %>" class="btn btn-success btn-block" style="color:white; font-size:18px; text-align:left;"><%= category.title %></a> 
+    <a href="/category/<%= category.title %>" class="btn btn-success btn-block" style="color:white; font-size:18px; text-align:left;"><%= category.title %></a> 
 <% end %>
 
