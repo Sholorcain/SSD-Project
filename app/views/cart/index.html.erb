@@ -2,6 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 <div id="itemsContainer">
+  <% if false %>
   <% if !@cart.empty? %>
   <h1>Cart</h1>
     <table id="customers">
@@ -51,6 +52,7 @@
       <%= link_to "Checkout", checkout_path, class: 'btn btn-md btn-success',style: 'color: white;' %>
       <%= link_to "Empty Cart", clearcart_path, class: 'btn btn-md btn-danger',style: 'color: white;' %>
     </div>
+  <%end%>
   <%end%>
   <!-- end of check link -->
 </div>
