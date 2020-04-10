@@ -24,6 +24,11 @@
         
       </div>
    
+   <%= render partial: 'reviews/form' %>
+
+   
+   <h3>Comments</h3>
+   <%= render partial: 'items/review', collection: @item.reviews %>
    
    </div>
 

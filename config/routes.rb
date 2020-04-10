@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   get '/paypalSendBox/:id' => 'static_pages#paypalSendBox'
 
   resources :categories
-  resources :items
+  resources :items do
+    resources :reviews
+  end
   get 'sessions/new'
 
   get 'users/new'

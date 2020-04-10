@@ -1,0 +1,86 @@
+<% provide(:title, "Order Successful") %>
+
+<div id="itemsContainer">
+    <h1>You have successfully placed an order.</h1>
+    <% @user = current_user %>
+    <table id="customers">
+        <thead>
+            <tr>
+                <td colspan="2">
+                    <h4>Name # <%= @user.name %></h4>
+                    <h5>Address # <%= @user.email %></h5>
+                </td>
+                <td colspan="2">
+                    <h5>Order no # <%= @orders.id %></h5>
+                    <h5>Order Date # <%= @orders.order_date %></h5>
+                    <h5>Order Status # <%= @orders.status %></h5>
+                </td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <th>Qty.</th>
+                <th>Price</th>
+                <th>Sub-total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @total = 0 %>
+            <% @orderitems.each do |id,quantity| %>
+                <tr>
+                    <% item = Orderitem.find_by_id(id) %>
+                    <td><%= item.title %></td>
+                    <td><%= item.quantity %></td>
+                    <td><%= number_to_currency(number_with_precision(item.price, :precision => 2), :unit => "€")%></td> 
+                    <td><%= number_to_currency(number_with_precision(item.quantity * item.price, :precision => 2), :unit => "€") %></td>
+                    <% timx = (item.quantity * item.price)%>
+                    <% @total += timx %>
+                 </tr>
+            <% end %>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" style="text-align:right"> <h3>Total # <%= number_to_currency(number_with_precision(@total, :precision => 2), :unit => "€") %></h3> </td>
+            </tr>
+            <tr>
+                <td colspan="5" style="text-align:center;">
+                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                      <!-- Identify your business so that you can collect the payments. -->
+                      <!-- for real account -->
+                      <!--<input type="hidden" name="business" value="ncigroupproject2020@gmail.com">-->
+                      
+                      <!-- for testing for business account -->
+                      <!--<input type="hidden" name="business" value="xqa2h1369057@business.example.com">-->
+                      
+                      <!-- for testing for personal account -->
+                      <input type="hidden" name="business" value="sb-47dzsc1365799@personal.example.com">
+                      
+                    
+                      <!-- Specify a Buy Now button. -->
+                      <input type="hidden" name="cmd" value="_xclick">
+                    
+                      <!-- Specify details about the item that buyers will purchase. -->
+                      <input type="hidden" name="item_name" value="The Book Nook order number # <%= @order.id %>">
+                      <input type="hidden" name="amount" value="<%= @total%>">
+                      <input type="hidden" name="currency_code" value="EUR">
+                    
+                      <!-- Display the payment button. -->
+                      <input type="image" name="submit" border="0" style="width:150px; height:50px; border:none;"
+                      src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+                      alt="Paypal button">
+                      <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+                      <!-- returning to the aws -->
+                      <!--<input type="hidden" name="return" value="https://2d777c49c8d94f82b11ceb817e055c0d.vfs.cloud9.us-east-1.amazonaws.com/paypalSendBox/<%= @order.id %>" >-->
+                      <!-- returning to the heroku -->
+                      <input type="hidden" name="return" value="https://radiant-castle-78640.herokuapp.com/paypalSendBox/<%= @order.id %>" >
+                      
+                    </form>
+                </td>
+            </tr>
+            <!--<tr><td><h2><a href="/paypalSendBox/<%= @order.id %>" class="button">Pay Now[paypal]</a></h2></td></tr>-->
+        </tfoot>
+    </table>
+    <!--<h5 style="text-align:center">We thank you for your order. Hope you purchase again.</h5>-->
+
+</div>
+
+
