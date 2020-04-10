@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   get '/cart', to: 'cart#index'
-  get '/cart/:id', to: 'cart#add' , :as => :cart_add
+  get '/cart/:id', to: 'cart#add'
   get '/clearcart' => 'cart#clear'
   get '/cart/remove/:id' => 'cart#remove'
   get '/cart/increase/:id' => 'cart#increase'
