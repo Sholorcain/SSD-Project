@@ -29,6 +29,8 @@
       </div>
    <% if logged_in? %>
    <%= render partial: 'reviews/form' %>
+   <% else %>
+   <h3> Login to review this book</h3>
    <% end %>
    
    <h3>Reviews (<%= @item.reviews.size %>)</h3>
