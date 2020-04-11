@@ -1,21 +1,22 @@
-<h3>Reviews (<%= @item.reviews.size %>)</h3>
+<h3>Leave a Review</h3>
 
 
 <%= form_for [ @item, @review ] do |f| %>
   <p>
-    <% if logged_in? %>
-        <%= f.label :author_name, current_user.name  %><br/>
+        <%= f.label :author_name, current_user.name   %><br/>
         <%= f.hidden_field :author_name, :value => current_user.name %>
-    <% else %>
-        <%= f.label :author_name, "Guest"  %><br/>
-        <%= f.hidden_field :author_name, :value => "Guest" %>
-    <% end %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
     
   </p>
   <p>
-    <%= f.label :body, "Your Comment"  %>
+    <%= f.label :rating, "Rating" %>
 <br/>
-    <%= f.text_area :body %>
+    <%= f.number_field :rating, placeholder: "1-5" ,min: '0', step: '1', max: '5' %>
+  </p>
+  <p>
+    <%= f.label :body, "Your Comment" %>
+<br/>
+    <%= f.text_area :body, placeholder: "Your comment must be more than 10 charcters"  %>
   </p>
   <p>
     <%= f.submit 'Submit' %>

@@ -2,4 +2,17 @@
   <h4>Review by <%= review.author_name %></h4>
   <p class="review"><%= review.body %></p>
   <p>Posted <%= distance_of_time_in_words(review.created_at, Time.now) %> ago</p>
+  <% if logged_in? %>
+  <% if current_user.id == review.user_id || current_user.admin?%>
+  <p>
+  <%= link_to 'Destroy Review', [review.item, review],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  </p>
+  <p>
+  <%= link_to 'Edit Review', [review.item, review],
+               method: :edit %>
+  </p>
+  <%end%>
+  <%end%>
 </div>

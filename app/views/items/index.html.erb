@@ -9,6 +9,11 @@
             <p>Author: <%= item.author %></p>
             <p>Price: <%= number_to_currency(item.price, :unit => "€") %></p>
             <p>Category: <%= item.category %></p>
+            <p> Ratings: <% item.score.to_i.times do  %>
+        <span class="glyphicon glyphicon-star"></span>
+       <% end %><% item.blank_stars.times do %>
+       <span class="glyphicon glyphicon-star-empty"></span>
+      <% end %> (<%= item.reviews.size %>) </p>
             <p><%= link_to 'Add to cart', cart_add_path(item.id), :class => "btn btn-md btn-primary" %></p>
             <p>
                <%= link_to 'Show',  item, :class => "btn btn-md btn-success", :role => "button" %>

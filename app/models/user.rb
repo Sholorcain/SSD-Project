@@ -9,12 +9,14 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-  
+  has_many :reviews
   # to make relationship with orders & authorization
   def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :remember_me)
   end
   has_many :orders
+  
+
   # end of relationship with orders
 
   # Returns the hash digest of the given string.
