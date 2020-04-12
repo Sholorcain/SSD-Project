@@ -1,7 +1,8 @@
 <div>
   <h4>Review by <%= review.author_name %></h4>
-  <p class="review"><%= review.body %></p> <% review.rating.to_i.times do  %><span class="glyphicon glyphicon-star"></span><% end %>
-  <% (5 - review.rating).times do %><span class="glyphicon glyphicon-star-empty"></span><% end %>
+  <p class="review"><%= review.body %></p> 
+  <p><% review.rating.to_i.times do  %><span class="glyphicon glyphicon-star"></span><% end %><% (5 - review.rating).times do %><span class="glyphicon glyphicon-star-empty"></span><% end %></p>
+  
   <p>Posted <%= distance_of_time_in_words(review.created_at, Time.now) %> ago</p>
   <% if logged_in? %>
   <% if current_user.id == review.user_id || current_user.admin?%>
