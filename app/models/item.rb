@@ -8,4 +8,8 @@ class Item < ApplicationRecord
     def blank_stars
         5 - score.to_i
     end
+    
+    def stock_limit
+        stock <= 0
+    end
 end

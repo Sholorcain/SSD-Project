@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     @review.item_id = @item.id
 
   end
-
+  
   # GET /items/new
   def new
     @item = Item.new
@@ -81,7 +81,7 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :author, :description, :price, :image_url, :category)
+      params.require(:item).permit(:title, :author, :description, :price, :image_url, :category, :stock)
     end
   
 

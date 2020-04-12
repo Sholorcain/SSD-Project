@@ -14,7 +14,24 @@
        <% end %><% item.blank_stars.times do %>
        <span class="glyphicon glyphicon-star-empty"></span>
       <% end %> (<%= item.reviews.size %>) </p>
-            <p><%= link_to 'Add to cart', cart_add_path(item.id), :class => "btn btn-md btn-primary" %></p>
+      <p>Current Stock: <%= item.stock %></p>
+      <%= form_for(item) do |f| %>
+         <div class="field">
+          <%= f.label :stock %>
+          <%= f.text_field :stock %>
+        </div>
+
+          <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+
+       <%if item.stock_limit %>
+       <p> Out of Stock!</p>
+       <% else %>
+       <p><%= link_to 'Add to cart', cart_add_path(item.id), :class => "btn btn-md btn-primary" %></p>
+       <% end %>
+            
             <p>
                <%= link_to 'Show',  item, :class => "btn btn-md btn-success", :role => "button" %>
                <%= link_to 'Edit',  edit_item_path(item), :class => "btn btn-md btn-warning", :role => "button" %>
