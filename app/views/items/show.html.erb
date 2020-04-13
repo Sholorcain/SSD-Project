@@ -15,20 +15,31 @@
        <br>
         Category: <%= @item.category %>
         </p>
-       
+       <p>Current Stock: <%= @item.stock %></p>
+       <% if @item.stock <= 0 %>
+       <p> Out of Stock!</p>
+       <% end %>
        <p>
          <%= link_to 'Back',  items_path, :class => "button", :role => "button" %>
          <%= link_to 'Edit',  edit_item_path(@item), :class => "button", :role => "button" %>
          
        </p>
-        
+        <% @item.score.to_i.times do  %>
+        <span class="glyphicon glyphicon-star"></span>
+       <% end %><% @item.blank_stars.times do %>
+       <span class="glyphicon glyphicon-star-empty"></span>
+      <% end %>
       </div>
-   
+   <% if logged_in? %>
    <%= render partial: 'reviews/form' %>
-
+   <% else %>
+   <h3> Login to review this book</h3>
+   <% end %>
    
-   <h3>Comments</h3>
+   <h3>Reviews (<%= @item.reviews.size %>)</h3>
+   
    <%= render partial: 'items/review', collection: @item.reviews %>
+   
    
    </div>
 

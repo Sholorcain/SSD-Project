@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.decimal :price
       t.string :image_url
       t.string :category
+      t.integer :stock, default: 0
 
       t.timestamps
     end

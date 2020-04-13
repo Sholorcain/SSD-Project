@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :stockupdate]
 
   # GET /items
   # GET /items.json
@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     @review.item_id = @item.id
 
   end
-
+  
   # GET /items/new
   def new
     @item = Item.new
@@ -53,6 +53,26 @@ class ItemsController < ApplicationController
       end
     end
   end
+  
+  def expensive
+ @items = Item.expensive
+ render action: :index
+end
+
+def cheapest
+ @items = Item.cheapest
+ render action: :index
+end
+
+def bestrated
+ @items = Item.bestrated
+ render action: :index
+end
+
+def lowestrated
+ @items = Item.lowestrated
+ render action: :index
+end
 
   # DELETE /items/1
   # DELETE /items/1.json
@@ -81,8 +101,10 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :author, :description, :price, :image_url, :category)
+      params.require(:item).permit(:title, :author, :description, :price, :image_url, :category, :stock)
     end
+    
+    
   
 
 end

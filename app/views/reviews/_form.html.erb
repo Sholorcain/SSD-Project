@@ -1,21 +1,33 @@
-<h3>Reviews (<%= @item.reviews.size %>)</h3>
+<h3>Leave a Review</h3>
 
 
 <%= form_for [ @item, @review ] do |f| %>
   <p>
-    <% if logged_in? %>
-        <%= f.label :author_name, current_user.name  %><br/>
+        <%= f.label :author_name, current_user.name   %><br/>
         <%= f.hidden_field :author_name, :value => current_user.name %>
-    <% else %>
-        <%= f.label :author_name, "Guest"  %><br/>
-        <%= f.hidden_field :author_name, :value => "Guest" %>
-    <% end %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
     
   </p>
+  
   <p>
-    <%= f.label :body, "Your Comment"  %>
+    <%= f.label :rating, "Rating" %>
 <br/>
-    <%= f.text_area :body %>
+    <div class="wrapper">
+  <%=f.radio_button :rating, 5, :id => "star5" %><label for="star5"><span class="glyphicon glyphicon-star"></span></label>
+
+  <%=f.radio_button :rating, 4, :id => "star4" %> <label for="star4"><span class="glyphicon glyphicon-star"></span></label>
+
+  <%=f.radio_button :rating, 3, :id => "star3" %> <label for="star3"><span class="glyphicon glyphicon-star"></span></label>
+
+  <%=f.radio_button :rating, 2, :id => "star2" %> <label for="star2"><span class="glyphicon glyphicon-star"></span></label>
+
+  <%=f.radio_button :rating, 1, :id => "star1" %> <label for="star1"><span class="glyphicon glyphicon-star"></span></label>
+  </div>
+  </p>
+  <p>
+    <%= f.label :body, "Your Comment" %>
+<br/>
+    <%= f.text_area :body, placeholder: "Your comment must be more than 10 charcters"  %>
   </p>
   <p>
     <%= f.submit 'Submit' %>

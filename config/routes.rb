@@ -23,6 +23,12 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :items do
+    collection do
+      get :expensive
+      get :cheapest
+      get :bestrated
+      get :lowestrated
+    end
     resources :reviews
   end
   get 'sessions/new'
@@ -49,6 +55,8 @@ Rails.application.routes.draw do
   get '/cart/increase/:id' => 'cart#increase'
   get '/cart/decrease/:id' => 'cart#decrease'
   resources :users
+  
+  
   resources :account_activations, only: [:edit]
   
   get '/search' => 'items#search'

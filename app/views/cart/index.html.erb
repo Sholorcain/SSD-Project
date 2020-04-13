@@ -22,7 +22,9 @@
       <tbody>
           <% @cart.each do |id, quantity| %>
             <tr>
-              <% item = Item.find_by_id(id) %>
+              <!-- check if the item exists to avoid throwing an error and breaking the session cart -->
+              <% if Item.exists?(id)
+                  item = Item.find_by_id(id)%>
               <td><div class="image" style="text-align:center;"> <%= link_to (image_tag item.image_url, :style =>"height:60px;"), item %></div></td>
               
               <td class="title"><%= link_to item.title, item %></td>
@@ -33,7 +35,9 @@
               <td class="price"><%= number_to_currency(quantity * item.price, :unit =>"€") %></td>
               <td style="text-align:center;"><a href="/cart/remove/<%= item.id %>" class="btn btn-md btn-danger" style= "color: white;">Remove</a></td>
               <% total += quantity * item.price %> 
+              <% end %>
             </tr>
+            
           <% end %>
         <tfoot>
           <tr>
@@ -50,7 +54,11 @@
   <%else%>
     <div class="container text-center" style="margin-top:25px;">
       <%= link_to "Continue Shopping", items_path, class: 'btn btn-md btn-primary' ,style: 'color: white;'%>
+      <% if logged_in? %>
       <%= link_to "Checkout", checkout_path, class: 'btn btn-md btn-success',style: 'color: white;' %>
+      <% else %>
+      <%= link_to "Log In", login_path, class: 'btn btn-md btn-success',style: 'color: white;' %>
+      <% end %>
       <%= link_to "Empty Cart", clearcart_path, class: 'btn btn-md btn-danger',style: 'color: white;' %>
     </div>
   <%end%>
