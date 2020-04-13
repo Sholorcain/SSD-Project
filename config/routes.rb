@@ -29,7 +29,9 @@ Rails.application.routes.draw do
       get :bestrated
       get :lowestrated
     end
+    
     resources :reviews
+    
   end
   get 'sessions/new'
 

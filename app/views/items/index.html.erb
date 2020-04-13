@@ -6,16 +6,16 @@
   <h1 class="text-center">Full Catalogue</h1>
   <ul class="nav nav-tabs card-header-tabs">
   <li class="nav-item">
-    <%= link_to "Recent", expensive_items_path, class: "nav-link active" %>
+    <%= link_to "Most Expensive", expensive_items_path, class: "nav-link active" %>
   </li>
   <li class="nav-item">
-    <%= link_to "Oldest", cheapest_items_path, class: "nav-link active" %>
+    <%= link_to "Cheapest", cheapest_items_path, class: "nav-link active" %>
   </li>
   <li class="nav-item">
-    <%= link_to "Upvoted", bestrated_items_path, class: "nav-link active" %>
+    <%= link_to "Top rated", bestrated_items_path, class: "nav-link active" %>
   </li>
   <li class="nav-item">
-    <%= link_to "Downvoted", lowestrated_items_path, class: "nav-link active" %>
+    <%= link_to "Worst rated", lowestrated_items_path, class: "nav-link active" %>
   </li>
     </ul>
       <% @items.each do |item| %>
