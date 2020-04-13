@@ -1,81 +1,49 @@
-// Place all the styles related to the Items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-#itemsContainer {
-    width: 100%;
-    text-align: center;
+
+.item-title{
+    color:#5cb85c;
 }
 
+/* Meadia query*/
 
-#itemsContainer h1 {
-   display: block;
-    color: #4CAF50;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    
-    
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    .row{
+        margin: 0 85px;
+    }
 }
 
-
-.itemhols {
-    // margin-left: auto;
-    // margin-right: auto;
-    margin-bottom: 10px;
-    display: inline-block;
-    width: 33%;
-    padding:10px;
-    min-height: 300px;
-   
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199px){
+    .col-sm-4 {
+        width: 33.33%;
+    }
+    .row{
+        margin: 0 5px;
+    }
 }
 
-
-.itemhols h1 {
-   display: block;
-    color: #4CAF50;
-    // text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991px){ 
+    .col-sm-4 {
+        width: 50%;
+    }
+    .row{
+        margin: 0 40px;
+    }
 }
 
-
-.itemhols p {
-   display: block;
-    color: black;
-    text-align: left;
-    // padding: 14px 16px;
-    text-decoration: none;
-    font-size: 16px;
-    margin: 15px;
-    
+/*Small devices (landscape phones, 576px and up)*/
+@media (max-width: 767px) {
+    .item-title {
+        text-align: center;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    .row{
+        margin: 0 15%;
+    }
 }
 
-
-
-.itemholsIm {
-    width: 90%; 
-    height:450px !important;
-    margin-left: auto; 
-    margin-right: auto; 
-    display: block;
-    
-}
-
-.btn{
-    color:white !important;
-}
-
-.button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
+/* end of media query*/

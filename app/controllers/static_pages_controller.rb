@@ -9,9 +9,6 @@ class StaticPagesController < ApplicationController
     @items = Item.where("category like ? ", catName)
   end
   
-  def help
-  end
-  
   def about
   end
   

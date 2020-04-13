@@ -2,5 +2,7 @@
 
 <%= render 'form', order: @order %>
 
-<%= link_to 'Show', @order %> |
-<%= link_to 'Back', orders_path %>
+<div class="container text-center" style="margin-top:25px;">
+    <%= link_to "Back", orders_path, class: 'btn btn-md btn-primary' ,style: 'color: white;'%>
+    <%= link_to "Show", @order, class: 'btn btn-md btn-success',style: 'color: white;' %>
+</div>
