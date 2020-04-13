@@ -31,8 +31,6 @@
                 Ratings:<% item.score.to_i.times do  %>
                             <span class="glyphicon glyphicon-star"></span>
                         <% end %>
-            </h4>
-            <h4>
                 <% item.blank_stars.times do %>
                     <span class="glyphicon glyphicon-star-empty"></span>
                 <% end %> (<%= item.reviews.size %>) 
@@ -62,6 +60,6 @@
          </p>
          </div>
       <% end %>
-      
+</div>
 <!--<p><%= link_to 'New Item',  new_item_path, :class => "btn btn-md btn-primary", :role => "button" %>[Admin funtion : ]</p>-->
 
