@@ -22,7 +22,7 @@
                   <div class="carousel-caption">
                     <h1>Riptides</h1>
                     <p align="left">Lorem do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
-                    <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+                    <%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%>
                   </div>
                 </div>
               </div>
@@ -60,7 +60,7 @@
       </div>    
           
         <hr class="featurette-divider">
-        <div class="margin-top"></div>
+
          <!-- Marketing messaging and featurettes
           ================================================== -->
           <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -78,20 +78,20 @@
             <div class="row">
               <div class="col-lg-4 text-center">
                 <%= image_tag ("secrets.png"), size: "170x250" %>
-                <h2 style="color:#009d00">Years 150</h2>
-                <p style="text-align:left;">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                <h2 style="color:#009d00">Secrets- a real life story</h2>
+                <p style="text-align:left;">Donec sed odio dui. Etiam porta commodo sem magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
                 <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
               </div><!-- /.col-lg-4 -->
               <div class="col-lg-4 text-center">
                 <%= image_tag ("simplelife.png"), size: "170x250" %>
-                <h2 style="color:#009d00">The State of Ireland</h2>
+                <h2 style="color:#009d00">Living The Simple Life</h2>
                 <p style="text-align:left;">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget  sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
                 <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
               </div><!-- /.col-lg-4 -->
               <div class="col-lg-4 text-center">
                 <%= image_tag ("snapera.png"), size: "170x250" %>
                 <!--<%= image_tag ("openseasons.png"), size: "200x150", class: "img-circle" %>-->
-                <h2 style="color:#009d00">Tales & Imaginings</h2>
+                <h2 style="color:#009d00">The Snap Era</h2>
                 <p style="text-align:left;">Donec sed odio dui. Cra, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum ma.</p>
                 <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
               </div><!-- /.col-lg-4 -->
@@ -105,7 +105,7 @@
       
             <div class="row featurette">
               <div class="col-md-7">
-                <h2 class="featurette-heading" style="color:#009d00">Years 150. <span class="text-muted">It'll blow your mind.</span></h2>
+                <h2 class="featurette-heading" style="color:#009d00">Sunsets with Annie. <span class="text-muted">It'll blow your mind.</span></h2>
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
               </div>
               <div class="col-md-5">
@@ -117,7 +117,7 @@
       
             <div class="row featurette">
               <div class="col-md-7 col-md-push-5">
-                <h2 class="featurette-heading" style="color:#009d00">The State of Ireland. <span class="text-muted">See for yourself.</span></h2>
+                <h2 class="featurette-heading" style="color:#009d00">Forager. <span class="text-muted">See for yourself.</span></h2>
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
               </div>
               <div class="col-md-5 col-md-pull-7">
@@ -129,7 +129,7 @@
       
             <div class="row featurette">
               <div class="col-md-7">
-                <h2 class="featurette-heading" style="color:#009d00">Tales & Imaginings. <span class="text-muted">Checkmate.</span></h2>
+                <h2 class="featurette-heading" style="color:#009d00">Middle. <span class="text-muted">Checkmate.</span></h2>
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
               </div>
               <div class="col-md-5">
@@ -137,11 +137,11 @@
               </div>
             </div>
       </div>
-      
-      <hr class="featurette-divider">
       <div class="margin-bottom"></div>
+      <!--<hr class="featurette-divider">-->
+      <!--<div class="margin-bottom"></div>-->
       
-      <%= render 'layouts/popular'%>
+      <!--<%= render 'layouts/popular'%>-->
       <!--<% @categories.each do |category| %>-->
       <!--  <div class="itemhols">-->
       <!--    <p class="lead"><%= category.description %></p>-->

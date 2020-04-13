@@ -1,14 +1,15 @@
 <% provide(:title, "Cart") %>
 
 <p id="notice"><%= notice %></p>
-<div id="itemsContainer">
+
+<div class="table-responsive">
   
   <% if !@cart.empty? %>
-  <h1>Cart</h1>
-    <table id="customers">
+  <h1 class="text-center">Cart</h1>
+    <table class="table">
       <% total = 0 %>
       <thead>
-       <tr>
+       <tr class="success">
           <th>#</th>
           <th>Title</th>
           <th></th>
@@ -21,19 +22,19 @@
       </thead>
       <tbody>
           <% @cart.each do |id, quantity| %>
-            <tr>
+            <tr class="active">
               <!-- check if the item exists to avoid throwing an error and breaking the session cart -->
               <% if Item.exists?(id)
                   item = Item.find_by_id(id)%>
-              <td><div class="image" style="text-align:center;"> <%= link_to (image_tag item.image_url, :style =>"height:60px;"), item %></div></td>
+              <td><div style="text-align:center;"><%= link_to (image_tag item.image_url, :style =>"height:80px;"), item %></div></td>
               
-              <td class="title"><%= link_to item.title, item %></td>
+              <td><h3><%= link_to item.title, item %></h3></td>
               <td> <a href="/cart/increase/<%= item.id %>"><h3 style="text-align:center;"><span class="glyphicon glyphicon-plus"></span></h3></a></td>
               <td><a href="/cart/decrease/<%= item.id %>"><h3 style="text-align:center;"><span class="glyphicon glyphicon-minus"></span></h3></a></td>
-              <td class="price"><%= number_to_currency(item.price, :unit =>"€") %></td>
-              <td class="quantity"><%= quantity %></td>
-              <td class="price"><%= number_to_currency(quantity * item.price, :unit =>"€") %></td>
-              <td style="text-align:center;"><a href="/cart/remove/<%= item.id %>" class="btn btn-md btn-danger" style= "color: white;">Remove</a></td>
+              <td><h3><%= number_to_currency(item.price, :unit =>"€") %></h3></td>
+              <td><h3><%= quantity %></h3></td>
+              <td><h3><%= number_to_currency(quantity * item.price, :unit =>"€") %></h3></td>
+              <td style="text-align:center;"><h3><a href="/cart/remove/<%= item.id %>" class="btn btn-md btn-danger" style= "color: white;">Remove</a></h3></td>
               <% total += quantity * item.price %> 
               <% end %>
             </tr>
@@ -41,8 +42,8 @@
           <% end %>
         <tfoot>
           <tr>
-            <td colspan="6"><h3 style="text-align:right;">Grand Total # </h3></td>
-            <td colspan="2"><h3 style="text-align:left;"><%= number_to_currency(total, :unit => "€") %></h3></td>
+            <td colspan="6"><h2 style="text-align:right;"><b>Grand Total # </b></h2></td>
+            <td colspan="2"><h2 style="text-align:left;"><b><%= number_to_currency(total, :unit => "€") %></b></h2></td>
           </tr>
         </tfoot>
       </tbody>
@@ -62,6 +63,5 @@
       <%= link_to "Empty Cart", clearcart_path, class: 'btn btn-md btn-danger',style: 'color: white;' %>
     </div>
   <%end%>
-  
   <!-- end of check link -->
 </div>
