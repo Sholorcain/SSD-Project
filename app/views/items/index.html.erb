@@ -12,7 +12,7 @@
     <%= link_to "Oldest", cheapest_items_path, class: "nav-link active" %>
   </li>
   <li class="nav-item">
-    <%= link_to "Upvoted", bestrated_items_path, class: "nav-link active" %>
+    <%= link_to "Most Rated", bestrated_items_path, class: "nav-link active" %>
   </li>
   <li class="nav-item">
     <%= link_to "Downvoted", lowestrated_items_path, class: "nav-link active" %>
@@ -26,10 +26,13 @@
             <h4>Price: <%= number_to_currency(item.price, :unit => "€") %></h4>
             <h4>Category: <%= item.category %></h4>
             <h4> 
-                Ratings: <% item.score.to_i.times do  %>
-                <span class="glyphicon glyphicon-star"></span>
-                <% end %><% item.blank_stars.times do %>
-                <span class="glyphicon glyphicon-star-empty"></span>
+                Ratings:<% item.score.to_i.times do  %>
+                            <span class="glyphicon glyphicon-star"></span>
+                        <% end %>
+            </h4>
+            <h4>
+                <% item.blank_stars.times do %>
+                    <span class="glyphicon glyphicon-star-empty"></span>
                 <% end %> (<%= item.reviews.size %>) 
             </h4>
             <h4>Current Stock: <%= item.stock %></h4>

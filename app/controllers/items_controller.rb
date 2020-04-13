@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
     end
   end
   
-  def expensive
+def expensive
  @items = Item.expensive
  render action: :index
 end
