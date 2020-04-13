@@ -38,15 +38,15 @@
         </div>
 
           <div class="actions">
-          <%= f.submit 'Update Stock'%>
+              <%= f.submit 'Update Stock'%>
         </div>
       <% end %>
          <p>
             <%= link_to 'Show',  item, :class => "btn btn-md btn-success", :role => "button" %>
             <%if item.stock_limit %>
-                <%= link_to 'out of stock', :class => "btn btn-md btn-danger" %>
+                <%= link_to 'out of stock', null, :class => "btn btn-md btn-danger" %>
             <% else %>
-               <p><%= link_to 'Add to cart', cart_add_path(item.id), :class => "btn btn-md btn-primary" %></p>
+               <%= link_to 'Add to cart', cart_add_path(item.id), :class => "btn btn-md btn-primary" %>
             <% end %>
          </p>
          <p>
