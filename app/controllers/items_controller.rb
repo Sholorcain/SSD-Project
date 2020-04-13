@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   def show
     @review = Review.new
     @review.item_id = @item.id
+
   end
   
   # GET /items/new
