@@ -25,6 +25,9 @@
         left: 30%;
         right: 15%;
     }
+    .row {
+        margin: 0 !important;
+    }
 }
 
 /*Large devices (desktops, 992px and up)*/
@@ -32,6 +35,9 @@
     .carousel-caption {
         left: 30%;
         right: 10%;
+    }
+    .row {
+        margin: 0 !important;
     }
 }
 
