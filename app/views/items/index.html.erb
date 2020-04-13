@@ -4,20 +4,22 @@
 
 <div class="row">
   <h1 class="text-center">Full Catalogue</h1>
-  <ul class="nav nav-tabs card-header-tabs">
-  <li class="nav-item">
-    <%= link_to "Most Expensive", expensive_items_path, class: "nav-link active" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Cheapest", cheapest_items_path, class: "nav-link active" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Top rated", bestrated_items_path, class: "nav-link active" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Worst rated", lowestrated_items_path, class: "nav-link active" %>
-  </li>
-    </ul>
+  <div class="tabs">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <%= link_to "Most Expensive", expensive_items_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Cheapest", cheapest_items_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Top rated", bestrated_items_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Worst rated", lowestrated_items_path, class: "nav-link active" %>
+          </li>
+        </ul>
+    </div>
       <% @items.each do |item| %>
          <div class="col-sm-4 col-md-4 col-lg-4">
             <h3 class="item-title"><%= item.title %></h3>
