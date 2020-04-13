@@ -12,4 +12,10 @@ class Item < ApplicationRecord
     def stock_limit
         stock <= 0
     end
+    scope :expensive, -> { order(price: :desc) }
+    scope :cheapest, -> { order(price: :asc) }
+    scope :bestrated, -> { order(title: :desc) }
+    scope :lowestrated, -> { order(title: :asc) }
+    
+    
 end

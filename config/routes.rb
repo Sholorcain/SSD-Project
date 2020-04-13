@@ -23,6 +23,12 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :items do
+    collection do
+      get :expensive
+      get :cheapest
+      get :bestrated
+      get :lowestrated
+    end
     resources :reviews
   end
   get 'sessions/new'

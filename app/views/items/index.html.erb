@@ -1,7 +1,24 @@
 <% provide(:title, "Items") %>
+
 <p id="notice"><%= notice %></p>
 
   <h1>Full Catalogue</h1>
+  <ul class="nav nav-tabs card-header-tabs">
+  <li class="nav-item">
+    <%= link_to "Recent", expensive_items_path, class: "nav-link active" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Oldest", cheapest_items_path, class: "nav-link active" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Upvoted", bestrated_items_path, class: "nav-link active" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Downvoted", lowestrated_items_path, class: "nav-link active" %>
+  </li>
+    </ul>
+
+
       <% @items.each do |item| %>
          <div class="itemhols">
             <h1 style"text-align: left;"><%= item.title %></h1>
@@ -15,14 +32,14 @@
        <span class="glyphicon glyphicon-star-empty"></span>
       <% end %> (<%= item.reviews.size %>) </p>
       <p>Current Stock: <%= item.stock %></p>
-      <%= form_for(item) do |f| %>
+      <%= form_for item, remote: true do |f| %>
          <div class="field">
           <%= f.label :stock %>
           <%= f.text_field :stock %>
         </div>
 
           <div class="actions">
-          <%= f.submit %>
+          <%= f.submit 'Update Stock'%>
         </div>
       <% end %>
 
