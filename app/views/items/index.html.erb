@@ -25,26 +25,28 @@
             <h4>Author: <%= item.author %></h4>
             <h4>Price: <%= number_to_currency(item.price, :unit => "€") %></h4>
             <h4>Category: <%= item.category %></h4>
-            <p> Ratings: <% item.score.to_i.times do  %>
-        <span class="glyphicon glyphicon-star"></span>
-       <% end %><% item.blank_stars.times do %>
-       <span class="glyphicon glyphicon-star-empty"></span>
-      <% end %> (<%= item.reviews.size %>) </p>
-      <p>Current Stock: <%= item.stock %></p>
-      <%= form_for item, remote: true do |f| %>
-         <div class="field">
-          <%= f.label :stock %>
-          <%= f.text_field :stock %>
-        </div>
+            <h4> 
+                Ratings: <% item.score.to_i.times do  %>
+                <span class="glyphicon glyphicon-star"></span>
+                <% end %><% item.blank_stars.times do %>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <% end %> (<%= item.reviews.size %>) 
+            </h4>
+            <h4>Current Stock: <%= item.stock %></h4>
+            <%= form_for item, remote: true do |f| %>
+            <div class="field">
+                <%= f.label :stock %>
+                <%= f.text_field :stock %>
+            </div>
 
-          <div class="actions">
-              <%= f.submit 'Update Stock'%>
-        </div>
+           <div class="actions">
+              <p><%= f.submit 'Update Stock'%></p>
+           </div>
       <% end %>
          <p>
             <%= link_to 'Show',  item, :class => "btn btn-md btn-success", :role => "button" %>
             <%if item.stock_limit %>
-                <%= link_to 'out of stock', :class => "btn btn-md btn-danger" %>
+                <%= link_to 'Out of stock', cart_add_path(item.id), :class => "btn btn-md btn-danger disabled", :disabled => true %>
             <% else %>
                <%= link_to 'Add to cart', cart_add_path(item.id), :class => "btn btn-md btn-primary" %>
             <% end %>
@@ -56,5 +58,5 @@
          </div>
       <% end %>
       
-<p><%= link_to 'New Item',  new_item_path, :class => "btn btn-md btn-primary", :role => "button" %>[Admin funtion : ]</p>
+<!--<p><%= link_to 'New Item',  new_item_path, :class => "btn btn-md btn-primary", :role => "button" %>[Admin funtion : ]</p>-->
 
