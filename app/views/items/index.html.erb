@@ -7,16 +7,16 @@
   <div class="tabs">
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item">
-            <%= link_to "Most Expensive", expensive_items_path, class: "nav-link active" %>
+            <%= link_to "Highest Price", expensive_items_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Cheapest", cheapest_items_path, class: "nav-link active" %>
+            <%= link_to "Lowest Price", cheapest_items_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Top rated", bestrated_items_path, class: "nav-link active" %>
+            <%= link_to "Highest rated", bestrated_items_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Worst rated", lowestrated_items_path, class: "nav-link active" %>
+            <%= link_to "Lowest rated", lowestrated_items_path, class: "nav-link active" %>
           </li>
         </ul>
     </div>
@@ -47,7 +47,7 @@
            </div>
       <% end %>
          <p>
-            <%= link_to 'Show',  item, :class => "btn btn-md btn-success", :role => "button" %>
+            <%= link_to 'Details',  item, :class => "btn btn-md btn-success", :role => "button" %>
             <%if item.stock_limit %>
                 <%= link_to 'Out of stock', cart_add_path(item.id), :class => "btn btn-md btn-danger disabled", :disabled => true %>
             <% else %>
