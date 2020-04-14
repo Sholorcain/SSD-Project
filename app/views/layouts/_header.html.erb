@@ -10,7 +10,6 @@
           <span class="icon-bar"></span>
         </button>
         <%= link_to "The Book Nook", root_path, id:"logo",class:"navbar-brand" %>
-        <!--<a class="navbar-brand" href="#">Brand</a>-->
       </div>
   
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,6 +29,8 @@
               <ul class="dropdown-menu">
                 <li><%= link_to "Add Item", new_item_path %></li>
                 <li><%= link_to "Add Category", new_category_path %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Users" ,users_path %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Update Stock" ,root_path %></li>
                 <li role="separator" class="divider"></li>
