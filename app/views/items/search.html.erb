@@ -1,29 +1,13 @@
-<h2>Search results: <%= @search_term %></h2>
-
-<% if @items.length == 0  %>
-  <br />
-  <h2>No products were found matching your search</h2>
-<% end %>
-
-
-<table class="catalog">
-  <% @items.each do |item| %>
-      <tr>
-        <td>
-          <div class="image">
-            <%= link_to (image_tag item.image_url, :style => "height:100px"), item %>
-          </div>
-          <div class="title">
-            <%= link_to item.title, item %>
-          </div>
-          <div class="description">
-            <%= item.description %>
-          </div>  
-          <div class="price">
-             <%= number_to_currency(item.price, :unit => "€") %>
-          </div>
-
-        </td>
-      </tr>
-    <% end %>
-</table>
+<div class="row">
+  <% if @items.length == 0 %>
+      <h2 class="text-center">No products were found matching your search</h2>
+  <% else %>
+      <% item = @items.last %>
+      <% if @search_criteria.eql? "All" %>
+        <h1 class="text-center">Catalogue For <%= @search_criteria %> Title</h1>
+      <% else %>
+        <h1 class="text-center">Catalogue For <%= item.title %> Title</h1>
+      <%end%>
+      <%= render 'items/catalogue'%>
+  <% end %>
+</div>
