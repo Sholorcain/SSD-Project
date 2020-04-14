@@ -55,7 +55,9 @@
             <li><%= link_to "Log in", login_path %></li>
           <% end %>
           <!--navbar cart display -->
-          <li><p id = "cartmoney" style="padding-top:8px">
+          <li>
+            
+            <p id = "cartmoney" style="padding-top:8px">
           <%if !session[:cart].blank? %>
           <% cart = session[:cart]%>
           <% if !cart.empty? %>
@@ -70,9 +72,9 @@
                   <% totalquantity += quantity %>
                     <% end %>
               <%end%>
-              <button type="button" class="btn btn-default btn-m">
-            <span class="glyphicon glyphicon-shopping-cart" style="color:black; font-size:16px"></span> Cart (<%= totalquantity %>) <%= number_to_currency(total, :unit => "€") %>
-        </button>
+              <%= link_to "/cart" , class: "btn btn-default" do %> 
+              <span class="glyphicon glyphicon-shopping-cart" style="color:black; font-size:16px"></span> Cart (<%= totalquantity %>) <%= number_to_currency(total, :unit => "€") %>
+              <% end %>
           <% end %></p></li>
           <% end %>
            <!-- end of navbar cart display -->
