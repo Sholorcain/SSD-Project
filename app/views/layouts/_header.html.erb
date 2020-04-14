@@ -23,28 +23,7 @@
         </ul>
         
         <ul class="nav navbar-nav navbar-right">
-          <!--navbar cart display -->
-          <li><p id = "cartmoney" style="padding-top:8px">
-          <%if !session[:cart].blank? %>
-          <% cart = session[:cart]%>
-          <% if !cart.empty? %>
-          <% total = 0 %>
-          <% totalquantity = 0 %>
-          <% cart.each do |id, quantity| %>
-          <% if Item.exists?(id)
-                  item = Item.find_by_id(id)%>
-                  <% number_to_currency(item.price, :unit =>"€") %>
-                  <% number_to_currency(quantity * item.price, :unit =>"€") %>
-                  <% total += quantity * item.price %> 
-                  <% totalquantity += quantity %>
-                    <% end %>
-              <%end%>
-              <button type="button" class="btn btn-default btn-m">
-            <span class="glyphicon glyphicon-shopping-cart"></span> Cart (<%= totalquantity %>) <%= number_to_currency(total, :unit => "€") %>
-        </button>
-          <% end %></p></li>
-          <% end %>
-           <!-- end of navbar cart display -->
+          
           <% if logged_in? %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
@@ -74,6 +53,28 @@
           <% else %>
             <li><%= link_to "Log in", login_path %></li>
           <% end %>
+          <!--navbar cart display -->
+          <li><p id = "cartmoney" style="padding-top:8px">
+          <%if !session[:cart].blank? %>
+          <% cart = session[:cart]%>
+          <% if !cart.empty? %>
+          <% total = 0 %>
+          <% totalquantity = 0 %>
+          <% cart.each do |id, quantity| %>
+          <% if Item.exists?(id)
+                  item = Item.find_by_id(id)%>
+                  <% number_to_currency(item.price, :unit =>"€") %>
+                  <% number_to_currency(quantity * item.price, :unit =>"€") %>
+                  <% total += quantity * item.price %> 
+                  <% totalquantity += quantity %>
+                    <% end %>
+              <%end%>
+              <button type="button" class="btn btn-default btn-m">
+            <span class="glyphicon glyphicon-shopping-cart" style="color:black; font-size:16px"></span> Cart (<%= totalquantity %>) <%= number_to_currency(total, :unit => "€") %>
+        </button>
+          <% end %></p></li>
+          <% end %>
+           <!-- end of navbar cart display -->
         </ul>
         <%= render 'layouts/search' %>
       </div><!-- /.navbar-collapse -->
