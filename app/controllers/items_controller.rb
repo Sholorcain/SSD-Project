@@ -4,7 +4,21 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    if params[:expensive]
+      expensive
+    elsif params[:cheapest]
+      cheapest
+    elsif params[:bestrated]
+      bestrated
+    elsif params[:lowestrated]
+      lowestrated
+    else
+      if params[:category_filter].nil? || params[:category_filter] == "category_filter"
+       @items = Item.all
+      else
+        @items = Item.all.where(category: params[:category_filter])
+      end
+    end
   end
 
   # GET /items/1
@@ -55,23 +69,43 @@ class ItemsController < ApplicationController
   end
   
 def expensive
- @items = Item.expensive
- render action: :index
+  if params[:category_filter].nil?
+    @items = Item.expensive
+  else
+    @filter = params[:category_filter]
+    @items = Item.expensive.where(category: @filter)
+  end
+  render action: :index
 end
 
 def cheapest
- @items = Item.cheapest
- render action: :index
+  if params[:category_filter].nil?
+    @items = Item.cheapest
+  else
+    @filter = params[:category_filter]
+    @items = Item.cheapest.where(category: @filter)
+  end
+  render action: :index
 end
 
 def bestrated
- @items = Item.bestrated
- render action: :index
+  if params[:category_filter].nil?
+    @items = Item.bestrated
+  else
+    @filter = params[:category_filter]
+    @items = Item.bestrated.where(category: @filter)
+  end
+  render action: :index
 end
 
 def lowestrated
- @items = Item.lowestrated
- render action: :index
+  if params[:category_filter].nil?
+    @items = Item.lowestrated
+  else
+    @filter = params[:category_filter]
+    @items = Item.lowestrated.where(category: @filter)
+  end
+  render action: :index
 end
 
   # DELETE /items/1
@@ -101,7 +135,7 @@ end
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :author, :description, :price, :image_url, :category, :stock)
+      params.require(:item).permit(:title, :author, :description, :price, :image_url, :category, :stock,:category_filter)
     end
     
     
