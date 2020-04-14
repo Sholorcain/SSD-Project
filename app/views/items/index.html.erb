@@ -6,8 +6,8 @@
   <h1 class="text-center">Full Catalogue</h1>
   
   <%= form_tag(items_path(:category_filter), :method => "get") do %>
-    <%= select_tag(:category_filter, options_for_select([['All'],["Non-Fiction"], ['Anthologies'], ['Fiction'], ['Periodicals'], ['Poetry']], 1)) %>
-    <%= select_tag(:sortype, options_for_select([['Sort By','any'],['Most Expensive','expensive'],['Cheapest','cheapest'],['Top rated','bestrated'],['Lowest rated','lowestrated']], 1)) %>
+    <%= select_tag(:category_filter, options_for_select([['All'],['Fiction'], ["Non-Fiction"], ['Anthologies'], ['Periodicals'], ['Poetry']], 1)) %>
+    <%= select_tag(:sortype, options_for_select([['Sort By','any'],['Price (highest to lowest)','expensive'],['Price (lowest to highest)','cheapest'],['Rating (highest to lowest)','bestrated'],['Rating (lowest to highest)','lowestrated']], 1)) %>
   <%= submit_tag "Submit" %>
 <% end %>
       <% @items.each do |item| %>
