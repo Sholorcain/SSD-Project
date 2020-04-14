@@ -4,16 +4,17 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    if params[:expensive]
+    @categories = Category.all
+    if params[:sortype] == "expensive"
       expensive
-    elsif params[:cheapest]
+    elsif params[:sortype] == "cheapest"
       cheapest
-    elsif params[:bestrated]
+    elsif params[:sortype] == "bestrated"
       bestrated
-    elsif params[:lowestrated]
+    elsif params[:sortype] == "lowestrated"
       lowestrated
     else
-      if params[:category_filter].nil? || params[:category_filter] == "category_filter"
+      if params[:category_filter].nil? || params[:category_filter] == "All"
        @items = Item.all
       else
         @items = Item.all.where(category: params[:category_filter])
@@ -69,7 +70,7 @@ class ItemsController < ApplicationController
   end
   
 def expensive
-  if params[:category_filter].nil?
+  if params[:category_filter].nil? || params[:category_filter] == "All"
     @items = Item.expensive
   else
     @filter = params[:category_filter]
@@ -79,7 +80,7 @@ def expensive
 end
 
 def cheapest
-  if params[:category_filter].nil?
+  if params[:category_filter].nil? || params[:category_filter] == "All"
     @items = Item.cheapest
   else
     @filter = params[:category_filter]
@@ -89,7 +90,7 @@ def cheapest
 end
 
 def bestrated
-  if params[:category_filter].nil?
+  if params[:category_filter].nil? || params[:category_filter] == "All"
     @items = Item.bestrated
   else
     @filter = params[:category_filter]
@@ -99,7 +100,7 @@ def bestrated
 end
 
 def lowestrated
-  if params[:category_filter].nil?
+  if params[:category_filter].nil? || params[:category_filter] == "All"
     @items = Item.lowestrated
   else
     @filter = params[:category_filter]

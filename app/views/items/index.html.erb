@@ -4,21 +4,11 @@
 
 <div class="row">
   <h1 class="text-center">Full Catalogue</h1>
-
+  
   <%= form_tag(items_path(:category_filter), :method => "get") do %>
-  <table>
-    <tr>
-      <td>Non-Fiction<%= radio_button_tag(:category_filter, "Non-Fiction") %></td>
-      <td>Anthologies<%= radio_button_tag(:category_filter, "Anthologies") %> </td>
-      <td>Fiction<%= radio_button_tag(:category_filter, "Fiction") %> </td>
-      <td>Poetry<%= radio_button_tag(:category_filter, "Poetry") %> </td>
-      <td>Periodicals<%= radio_button_tag(:category_filter, "Periodicals") %> </td>
-    </tr>
-  </table>
-  <%= submit_tag "Most Expensive", :name => 'expensive' %>
-  <%= submit_tag "Cheapest", :name => 'cheapest' %>
-  <%= submit_tag "Top rated", :name => 'bestrated' %>
-  <%= submit_tag "Lowest rated", :name => 'lowestrated' %>
+    <%= select_tag(:category_filter, options_for_select([['All'],["Non-Fiction"], ['Anthologies'], ['Fiction'], ['Periodicals'], ['Poetry']], 1)) %>
+    <%= select_tag(:sortype, options_for_select([['Sort By','any'],['Most Expensive','expensive'],['Cheapest','cheapest'],['Top rated','bestrated'],['Lowest rated','lowestrated']], 1)) %>
+  <%= submit_tag "Submit" %>
 <% end %>
       <% @items.each do |item| %>
          <div class="col-sm-4 col-md-4 col-lg-4">

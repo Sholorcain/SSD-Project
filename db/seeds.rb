@@ -14,6 +14,10 @@ User.create!(name:  "Example User",
              activated_at: Time.zone.now)
              
 Category.create!(
+    title: "All"
+)
+
+Category.create!(
     title: "Fiction"
 )
 
@@ -32,6 +36,8 @@ Category.create!(
 Category.create!(
     title: "Periodicals"
 )
+
+
              
 Item.create!(
     title: "The Andromeda Boy",

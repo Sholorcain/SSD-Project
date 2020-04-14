@@ -1,5 +1,3 @@
-<h3 class="text-left"><b>Categories</b></h3>
-<% @categories.each do |category| %>
-    <a href="/category/<%= category.title %>" class="btn btn-success btn-block" style="color:white; font-size:18px; text-align:left;"><b><%= category.title %></b></a> 
-<% end %>
 
+
+<%= collection_select(:category_filter, :category_filter,@categories, :title, :title) %>
