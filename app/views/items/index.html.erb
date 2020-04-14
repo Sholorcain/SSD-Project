@@ -62,11 +62,11 @@
                     <h4 class="modal-title">Added to Cart</h4>
                   </div>
                   <div class="modal-body">
-                    <p>Item was dded to your cart!</p>
+                    <p>Item was added to your cart!</p>
                   </div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Continue Shopping</button>
-                    <button type="button" class="btn btn-default"><a <%= link_to "Checkout", "/cart" %></a></button>
+                    <%= link_to 'Checkout', "cart/", :class => "btn btn-default" %>
                   </div>
                 </div>
               </div>
