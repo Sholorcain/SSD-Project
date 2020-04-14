@@ -22,35 +22,40 @@
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
     .carousel-caption {
-        left: 30%;
-        right: 15%;
+        left: 35%;
+        right: 10%;
     }
-    // #home {
-    //     margin: 0;
-    // }
 }
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width:1199px) {
     .carousel-caption {
-        left: 30%;
-        right: 10%;
+        left: 35%;
+        right: 8%;
+    }
+    .col-lg-4 img{
+        width: 60%;
+        height: auto;
     }
 }
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width:991px) { 
     .carousel-caption {
-        left: 40%;
-        right: 10%;
+        left: 45%;
+        right: 6%;
+    }
+    .col-lg-4 img{
+        width: 50%;
+        height: auto;
     }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (max-width: 767px) {
-    .item img {
-        width:100%;
-    }
+    // .item img {
+    //     width:100%;
+    // }
     .carousel-caption h1{
         display: none;
     }
@@ -59,6 +64,9 @@
     }
     .carousel-caption .btn{
         margin: 20px;
+    }
+    .row{
+        margin:0 !important;
     }
 }
 

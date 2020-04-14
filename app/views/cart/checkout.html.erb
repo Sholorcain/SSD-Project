@@ -1,11 +1,11 @@
 <% provide(:title, "Order Successful") %>
 
-<div id="itemsContainer">
-    <h1>You have successfully placed an order.</h1>
+<div class="table-responsive">
+    <h1 class="text-center">You have successfully placed an order.</h1>
     <% @user = User.find(current_user.id) %>
-    <table id="customers">
+    <table class="table">
         <thead>
-            <tr>
+            <tr class="active">
                 <td colspan="2">
                     <h4>Name # <%= @user.name %></h4>
                     <h5>Address # <%= @user.email %></h5>
@@ -16,11 +16,11 @@
                     <h5>Order Status # <%= @orders.status %></h5>
                 </td>
             </tr>
-            <tr>
+            <tr class="success">
                 <th>Title</th>
                 <th>Qty.</th>
                 <th>Price</th>
-                <th>Sub-total</th>
+                <th class="text-right">Sub-total</th>
             </tr>
         </thead>
         <tbody>
@@ -38,11 +38,11 @@
             <% end %>
         </tbody>
         <tfoot>
-            <tr>
+            <tr class="success">
                 <td colspan="5" style="text-align:right"> <h3>Total # <%= number_to_currency(number_with_precision(@total, :precision => 2), :unit => "€") %></h3> </td>
             </tr>
-            <tr>
-                <td colspan="5" style="text-align:center;">
+            <tr class="active">
+                <td colspan="5" class="text-center"> 
                     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                       <!-- Identify your business so that you can collect the payments. -->
                       <!-- for real account -->
@@ -73,7 +73,7 @@
                       <!-- returning to the heroku -->
                       <input type="hidden" name="return" value="https://radiant-castle-78640.herokuapp.com/paypalSendBox/<%= @order.id %>" >
                       
-                    </form>
+                    </form> <h4>by Paypal</h4>
                 </td>
             </tr>
             <!--<tr><td><h2><a href="/paypalSendBox/<%= @order.id %>" class="button">Pay Now[paypal]</a></h2></td></tr>-->
