@@ -1,14 +1,14 @@
 <% provide(:title, "My Orders") %>
 <p id="notice"><%= notice %></p>
-<div id="itemsContainer">
+<div class="table-responsive">
   <% if @orders.empty? %>
-    <h1>You don't have any order to display</h1>
+    <h1 class="text-center">You don't have any order to display</h1>
   <% else %>
     <h1>My Orders</h1>
     
-    <table id="customers">
+    <table class="table">
       <thead>
-        <tr>
+        <tr class="success">
           <th>Order date</th>
           <th>Order Number</th>
           <th>Customer Name</th>
@@ -25,7 +25,7 @@
             <td><%= order.id %></td>
             <td><%= @user %></td>
             <td><%= order.status %></td>
-            <td>
+            <td class="text-center">
                 <%= link_to "Show", order, class: 'btn btn-md btn-success',style: 'color: white;' %>
                 <% if order.status.eql? "Pending" %>
                   <%= link_to "Edit", edit_order_path(order), class: 'btn btn-md btn-warning' ,style: 'color: white;'%>

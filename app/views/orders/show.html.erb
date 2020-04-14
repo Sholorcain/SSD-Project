@@ -2,11 +2,11 @@
 
 <% @user = User.find(current_user.id) %>
 
-<div id="itemsContainer">
-    <h1>Your order details.</h1>
-    <table id="customers">
+<div class="table-responsive">
+    <h1 class="text-center">Your order details.</h1>
+    <table class="table">
         <thead>
-            <tr>
+            <tr class="active">
                 <td colspan="2">
                     <h4>Name # <%= @user.name %></h4>
                     <h5>Address # <%= @user.email %></h5>
@@ -17,11 +17,11 @@
                     <h5>Order Status # <%= @order.status %></h5>
                 </td>
             </tr>
-            <tr>
+            <tr class="success">
                 <th>Title</th>
                 <th>Qty.</th>
                 <th>Price</th>
-                <th style="text-align:right;">Sub-total</th>
+                <th class="text-right">Sub-total</th>
             </tr>
         </thead>
         <tbody>
@@ -32,18 +32,18 @@
                     <td><%= item.title %></td>
                     <td><%= item.quantity %></td>
                     <td><%= number_to_currency(number_with_precision(item.price, :precision => 2), :unit => "€")%></td> 
-                    <td><%= number_to_currency(number_with_precision(item.quantity * item.price, :precision => 2), :unit => "€") %></td>
+                    <td class="text-right"><%= number_to_currency(number_with_precision(item.quantity * item.price, :precision => 2), :unit => "€") %></td>
                     <% timx = (item.quantity * item.price)%>
                     <% @total += timx %>
                  </tr>
             <% end %>
         </tbody>
         <tfoot>
-            <tr>
+            <tr class="success">
                 <td colspan="5" style="text-align:right"> <h3>Total # <%= number_to_currency(number_with_precision(@total, :precision => 2), :unit => "€") %></h3> </td>
             </tr>
             <% if @order.status.eql? "Pending" %>
-                <tr>
+                <tr class="active">
                     <td colspan="5" style="text-align:center;">
                         <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                           <!-- Identify your business so that you can collect the payments. -->
@@ -75,7 +75,7 @@
                           <!-- returning to the heroku -->
                           <input type="hidden" name="return" value="https://radiant-castle-78640.herokuapp.com/paypalSendBox/<%= @order.id %>" >
                           
-                        </form>
+                        </form><h4>by Paypal</h4>
                     </td>
                 </tr>
             <%end%>
