@@ -1,15 +1,23 @@
 .cart{
     width:100%;
     text-align:right;
+    background-color: black;
+    margin-top: 100px;
+    border:0;
 }
+
 .glyphicon-shopping-cart{
      font-size:40px;   
-     color: #5cb85c;
+    //  color: #5cb85c;
+    color:black;
 }
 .badge{
     position : absolute;
     font-size: 12px !important;
-    background-color: red !important;
+    background-color: #5cb85c !important;
     margin-left: -27px;
 }
-
+.panel-default{
+    border: 0 !important; 
+    border-radius: 0 !important;
+}
