@@ -8,6 +8,10 @@
 /* navbar design*/
   .navbar {
     border-radius: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
   }
 /* end of navbar design */
 
