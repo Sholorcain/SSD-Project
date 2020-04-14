@@ -1,52 +1,150 @@
-<%= form_for(item) do |f| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<!--<%= form_for(item) do |f| %>-->
+<!--  <% if item.errors.any? %>-->
+<!--    <div id="error_explanation">-->
+<!--      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>-->
+<!--      <ul>-->
+<!--      <% item.errors.full_messages.each do |message| %>-->
+<!--        <li><%= message %></li>-->
+<!--      <% end %>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  <% end %>-->
 
-      <ul>
-      <% item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<!--  <div class="field">-->
+<!--    <%= f.label :title %>-->
+<!--    <%= f.text_field :title %>-->
+<!--  </div>-->
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :author %>-->
+<!--    <%= f.text_field :author %>-->
+<!--  </div>-->
 
-  <div class="field">
-    <%= f.label :author %>
-    <%= f.text_field :author %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :description %>-->
+<!--    <%= f.text_area :description %>-->
+<!--  </div>-->
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :price %>-->
+<!--    <%= f.text_field :price %>-->
+<!--  </div>-->
 
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :image_url %>-->
+<!--    <%= f.text_field :image_url %>-->
+<!--  </div>-->
 
-  <div class="field">
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url %>
-  </div>
-
-  <div class="field">
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :category %>-->
+<!--    <%= f.text_field :category %>-->
+<!--  </div>-->
   
-  <div class="field">
-    <%= f.label :stock %>
-    <%= f.text_field :stock %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :stock %>-->
+<!--    <%= f.text_field :stock %>-->
+<!--  </div>-->
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<!--  <div class="actions">-->
+<!--    <%= f.submit %>-->
+<!--  </div>-->
+<!--<% end %>-->
+
+
+
+<div class="row text-center">
+      <div class="col-md-2"> </div>
+      <div class="col-md-8">
+        <h1>Add New Item</h1>
+        <div class="panel panel-default well">
+          <div class="panel-body">
+            <form action="/items/new" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-archive"></i>                      
+                            </div>
+                            <input type="text" class="form-control" placeholder="Category">
+                        </div>                                    
+                    </div>
+                </div>
+                <div class="form-group">               
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-header"></i>
+                            </div>
+                            <input type="text" class="form-control" id="inputTitle" placeholder="Title">
+                        </div>
+                    </div>                
+                </div>
+                
+                <div class="form-group">               
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <input type="text" class="form-control" id="inputTitle" placeholder="Author name">
+                        </div>
+                    </div>                
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-comment fa-2"></i>                
+                            </div>                  
+                            <textarea class="form-control" name="description" placeholder="Description for the item"></textarea>
+                        </div>                                    
+                    </div>
+                </div>
+                
+                <div class="form-group">               
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-euro"></i>
+                            </div>
+                            <input type="number" class="form-control" id="inputPrice" placeholder="Price">
+                        </div>
+                    </div>                
+               </div>
+               
+                <div class="form-group">               
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-list-ol"></i>
+                            </div>
+                            <input type="number" class="form-control" id="inputPrice" placeholder="Opening stock">
+                        </div>
+                    </div>                
+               </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-image"></i>                      
+                            </div>
+                            <input type="text" class="form-control" placeholder="Image url">
+                        </div>                                    
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success btn-lg">Add Item</button>
+                    </div>
+                </div>
+            </form>
+          </div><!-- end panel-body -->
+        </div><!-- end panel -->
+      </div><!-- end col-md-8 -->
+      <!--<div class="col-md-2"> </div>-->
+    </div>
+
+
