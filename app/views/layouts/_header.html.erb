@@ -19,7 +19,8 @@
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Cart", "/cart" %></li>
           <li><p id = "cartmoney">
-          <%cart = session[:cart]%>
+          <%if !session[:cart].blank? %>
+          <% cart = session[:cart]%>
           <% if !cart.empty? %>
           <% total = 0 %>
           <% totalquantity = 0 %>
@@ -36,6 +37,7 @@
               <p style="color:blue;">(<%= totalquantity %>)</p>
               <p style="color:blue;"><%= number_to_currency(total, :unit => "€") %></p>
           <% end %></p></li>
+          <% end %>
           <li><%= link_to "Items", "/items" %></li>
           <li><%= link_to "Contact", contact_path %></li>
         </ul>
