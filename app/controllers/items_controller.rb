@@ -120,11 +120,17 @@ end
   end
   
   def search
+    @search_criteria =""
     if params[:q].eql? ""
+      @search_criteria ="All"
       @items = Item.all
     else
       st = "%#{params[:q]}%"
-      @items = Item.where("title ILIKE ?", st)
+      # enable this for heroku
+      #@items = Item.where("title ILIKE ?", st)
+      
+      # enable this for sqlite3
+      @items = Item.where("title LIKE ?", st)
     end
   end
 
