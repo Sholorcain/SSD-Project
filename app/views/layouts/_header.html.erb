@@ -18,7 +18,13 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Cart", "/cart" %></li>
-          <li><p id = "cartmoney">
+          <li><%= link_to "Items", "/items" %></li>
+          <li><%= link_to "Contact", contact_path %></li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <!--navbar cart display -->
+          <li><p id = "cartmoney" style="padding-top:8px">
           <%if !session[:cart].blank? %>
           <% cart = session[:cart]%>
           <% if !cart.empty? %>
@@ -32,17 +38,13 @@
                   <% total += quantity * item.price %> 
                   <% totalquantity += quantity %>
                     <% end %>
-                  
               <%end%>
-              <p style="color:blue;">(<%= totalquantity %>)</p>
-              <p style="color:blue;"><%= number_to_currency(total, :unit => "€") %></p>
+              <button type="button" class="btn btn-default btn-m">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Cart (<%= totalquantity %>) <%= number_to_currency(total, :unit => "€") %>
+        </button>
           <% end %></p></li>
           <% end %>
-          <li><%= link_to "Items", "/items" %></li>
-          <li><%= link_to "Contact", contact_path %></li>
-        </ul>
-        
-        <ul class="nav navbar-nav navbar-right">
+           <!-- end of navbar cart display -->
           <% if logged_in? %>
             <!--<li><%= link_to "Users", users_path %></li>-->
             <li><%= link_to "My Orders", orders_path %></li>
