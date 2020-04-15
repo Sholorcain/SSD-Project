@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
       if params[:category_filter].nil? || params[:category_filter] == "All"
        @items = Item.paginate(:page => params[:page], per_page: 9)
       else
-        @items = Item.all.where(category: params[:category_filter]).paginate(:page => params[:page], per_page: 12)
+        @items = Item.all.where(category: params[:category_filter]).paginate(:page => params[:page], per_page: 9)
       end
     end
   end
@@ -71,40 +71,40 @@ class ItemsController < ApplicationController
   
 def expensive
   if params[:category_filter].nil? || params[:category_filter] == "All"
-    @items = Item.expensive.paginate(:page => params[:page], per_page: 12)
+    @items = Item.expensive.paginate(:page => params[:page], per_page: 9)
   else
     @filter = params[:category_filter]
-    @items = Item.expensive.where(category: @filter).paginate(:page => params[:page], per_page: 12)
+    @items = Item.expensive.where(category: @filter).paginate(:page => params[:page], per_page: 9)
   end
   render action: :index
 end
 
 def cheapest
   if params[:category_filter].nil? || params[:category_filter] == "All"
-    @items = Item.cheapest.paginate(:page => params[:page], per_page: 12)
+    @items = Item.cheapest.paginate(:page => params[:page], per_page: 9)
   else
     @filter = params[:category_filter]
-    @items = Item.cheapest.where(category: @filter).paginate(:page => params[:page], per_page: 12)
+    @items = Item.cheapest.where(category: @filter).paginate(:page => params[:page], per_page: 9)
   end
   render action: :index
 end
 
 def bestrated
   if params[:category_filter].nil? || params[:category_filter] == "All"
-    @items = Item.bestrated.paginate(:page => params[:page], per_page: 12)
+    @items = Item.bestrated.paginate(:page => params[:page], per_page: 9)
   else
     @filter = params[:category_filter]
-    @items = Item.bestrated.where(category: @filter).paginate(:page => params[:page], per_page: 12)
+    @items = Item.bestrated.where(category: @filter).paginate(:page => params[:page], per_page: 9)
   end
   render action: :index
 end
 
 def lowestrated
   if params[:category_filter].nil? || params[:category_filter] == "All"
-    @items = Item.lowestrated.paginate(:page => params[:page], per_page: 12)
+    @items = Item.lowestrated.paginate(:page => params[:page], per_page: 9)
   else
     @filter = params[:category_filter]
-    @items = Item.lowestrated.where(category: @filter).paginate(:page => params[:page], per_page: 12)
+    @items = Item.lowestrated.where(category: @filter).paginate(:page => params[:page], per_page: 9)
   end
   render action: :index
 end
@@ -123,7 +123,7 @@ end
     @search_criteria =""
     if params[:q].eql? ""
       @search_criteria ="All"
-      @items = Item.all.paginate(:page => params[:page], per_page: 12)
+      @items = Item.all.paginate(:page => params[:page], per_page: 9)
     else
       @st = "%#{params[:q]}%"
       @search_criteria = params[:q]
@@ -131,7 +131,7 @@ end
       #@items = Item.where("title ILIKE ?", st)
       
       # enable this for sqlite3
-      @items = Item.where("LOWER(title) LIKE ?", @st.downcase).paginate(:page => params[:page], per_page: 12)
+      @items = Item.where("LOWER(title) LIKE ?", @st.downcase).paginate(:page => params[:page], per_page: 9)
     end
   end
 
