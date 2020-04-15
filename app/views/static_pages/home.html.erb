@@ -1,156 +1,92 @@
 <% provide(:title, "Home") %>
 
-<!--<div class="center jumbotron">-->
-<!--  <h1>Welcome to The Book Nook</h1>-->
-<!--  <h3>This is our home page</h3>-->
-<!--</div>-->
-
-     <div class="row">
-         <!-- Carousel
-          ================================================== -->
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                <%= image_tag ("riptides.png"), size: "250x150" %>
-                <div class="container">
-                  <div class="carousel-caption">
-                    <h1>Riptides</h1>
-                    <p align="left">Lorem do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
-                    <%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <%= image_tag ("missing.png"), size: "250x150" , :class => "carosel-image" %>
-                <div class="container">
-                  <div class="carousel-caption">
-                    <h1>The Missing Ride</h1>
-                    <p align="left">Lorem ipsum consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi t esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in.</p>
-                    <%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <%= image_tag ("andromeda.png"), size: "250x150" , :class => "carosel-image" %>
-                <div class="container">
-                  <div class="carousel-caption">
-                    <h1>The Andromeda Boy</h1>
-                    <p align="left">Lorem ipsum  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%>
-                  </div>
-                </div>
-              </div>
+  <div class="row">
+    <!-- Carousel ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <% t = 0%>
+        <% @new_arrival.each do |item| %>
+          <% s = ""%>
+          <% if t == 0 %>
+            <% s = "active" %>
+          <%end%>
+          <li data-target="#myCarousel" data-slide-to="<%=t%>" class="<%=s%>"></li>
+          <% t+=1 %>
+        <%end%>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <% t = 1%>
+        <% @new_arrival.each do |item| %>
+          <% s = "item"%>
+          <% if t == 1 %>
+            <% s = "item active" %>
+          <%end%>
+          
+          <div class="<%=s%>">
+            <%= image_tag (item.image_url), size: "250x150" %>
+            <div class="container">
+              <div class="carousel-caption">
+                        <h1><%= item.title %></h1>
+                        <p align="left"><%= item.description %></p>
+                        <%= link_to "View details", item_path(item.id), class: 'btn btn-lg btn-success' ,style: 'color: white;'%>
+                      </div>
             </div>
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          </div>
+          <% t = 0  %>
+        <%end%>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-          </div><!-- /.carousel -->
+    </div><!-- /.carousel -->
+  </div>    
           
-      </div>    
-          
-        <hr class="featurette-divider">
+  <hr class="featurette-divider">
 
-         <!-- Marketing messaging and featurettes
-          ================================================== -->
-          <!-- Wrap the rest of the page in another container to center all the content. -->
-          <div class="row">
-             <!--<div class="col-md-2">-->
-             <!--  <div class="margin-top"></div>-->
-              <!-- <%=render 'layouts/categories'%>-->
-            </div>
-            <!--<hr class="featurette-divider">-->
-            <!--<h2 class="newarrivals-heading" style="text-align: center">New Arrivals</h2>-->
-            <div class="col-md-10">
-              <div class="margin-top"></div>
+  <div class="row">
+    <div class="marketing">
+      <!-- START THE FEATURETTES -->
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading" style="color:#009d00">Sunsets with Annie <span class="text-muted">by Gretchen Fergusson</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <p><%= link_to "Full catalogue", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+        </div>
+        <div class="col-md-5">
+          <%= image_tag ("sunsets.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
+        </div>
+      </div>
       
-          <div class="marketing">
-            <!-- Three columns of text below the carousel -->
-            
-          <!-- <! <div class="row">-->
-          <!--    <div class="col-lg-4 text-center">-->
-          <!--      <%= image_tag ("secrets.png"), size: "170x250" %>-->
-          <!--      <h2 style="color:#009d00">Secrets- a real life story</h2>-->
-          <!--      <p style="text-align:left;">Donec sed odio dui. Etiam porta commodo sem magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>-->
-          <!--      <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>-->
-          <!--    </div><!-- /.col-lg-4 -->
-          <!--    <div class="col-lg-4 text-center">-->
-          <!--      <%= image_tag ("simplelife.png"), size: "170x250" %>-->
-          <!--      <h2 style="color:#009d00">Living The Simple Life</h2>-->
-          <!--      <p style="text-align:left;">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget  sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>-->
-          <!--      <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>-->
-          <!--    </div><!-- /.col-lg-4 -->
-          <!--    <div class="col-lg-4 text-center">-->
-          <!--      <%= image_tag ("snapera.png"), size: "170x250" %>-->
-                <!--<%= image_tag ("openseasons.png"), size: "200x150", class: "img-circle" %>-->
-          <!--      <h2 style="color:#009d00">The Snap Era</h2>-->
-          <!--      <p style="text-align:left;">Donec sed odio dui. Cra, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum ma.</p>-->
-          <!--      <p><%= link_to "View Book Store", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>-->
-          <!--    </div><!-- /.col-lg-4 -->
-          <!--  </div><!-- /.row -->
-          
-          <!--<div class="margin-top"></div>-->
+      <hr class="featurette-divider">
       
-            <!-- START THE FEATURETTES -->
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading" style="color:#009d00">Feelings are Lost at Sea <span class="text-muted">by Jonathan Bynes</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <p><%= link_to "Full catalogue", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <%= image_tag ("feelings.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
+        </div>
+      </div>
       
-            <!--<hr class="featurette-divider">-->
+      <hr class="featurette-divider">
       
-            <div class="row featurette">
-              <div class="col-md-7">
-                <h2 class="featurette-heading" style="color:#009d00">Sunsets with Annie <span class="text-muted">by Gretchen Fergusson</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                <p><%= link_to "Full catalogue", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
-              </div>
-              <div class="col-md-5">
-                <%= image_tag ("sunsets.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
-              </div>
-            </div>
-      
-            <hr class="featurette-divider">
-      
-            <div class="row featurette">
-              <div class="col-md-7 col-md-push-5">
-                <h2 class="featurette-heading" style="color:#009d00">Feelings are Lost at Sea <span class="text-muted">by Jonathan Bynes</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                <p><%= link_to "Full catalogue", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
-              </div>
-              <div class="col-md-5 col-md-pull-7">
-                <%= image_tag ("feelings.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
-              </div>
-            </div>
-      
-            <hr class="featurette-divider">
-      
-            <div class="row featurette">
-              <div class="col-md-7">
+      <div class="row featurette">
+        <div class="col-md-7">
                 <h2 class="featurette-heading" style="color:#009d00">The Imperfections of Memory <span class="text-muted">by Annabelle Jones</span></h2>
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
                 <p><%= link_to "Full catalogue", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
               </div>
-              <div class="col-md-5">
-                <%= image_tag ("imperfections.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
-              </div>
-            </div>
-      </div>
-      <div class="margin-bottom"></div>
-      <!--<hr class="featurette-divider">-->
-      <!--<div class="margin-bottom"></div>-->
-      
-      <!--<%= render 'layouts/popular'%>-->
-      <!--<% @categories.each do |category| %>-->
-      <!--  <div class="itemhols">-->
-      <!--    <p class="lead"><%= category.description %></p>-->
-      <!--  </div>-->
-      <!--<% end %>-->
+        <div class="col-md-5">
+          <%= image_tag ("imperfections.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
+        </div>
       </div>
     </div>
+  </div>

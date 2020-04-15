@@ -43,7 +43,6 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   get 'category/:title', to: 'static_pages#category'
-  #get '/new_arrival', to: 'items#new_arrival'
   
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'

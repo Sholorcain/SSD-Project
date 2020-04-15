@@ -2,6 +2,9 @@ class StaticPagesController < ApplicationController
   def home
     @categories = Category.all
     @items = Item.all
+    
+    @new_arrival = Item.order(created_at: :asc).last(10)
+    #@business_partner.received_documents.order(:created_at).limit(5)
   end
   
   def category
@@ -13,11 +16,6 @@ class StaticPagesController < ApplicationController
   end
   
   def contact
-  end
-  
-  def self.new_arrival
-    @new_arrival = Item.order(created_at: :asc).last(5)
-    #@business_partner.received_documents.order(:created_at).limit(5)
   end
   
 end
