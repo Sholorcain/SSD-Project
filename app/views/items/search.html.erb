@@ -4,10 +4,12 @@
   <% else %>
       <% item = @items.last %>
       <% if @search_criteria.eql? "All" %>
-        <h1 class="text-center">Items For <%= @search_criteria %> Categories</h1>
+        <h1 class="text-center">Search results for: <%= @search_criteria %></h1>
       <% else %>
-        <h1 class="text-center">Items For <%= item.title %> Category</h1>
+        <h1 class="text-center">Search results for: <%= item.title %></h1>
       <%end%>
       <%= render 'items/catalogue'%>
   <% end %>
 </div>
+
+<%= will_paginate @items %>
