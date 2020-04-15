@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
       lowestrated
     else
       if params[:category_filter].nil? || params[:category_filter] == "All"
-       @items = Item.paginate(:page => params[:page], per_page: 12)
+       @items = Item.paginate(:page => params[:page], per_page: 9)
       else
         @items = Item.all.where(category: params[:category_filter]).paginate(:page => params[:page], per_page: 12)
       end
