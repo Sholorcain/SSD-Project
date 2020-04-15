@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       get :cheapest
       get :bestrated
       get :lowestrated
+      get '/cart/:id', to: 'cart#add'
       get '/expensive/:category_filter', to: 'items#expensive' , :as => :expensive_filter
     end
     

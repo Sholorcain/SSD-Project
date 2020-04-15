@@ -18,7 +18,9 @@
                 <% item.blank_stars.times do %>	
                     <span class="glyphicon glyphicon-star-empty"></span>	
                 <% end %> (<%= item.reviews.size %>) 	
-            </h4>	
+            </h4>
+            <% if logged_in? %>
+         <% if current_user.admin? %>
             <h4>Current Stock: <%= item.stock %></h4>	
             <%= form_for item, remote: true do |f| %>	
             <div class="field">	
@@ -28,7 +30,9 @@
 
            <div class="actions">	
               <p><%= f.submit 'Update Stock'%></p>	
-           </div>	
+           </div>
+           <% end %>
+         <% end %>
       <% end %>	
          <p>	
             <%= link_to 'Details',  item, :class => "btn btn-md btn-success", :role => "button" %>	
@@ -56,16 +60,18 @@
               </div>	
             </div>	
             <% end %>	
-         </p>	
+         </p>
+         <% if logged_in? %>
+         <% if current_user.admin? %>
          <p>	
             <%= link_to 'Edit',  edit_item_path(item), :class => "btn btn-md btn-warning", :role => "button" %>	
             <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-md btn-danger", :role => "button" %>	
          </p>	
+         <% end %>
+         <% end %>
          </div>	
       <% end %>	
 </div>	
 <%= will_paginate @items %>
 
 <!--<p><%= link_to 'New Item',  new_item_path, :class => "btn btn-md btn-primary", :role => "button" %>[Admin funtion : ]</p>-->
-
-<script src="/SSD-Project/app/assets/javascripts/addToCartAJAX.js"></script>
