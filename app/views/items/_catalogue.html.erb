@@ -1,6 +1,6 @@
 <%= form_tag(items_path(:category_filter), :method => "get") do %>	
     <%= select_tag(:category_filter, options_for_select([['All'],["Non-Fiction"], ['Anthologies'], ['Fiction'], ['Periodicals'], ['Poetry']], 1)) %>	
-    <%= select_tag(:sortype, options_for_select([['Sort By','any'],['Most Expensive','expensive'],['Cheapest','cheapest'],['Top rated','bestrated'],['Lowest rated','lowestrated']], 1)) %>	
+    <%= select_tag(:sortype, options_for_select([['Sort By','any'],['Highest price','expensive'],['Lowest price','cheapest'],['Highest rating','bestrated'],['Lowest rating','lowestrated']], 1)) %>	
     <%= submit_tag "Submit" %>	
 <% end %>
       <% @items.each do |item| %>
