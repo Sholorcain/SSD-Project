@@ -144,8 +144,4 @@ end
     def item_params
       params.require(:item).permit(:title, :author, :description, :price, :image_url, :category, :stock,:category_filter)
     end
-    
-    
-  
-
 end

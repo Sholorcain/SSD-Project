@@ -1,23 +1,31 @@
-.cart{
-    width:100%;
-    text-align:right;
-    background-color: black;
-    margin-top: 100px;
-    border:0;
-}
-
 .glyphicon-shopping-cart{
-     font-size:40px;   
-    //  color: #5cb85c;
-    color:black;
+    font-size:28px;   
+    color: white;
 }
 .badge{
-    position : absolute;
-    font-size: 12px !important;
-    background-color: #5cb85c !important;
-    margin-left: -27px;
+    top:-6px !important;
+    margin-top: 8px !important;
+    position : absolute !important;
+    font-size: 14px !important;
+    background: none !important;
+    margin-left: -29px;
+    color: black !important;
 }
 .panel-default{
     border: 0 !important; 
     border-radius: 0 !important;
+}
+.btn-m{
+    background-color: transparent !important;
+    border:none !important;
+    color:white !important;
+    padding: 0 !important;
+    margin:0 !important;
+}
+.btn-m p{
+    font-size: 12px !important;
+    font-weight: bold !important;
+    margin-bottom: -5px !important;
+    padding: 0 !important;
+    margin: 0!important;
 }

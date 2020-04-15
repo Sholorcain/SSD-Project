@@ -67,6 +67,11 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def payment_confirmation
+    @order = Order.find(params[:id])
+    @order.update_attribute(:status, "Paid by Paypal")
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

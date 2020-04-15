@@ -1,18 +1,18 @@
 
-  <%= form_tag(items_path(:category_filter), :method => "get") do %>
-  <table>
-    <tr>
-      <td>Non-Fiction<%= radio_button_tag(:category_filter, "Non-Fiction") %></td>
-      <td>Anthologies<%= radio_button_tag(:category_filter, "Anthologies") %> </td>
-      <td>Fiction<%= radio_button_tag(:category_filter, "Fiction") %> </td>
-      <td>Poetry<%= radio_button_tag(:category_filter, "Poetry") %> </td>
-      <td>Periodicals<%= radio_button_tag(:category_filter, "Periodicals") %> </td>
-    </tr>
-  </table>
-  <%= submit_tag "Most Expensive", :name => 'expensive' %>
-  <%= submit_tag "Cheapest", :name => 'cheapest' %>
-  <%= submit_tag "Top rated", :name => 'bestrated' %>
-  <%= submit_tag "Lowest rated", :name => 'lowestrated' %>
+<%= form_tag(items_path(:category_filter), :method => "get") do %>
+    <table>
+        <tr>
+          <td>Non-Fiction<%= radio_button_tag(:category_filter, "Non-Fiction") %></td>
+          <td>Anthologies<%= radio_button_tag(:category_filter, "Anthologies") %> </td>
+          <td>Fiction<%= radio_button_tag(:category_filter, "Fiction") %> </td>
+          <td>Poetry<%= radio_button_tag(:category_filter, "Poetry") %> </td>
+          <td>Periodicals<%= radio_button_tag(:category_filter, "Periodicals") %> </td>
+        </tr>
+    </table>
+    <%= submit_tag "Most Expensive", :name => 'expensive' %>
+    <%= submit_tag "Cheapest", :name => 'cheapest' %>
+    <%= submit_tag "Top rated", :name => 'bestrated' %>
+    <%= submit_tag "Lowest rated", :name => 'lowestrated' %>
 <% end %>
       <% @items.each do |item| %>
          <div class="col-sm-4 col-md-4 col-lg-4">
@@ -23,22 +23,26 @@
             <h4>Category: <%= item.category %></h4>
             <h4> 
                 Rating:<% item.score.to_i.times do  %>
-                            <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
                         <% end %>
                 <% item.blank_stars.times do %>
                     <span class="glyphicon glyphicon-star-empty"></span>
                 <% end %> (<%= item.reviews.size %>) 
             </h4>
-            <h4>Current Stock: <%= item.stock %></h4>
-            <%= form_for item, remote: true do |f| %>
-            <div class="field">
-                <%= f.label :stock %>
-                <%= f.text_field :stock %>
-            </div>
-
-           <div class="actions">
-              <p><%= f.submit 'Update Stock'%></p>
-           </div>
+            <!-- admin function -->
+            <% if logged_in? and current_user.admin? %>
+                <h4>Current Stock: <%= item.stock %></h4>
+                <%= form_for item, remote: true do |f| %>
+                <div class="field">
+                    <%= f.label :stock %>
+                    <%= f.text_field :stock %>
+                </div>
+    
+               <div class="actions">
+                  <p><%= f.submit 'Update Stock'%></p>
+               </div>
+            <%end%>
+            <!-- end of admin function -->
       <% end %>
          <p>
             <%= link_to 'Details',  item, :class => "btn btn-md btn-success", :role => "button" %>
@@ -47,33 +51,35 @@
             <% else %>
                <button class="btn btn-md btn-primary btn" type="button" data-toggle="modal" data-target="#myModal" onclick="confirmAdd('<%= item.id%>', 
                '<%= item.title%>')">Add to cart</button>
-            <!-- Start of Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Added to Cart</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p>Item was added to your cart!</p>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Continue Shopping</button>
-                    <%= link_to 'Checkout', "cart/", :class => "btn btn-default" %>
+                <!-- Start of Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Added to Cart</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>Item was added to your cart!</p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">Continue Shopping</button>
+                        <%= link_to 'Checkout', "cart/", :class => "btn btn-success btn-md" %>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
             <% end %>
          </p>
-         <p>
-            <%= link_to 'Edit',  edit_item_path(item), :class => "btn btn-md btn-warning", :role => "button" %>
-            <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-md btn-danger", :role => "button" %>
-         </p>
+        <!-- admin function -->
+        <% if logged_in? and current_user.admin? %>
+             <p>
+                <%= link_to 'Edit',  edit_item_path(item), :class => "btn btn-md btn-warning", :role => "button" %>
+                <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-md btn-danger", :role => "button" %>
+             </p>
+        <%end%>
+        <!-- end of admin function -->
          </div>
       <% end %>
-
-<!--<p><%= link_to 'New Item',  new_item_path, :class => "btn btn-md btn-primary", :role => "button" %>[Admin funtion : ]</p>-->
 
 <script src="/SSD-Project/app/assets/javascripts/addToCartAJAX.js"></script>

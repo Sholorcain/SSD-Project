@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # end
   
   get '/checkout' => 'cart#checkout'
-  get '/paypalSendBox/:id' => 'static_pages#paypalSendBox'
+  get 'orders/payment_confirmation/:id', to: 'orders#payment_confirmation'
 
   resources :categories
   resources :items do
@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   get 'category/:title', to: 'static_pages#category'
+  #get '/new_arrival', to: 'items#new_arrival'
   
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
