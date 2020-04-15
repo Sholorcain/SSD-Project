@@ -123,7 +123,7 @@ end
     @search_criteria =""
     if params[:q].eql? ""
       @search_criteria ="All"
-      @items = Item.all
+      @items = Item.all.paginate(:page => params[:page], per_page: 12)
     else
       @st = "%#{params[:q]}%"
       @search_criteria = params[:q]
