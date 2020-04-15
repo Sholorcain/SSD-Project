@@ -4,7 +4,6 @@ class StaticPagesController < ApplicationController
     @items = Item.all
     
     @new_arrival = Item.order(created_at: :asc).last(5)
-    #@business_partner.received_documents.order(:created_at).limit(5)
   end
   
   def category

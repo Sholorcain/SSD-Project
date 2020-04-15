@@ -1,14 +1,16 @@
 .glyphicon-shopping-cart{
+    top:3px !important;
+    margin-top:2px !important;
+    padding:0 !important;
     font-size:28px;   
     color: white;
 }
 .badge{
-    top:-6px !important;
-    margin-top: 8px !important;
+    top:6px !important;
     position : absolute !important;
     font-size: 14px !important;
     background: none !important;
-    margin-left: -29px;
+    margin-left: -27px;
     color: black !important;
 }
 .panel-default{
@@ -25,7 +27,5 @@
 .btn-m p{
     font-size: 12px !important;
     font-weight: bold !important;
-    margin-bottom: -5px !important;
-    padding: 0 !important;
-    margin: 0!important;
+    margin: -6px 0 0px;
 }
