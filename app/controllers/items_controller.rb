@@ -5,6 +5,14 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @categories = Category.all
+    
+    if params[:category_filter].nil? || params[:category_filter] == "All"
+      @items = Item.all.paginate(:page => params[:page], per_page: 9)
+    else
+      @filter = params[:category_filter]
+      @items = Item.all.where(category: @filter).paginate(:page => params[:page], per_page: 9)
+    end
+    
     if params[:sortype] == "expensive"
       expensive
     elsif params[:sortype] == "cheapest"
@@ -13,12 +21,6 @@ class ItemsController < ApplicationController
       bestrated
     elsif params[:sortype] == "lowestrated"
       lowestrated
-    else
-      if params[:category_filter].nil? || params[:category_filter] == "All"
-       @items = Item.paginate(:page => params[:page], per_page: 9)
-      else
-        @items = Item.all.where(category: params[:category_filter]).paginate(:page => params[:page], per_page: 9)
-      end
     end
   end
 
@@ -69,45 +71,21 @@ class ItemsController < ApplicationController
     end
   end
   
-def expensive
-  if params[:category_filter].nil? || params[:category_filter] == "All"
-    @items = Item.expensive.paginate(:page => params[:page], per_page: 9)
-  else
-    @filter = params[:category_filter]
-    @items = Item.expensive.where(category: @filter).paginate(:page => params[:page], per_page: 9)
+  def expensive
+    @items = @items.expensive
   end
-  render action: :index
-end
 
-def cheapest
-  if params[:category_filter].nil? || params[:category_filter] == "All"
-    @items = Item.cheapest.paginate(:page => params[:page], per_page: 9)
-  else
-    @filter = params[:category_filter]
-    @items = Item.cheapest.where(category: @filter).paginate(:page => params[:page], per_page: 9)
+  def cheapest
+    @items = @items.cheapest
   end
-  render action: :index
-end
 
-def bestrated
-  if params[:category_filter].nil? || params[:category_filter] == "All"
-    @items = Item.bestrated.paginate(:page => params[:page], per_page: 9)
-  else
-    @filter = params[:category_filter]
-    @items = Item.bestrated.where(category: @filter).paginate(:page => params[:page], per_page: 9)
+  def bestrated
+    @items = @items.bestrated
   end
-  render action: :index
-end
 
-def lowestrated
-  if params[:category_filter].nil? || params[:category_filter] == "All"
-    @items = Item.lowestrated.paginate(:page => params[:page], per_page: 9)
-  else
-    @filter = params[:category_filter]
-    @items = Item.lowestrated.where(category: @filter).paginate(:page => params[:page], per_page: 9)
+  def lowestrated
+    @items = @items.lowestrated
   end
-  render action: :index
-end
 
   # DELETE /items/1
   # DELETE /items/1.json
@@ -140,6 +118,7 @@ end
     def set_item
       @item = Item.find(params[:id])
     end
+    
 
     # Only allow a list of trusted parameters through.
     def item_params
