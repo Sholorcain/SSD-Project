@@ -1,77 +1,117 @@
 <p id="notice"><%= notice %></p>
 
-
-
- <div id="itemsContainer">
-   <h1><%= @item.title %></h1>
-   <%= image_tag @item.image_url, :class => 'welcomIm'  %>
-       <h2><%= @item.description %></h1>
-   
-    <div class="itemhols">
-       <p>
-        Author: <%= @item.author %>
-      <br>
-        Price: <%= number_to_currency(@item.price, :unit => "€") %>
-       <br>
-        Category: <%= @item.category %>
-        </p>
+    <div class="col-md-12">
+        <h1 class="text-center">Title: <%= @item.title %></h1>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <%= image_tag (@item.image_url), size: "350x550", class: "item-image" %>
+        </div>
+        <div class="col-md-6">
+            <h3>Author: <%= @item.author %></h3>
+            <h5>Description: <%= @item.description %></h5>
+            <h4>Price: <%= number_to_currency(@item.price, :unit => "€") %></h4>
+            <h4>Category: <%= @item.category %></h4>
+            <h4>
+                Rating:
+                <% @item.score.to_i.times do  %>
+                    <span class="glyphicon glyphicon-star"></span>
+                <% end %>
+                <% @item.blank_stars.times do %>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                <% end %> (<%= @item.reviews.size %>) 
+            </h4>
+        <!-- admin function -->
+            <% if logged_in? and current_user.admin? %>
+                <h4>Current Stock: <%= @item.stock %></h4>
+                <%= form_for @item, remote: true do |f| %>
+                    <h4>
+                        <%= f.label :stock %>
+                        <%= f.text_field :stock %>
+                    </h4>
+                    <h4><%= f.submit 'Update Stock' , :class => "btn btn-md btn-primary"%></h4>
+                <%end%>
+            <%end%>
+            <p>
+                <%= link_to 'Back to Catalogue',  items_path, :class => "btn btn-md btn-success", :role => "button" %>
+                <%if @item.stock_limit %>
+                    <%= link_to 'Out of stock', cart_add_path(@item.id), :class => "btn btn-md btn-danger disabled", :disabled => true %>
+                <% else %>
+                    <button class="btn btn-md btn-primary btn" type="button" data-toggle="modal" data-target="#myModal" onclick="confirmAdd('<%= @item.id%>', 
+                   '<%= @item.title%>')">Add to cart</button>
+                    <!-- end of admin function -->	
+                    <!-- Start of Modal -->	
+                    <div id="myModal" class="modal fade" role="dialog">	
+                      <div class="modal-dialog">	
+                        <div class="modal-content">	
+                          <div class="modal-header">	
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>	
+                            <h4 class="modal-title">Added to Cart</h4>	
+                          </div>	
+                          <div class="modal-body">	
+                            <p>Item was added to your cart!</p>	
+                          </div>	
+                          <div class="modal-footer">	
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Continue Shopping</button>	
+                            <%= link_to 'Checkout', "cart/", :class => "btn btn-default" %>	
+                          </div>	
+                        </div>	
+                      </div>	
+                    </div>	
+                <% end %>	
+            </p>
+            <!-- admin function -->
+            <% if logged_in? and current_user.admin? %>
+                 <p>
+                    <%= link_to 'Edit',  edit_item_path(@item), :class => "btn btn-md btn-warning", :role => "button" %>
+                    <%= link_to 'Delete',  @item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-md btn-danger", :role => "button" %>
+                 </p>
+            <%end%>
+            <!-- end of admin function -->
+        </div>
+    </div>
+    <div class="col-md-12">
         <% if logged_in? %>
-         <% if current_user.admin? %>
-       <p>Current Stock: <%= @item.stock %></p>
-       <% if @item.stock <= 0 %>
-       <p> Out of Stock!</p>
-       <% end %>
-       <% end %>
-       <% end %>
-       <%if @item.stock_limit %>	
-                <%= link_to 'Out of stock', cart_add_path(@item.id), :class => "btn btn-md btn-danger disabled", :disabled => true %>	
-            <% else %>	
-               <button class="btn btn-md btn-primary btn" type="button" data-toggle="modal" data-target="#myModal" onclick="confirmAdd('<%= @item.id%>', 	
-               '<%= @item.title%>')">Add to cart</button>	
-            <!-- Start of Modal -->	
-            <div id="myModal" class="modal fade" role="dialog">	
-              <div class="modal-dialog">	
-                <div class="modal-content">	
-                  <div class="modal-header">	
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>	
-                    <h4 class="modal-title">Added to Cart</h4>	
-                  </div>	
-                  <div class="modal-body">	
-                    <p>Item was added to your cart!</p>	
-                  </div>	
-                  <div class="modal-footer">	
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Continue Shopping</button>	
-                    <%= link_to 'Checkout', "cart/", :class => "btn btn-default" %>	
-                  </div>	
-                </div>	
-              </div>	
-            </div>	
-            <% end %>	
-       <p>
-        
-         <%= link_to 'Back to Catalogue',  items_path, :class => "button", :role => "button" %>
-         <% if logged_in? %>
-         <% if current_user.admin? %>
-         <%= link_to 'Edit',  edit_item_path(@item), :class => "button", :role => "button" %>
-         <% end %>
-       <% end %>
-         
-       </p>
-        <% @item.score.to_i.times do  %>
-        <span class="glyphicon glyphicon-star"></span>
-       <% end %><% @item.blank_stars.times do %>
-       <span class="glyphicon glyphicon-star-empty"></span>
-      <% end %>
-      </div>
-   <% if logged_in? %>
-   <%= render partial: 'reviews/form' %>
-   <% else %>
-   <h3> Login to review this book</h3>
-   <% end %>
-   
-   <h3>Reviews (<%= @item.reviews.size %>)</h3>
-   
-   <%= render partial: 'items/review', collection: @item.reviews %>
-   
-   
-   </div>
+            <%= render partial: 'reviews/form' %>
+        <% else %>
+            <h3> Login to review this book</h3>
+        <% end %>
+    </div>
+    <div class="col-md-12">
+        <!--<h4>Reviews (<%= @item.reviews.size %>)</h4>-->
+        <%= render partial: 'items/review', collection: @item.reviews %>
+    </div>
+<div class="col-md-12">
+    <hr/>
+    <h3>[Sample review, could be like this.]</h3>
+	<div class="review-block">
+	    <div class="row">
+			<div class="col-sm-3">
+				<img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+				<div class="review-block-name"><a href="#">nktailor</a></div>
+				<div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+			</div>
+			<div class="col-sm-9">
+				<div class="review-block-rate">
+					<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+					    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+				</div>
+				<div class="review-block-title">this was nice in buy</div>
+				<div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+			</div>
+		</div>
+	</div>
+</div>
