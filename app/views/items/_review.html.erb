@@ -1,15 +1,22 @@
-<div class="col-md-12>
-  <h4>Reviewed by <%= review.author_name %></h4>
-  <p class="review"><%= review.body %></p> 
+<div class="col-md-12">
+  <div class="review-block">
+    <div class="row text-center">
+  <h4><%= review.author_name %></h4>
+  <p><%= gravatar_for review.user %></p>
+  <p><%= review.user.created_at.to_date %></p>
+  <p class="text-wrap"><%= review.body %></p> 
   <p><% review.rating.to_i.times do  %><span class="glyphicon glyphicon-star"></span><% end %><% (5 - review.rating).times do %><span class="glyphicon glyphicon-star-empty"></span><% end %></p>
   
   <p>Posted <%= distance_of_time_in_words(review.created_at, Time.now) %> ago</p>
+  </div>
+  <div class = "text-center">
   <% if logged_in? and (current_user.id == review.user_id || current_user.admin?) %>
     <p>
-      <%= link_to 'Edit Review', [review.item, review],class: "btn btn-md btn-warning",
-                 method: :edit %>
       <%= link_to 'Delete Review', [review.item, review], class: "btn btn-md btn-danger",
                  method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
     <%end%>
+    </div>
+  
+  </div>
 </div>

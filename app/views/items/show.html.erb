@@ -77,10 +77,10 @@
             <h3> Login to review this book</h3>
         <% end %>
     </div>
-    <div class="col-md-12">
-        <!--<h4>Reviews (<%= @item.reviews.size %>)</h4>-->
+
+        <h4 class = "text-center">Reviews (<%= @item.reviews.size %>)</h4>
         <%= render partial: 'items/review', collection: @item.reviews %>
-    </div>
+
 <div class="col-md-12">
     <hr/>
     <h3>[Sample review, could be like this.]</h3>
