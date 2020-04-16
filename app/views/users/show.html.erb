@@ -1,9 +1,14 @@
 <% provide(:title, @user.name) %>
+
 <div class="row">
   <div class="col-md-8">
-      <p><%= gravatar_for @user %></p>
-      <h1> Welcome, <%= @user.name %></h1>
+    
+      <h1> Welcome, <%= @user.name %>   
+      
+      <%= gravatar_for @user %></h1>
+      
       <h4>Email: <%= @user.email %></h4>
+      
       <div class="container-md profile-cont">
       <h3>To update your profile, please click on the button below</h3>
           <%= link_to "Update Profile", edit_user_path(current_user), 
@@ -19,7 +24,6 @@
 
       </div>
       
-       
       <br>
       
   </div>
