@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap');
 
 .navbar-inverse .navbar-nav>li>a {
   color: white;
@@ -32,24 +32,26 @@
 }
 
 
-  #cartForMobileDevices{
-    display: none !important;
+#cartForMobileDevices {
+  display: none !important;
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+
+@media (max-width: 767px) {
+  #cartForMobileDevices {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0!important;
+    text-align: right!important;
   }
-  /*Small devices (landscape phones, 576px and up)*/
-  @media (max-width: 767px) {
-    #cartForMobileDevices{
-      display: block !important;
-      padding:0 !important;
-      margin :0!important;
-      text-align :right!important;
-    }
-    #logo {
-      font-size: 23px !important;
-    }
-    .li-cart1{
-      display: none!important;
-    }
+  #logo {
+    font-size: 23px !important;
   }
+  .li-cart1 {
+    display: none!important;
+  }
+}
 
 
 // its for putting a top/bottom margin between two divs
@@ -83,4 +85,3 @@ p,
 #logo {
   font-family: 'Comfortaa', cursive;
 }
-
