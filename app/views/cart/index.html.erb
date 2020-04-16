@@ -51,6 +51,7 @@
    <!-- these design for checkout -->
   <% if @cart.empty? %>
      <h1 class="text-center"> Your cart is empty! </h1>
+     <div class="text-center"><%= link_to "Vist the Catalogue", items_path, class: 'btn btn-md btn-primary' ,style: 'color: white;'%></div>
   <%else%>
     <div class="container text-center" style="margin-top:25px;">
       <%= link_to "Continue Shopping", items_path, class: 'btn btn-md btn-primary' ,style: 'color: white;'%>

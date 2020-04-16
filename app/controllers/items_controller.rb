@@ -23,6 +23,10 @@ class ItemsController < ApplicationController
       lowestrated
     end
   end
+  def stockview
+    @items = Item.all.paginate(:page => params[:page], per_page: 30)
+    render action: :stock
+  end
 
   # GET /items/1
   # GET /items/1.json

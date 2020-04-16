@@ -1,0 +1,37 @@
+      
+      <div class="row">
+      <% @items.order(stock: :asc).each do |item| %>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+            <h3 class="item-title"><%= item.title %></h3>
+            <h4>Author: <%= item.author %></h4>
+            <h4>Price: <%= number_to_currency(item.price, :unit => "€") %></h4>
+            <h4>Category: <%= item.category %></h4>
+            <h4> 
+                Rating:<% item.score.to_i.times do  %>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <% end %>
+                <% item.blank_stars.times do %>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                <% end %> (<%= item.reviews.size %>) 
+            </h4>
+                <h4>Current Stock: <%= item.stock %></h4>
+                <%= form_for item, remote: true do |f| %>
+                <div class="field">
+                    <%= f.label :stock %>
+                    <%= f.text_field :stock %>
+                </div>
+    
+               <div class="actions">
+                  <p><%= f.submit 'Update Stock'%></p>
+               </div>
+      <% end %>
+         <p>
+            <%= link_to 'Details',  item, :class => "btn btn-md btn-success", :role => "button" %>
+            <%if item.stock_limit %>
+                <%= link_to 'Out of stock', cart_add_path(item.id), :class => "btn btn-md btn-danger disabled", :disabled => true %>
+            <% end %>
+            </div>
+            <% end %>
+            
+            </div>
+            <%= will_paginate @items %>
