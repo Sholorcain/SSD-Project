@@ -2,10 +2,6 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-@font-face {
-  font-family: 'Comfortaa', cursive;
-}
-
 .navbar-inverse .navbar-nav>li>a {
   color: white;
 }
@@ -26,14 +22,13 @@
 
 #logo {
   float: left;
-  font-family: "Comfortaa-Regular";
   font-size: 2em;
   color: white;
   font-weight: bold;
   &:hover {
     color: #5cb85c;
     text-decoration: none;
-  }
+}
 }
 
 
@@ -67,5 +62,4 @@ h3,
 p,
 #logo {
   font-family: 'Comfortaa', cursive;
-}
 }
