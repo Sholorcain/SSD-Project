@@ -12,7 +12,7 @@
         <%= link_to "The Reading Nook", root_path, id:"logo",class:"navbar-brand" %>
         
         <!-- to load only when hamburger navbar width is on -->
-            <%= render "shared/cartNav", :class => "smlNavCart" %>
+            <div class="smlNavCart"><%= render "shared/cartNav" %></div>
 
       </div>
   
@@ -64,7 +64,9 @@
             <li><%= link_to "Log in", login_path %></li>
           <% end %>
           
-          <%= render "shared/cartNav", :class => "mainNavCart"%>
+          <li class="mainNavCart">
+            <%= render "shared/cartNav"%>
+            </li>
           
         </ul>
         <%= render 'layouts/search' %>
