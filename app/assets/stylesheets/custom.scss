@@ -1,27 +1,50 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+   font-family: "Comfortaa-Regular";
+   src: url('/assets/Comfortaa-Regular');
+}
+
 .navbar-inverse .navbar-nav>li>a {
   color: white;
 }
 
 /* navbar design*/
+  .navbar {
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+  }
+  #cartForMobileDevices{
+    display: none !important;
+  }
+  /*Small devices (landscape phones, 576px and up)*/
+  @media (max-width: 767px) {
+    #cartForMobileDevices{
+      display: block !important;
+      padding:0 !important;
+      margin :0!important;
+      text-align :right!important;
+    }
+    #logo {
+      font-size: 23px !important;
+    }
+    .li-cart1{
+      display: none!important;
+    }
+  }
 
-.navbar {
-  border-radius: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 4;
-}
-
+  
 /* end of navbar design */
 
 /* Brand name/logo design*/
 
 #logo {
   float: left;
-
+  font-family: "Comfortaa-Regular";
   font-size: 2em;
   color: white;
   font-weight: bold;
@@ -43,12 +66,6 @@
 
 /* end of Brand name/logo design*/
 
-.smlNavCart {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .smlNavCart {
-    display: block;
-  }
+h1, h2, h3, p {
+  font-family: "Comfortaa-Regular";
 }
