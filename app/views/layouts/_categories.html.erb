@@ -1,4 +1,3 @@
 
 
-<%= select_tag :category_filter, options_for_select(@categories.collect {|p| [ p['title'], p['title'] ] },
-:class => "btn btn-secondary dropdown-toggle", :id => "dropdownMenuButton")%>
+<%= select_tag :category_filter, options_for_select(@categories.collect {|p| [ p['title'], p['title'] ] },)%>	

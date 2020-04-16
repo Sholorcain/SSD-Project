@@ -1,9 +1,11 @@
 <%= form_tag(items_path(:category_filter), :method => "get",:class => "category-filter") do %>	
-    <%=render 'layouts/categories'%>	
+    <%=render 'layouts/categories',:class => "btn btn-secondary dropdown-toggle", :id => "dropdownMenuButton",
+    type: "button", aria: { haspopup: true },aria: { expanded: false }, :style => "background: lightgrey;" %>	
     <%= select_tag(:sortype, options_for_select([['Sort By','any'],['Highest price','expensive'],
     ['Lowest price','cheapest'],['Highest rating','bestrated'],['Lowest rating','lowestrated']], 1),
-    :class => "btn btn-secondary dropdown-toggle", :id => "dropdownMenuButton")%>	
-    <%= submit_tag "Submit", :class => "btn btn-sm btn-success" %>	
+    :class => "btn btn-secondary dropdown-toggle", :id => "dropdownMenuButton",
+    type: "button", aria: { haspopup: true },aria: { expanded: false }, :style => "background: lightgrey;")%>	
+    <%= submit_tag "Submit", :class => "btn btn-md btn-success" %>	
 <% end %>
       <% @items.each do |item| %>
          <div class="col-sm-4 col-md-4 col-lg-4">
