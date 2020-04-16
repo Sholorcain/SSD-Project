@@ -1,4 +1,6 @@
-  <h4>Reviewed by <%= review.author_name %></h4>
+  <h4><%= review.author_name %></h4>
+  <p><%= gravatar_for review.user %></p>
+  <p><%= review.user.created_at.to_date %></p>
   <p class="review"><%= review.body %></p> 
   <p>
     <% review.rating.to_i.times do  %>
@@ -9,13 +11,11 @@
       <% end %>
   </p>
   
+  
+  
   <p> Posted <%= distance_of_time_in_words(review.created_at, Time.now) %> ago</p>
   <% if logged_in? and (current_user.id == review.user_id || current_user.admin?) %>
     <p>
-      <%#= link_to 'Edit Review', [review.item, review],method: :edit %>
-      <%#= link_to 'Delete Review', [review.item, review], method: :delete, data: { confirm: 'Are you sure?' } %>
-      
-      <%= link_to 'Edit Review', [review.item, review],class: "btn btn-md btn-warning",method: :edit %>
       <%= link_to 'Delete Review', [review.item, review], class: "btn btn-md btn-danger",method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
   <%end%>
