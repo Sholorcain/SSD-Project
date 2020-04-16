@@ -9,6 +9,7 @@
       <% total = 0 %>
       <thead>
        <tr class="success">
+         <!-- Table Headers for Cart-->
           <th>#</th>
           <th>Title</th>
           <th></th>
@@ -19,14 +20,17 @@
           <th class="text-center">Action</th>
         </tr>
       </thead>
+      
       <tbody>
+        
           <% @cart.each do |id, quantity| %>
             <tr class="active">
+              
               <!-- check if the item exists to avoid throwing an error and breaking the session cart -->
               <% if Item.exists?(id)
                   item = Item.find_by_id(id)%>
+                  <!-- if item !exist, nothing will happen to alter the cart -->
               <td><div class="text-center"><%= link_to (image_tag item.image_url, :style =>"height:80px;"), item %></div></td>
-              
               <td><h3><%= link_to item.title, item %></h3></td>
               <td> <a href="/cart/increase/<%= item.id %>"><h3 style="text-align:center;"><span class="glyphicon glyphicon-plus"></span></h3></a></td>
               <td><a href="/cart/decrease/<%= item.id %>"><h3 style="text-align:center;"><span class="glyphicon glyphicon-minus"></span></h3></a></td>
@@ -48,6 +52,7 @@
       </tbody>
     </table>
   <%end%>
+  
    <!-- these design for checkout -->
   <% if @cart.empty? %>
      <h1 class="text-center"> Your cart is empty! </h1>
@@ -55,11 +60,14 @@
   <%else%>
     <div class="container text-center" style="margin-top:25px;">
       <%= link_to "Continue Shopping", items_path, class: 'btn btn-md btn-primary' ,style: 'color: white;'%>
+      
+      <!-- User must be logged in to check out -->
       <% if logged_in? %>
       <%= link_to "Checkout", checkout_path, class: 'btn btn-md btn-success',style: 'color: white;' %>
       <% else %>
       <%= link_to "Log In", login_path, class: 'btn btn-md btn-success',style: 'color: white;' %>
       <% end %>
+      
       <%= link_to "Empty Cart", clearcart_path, class: 'btn btn-md btn-danger',style: 'color: white;' %>
     </div>
   <%end%>
