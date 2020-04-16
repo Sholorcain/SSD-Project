@@ -3,19 +3,19 @@
   <div class="col-md-8">
       <p><%= gravatar_for @user %></p>
       <h1> Welcome, <%= @user.name %></h1>
-      <h3>Email: <%= @user.email %></h3>
-      <div class="container-md">
+      <h4>Email: <%= @user.email %></h4>
+      <div class="container-md profile-cont">
       <h3>To update your profile, please click on the button below</h3>
           <%= link_to "Update Profile", edit_user_path(current_user), 
-          class: 'btn btn-md btn-primary' ,style: 'color: ;'%>
+          class: 'btn btn-md btn-primary pull-right'%>
       </div >
       
       <br>
       
-      <div class="container-md">
+      <div class="container-md profile-cont">
         <h3>To view your previous orders, please click on the button below</h3>
             <%= link_to "My Orders", orders_path, 
-            class: 'btn btn-md btn-success' ,style: 'color: ;'%>
+            class: 'btn btn-md btn-success pull-right' %>
 
       </div>
       
