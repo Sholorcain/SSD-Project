@@ -14,12 +14,3 @@
  *= require_tree .
  *= require_self
  */
- 
- @font-face {
-     font-family: "Comfortaa-Regular";
-     src: url('/assets/Comfortaa-Regular');
- }
- 
- h1, h2, h3, p, #logo {
-     font-family: "Comfortaa-Regular";
- }

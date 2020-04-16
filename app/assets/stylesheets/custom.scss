@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+   font-family: "Comfortaa-Regular";
+   src: url('/assets/Comfortaa-Regular');
+}
+
 .navbar-inverse .navbar-nav>li>a {
   color: white;
 }
@@ -20,7 +25,7 @@
 
 #logo {
   float: left;
-
+  font-family: "Comfortaa-Regular";
   font-size: 2em;
   color: white;
   font-weight: bold;
@@ -52,4 +57,6 @@
   .mainNavCart {
     display: none;
   }
+h1, h2, h3, p {
+  font-family: "Comfortaa-Regular";
 }
