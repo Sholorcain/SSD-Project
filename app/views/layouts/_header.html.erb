@@ -10,9 +10,15 @@
           <span class="icon-bar"></span>
         </button>
         <%= link_to "The Reading Nook", root_path, id:"logo",class:"navbar-brand" %>
-        
-        <!-- to load only when hamburger navbar width is on -->
-            <div class="smlNavCart"><%= render "shared/cartNav" %></div>
+        <!-- cart icon for mobile devices -->
+        <div id="cartForMobileDevices">
+          <ul>
+            <li class="li-cart2">
+              <%= render "shared/cartNav" %>
+          </li>
+          </ul>
+        </div>
+        <!-- end of cart icon design -->
       </div>
   
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -62,11 +68,9 @@
           <% else %>
             <li><%= link_to "Log in", login_path %></li>
           <% end %>
-
-          
-          <li class="mainNavCart">
-            <%= render "shared/cartNav"%>
-            </li>
+          <li class="li-cart1">
+            <%= render "shared/cartNav" %>
+          </li>
         </ul>
         <%= render 'layouts/search' %>
       </div><!-- /.navbar-collapse -->

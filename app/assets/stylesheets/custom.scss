@@ -37,6 +37,26 @@
 }
 
 
+  #cartForMobileDevices{
+    display: none !important;
+  }
+  /*Small devices (landscape phones, 576px and up)*/
+  @media (max-width: 767px) {
+    #cartForMobileDevices{
+      display: block !important;
+      padding:0 !important;
+      margin :0!important;
+      text-align :right!important;
+    }
+    #logo {
+      font-size: 23px !important;
+    }
+    .li-cart1{
+      display: none!important;
+    }
+  }
+
+
 // its for putting a top/bottom margin between two divs
 .margin-top {
   margin-top: 50px;
@@ -68,4 +88,4 @@ p,
 #logo {
   font-family: 'Comfortaa', cursive;
 }
-}
+
