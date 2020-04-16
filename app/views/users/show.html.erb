@@ -4,7 +4,23 @@
       <p><%= gravatar_for @user %></p>
       <h1> Welcome, <%= @user.name %></h1>
       <h3>Email: <%= @user.email %></h3>
-    <%= link_to "Update Profile", edit_user_path(current_user), class: 'btn btn-md btn-primary' ,style: 'color: ;'%>
-    <%= link_to "My Orders", orders_path, class: 'btn btn-md btn-success' ,style: 'color: ;'%>
+      <div class="container-md">
+      <h3>To update your profile, please click on the button below</h3>
+          <%= link_to "Update Profile", edit_user_path(current_user), 
+          class: 'btn btn-md btn-primary' ,style: 'color: ;'%>
+      </div >
+      
+      <br>
+      
+      <div class="container-md">
+        <h3>To view your previous orders, please click on the button below</h3>
+            <%= link_to "My Orders", orders_path, 
+            class: 'btn btn-md btn-success' ,style: 'color: ;'%>
+
+      </div>
+      
+       
+      <br>
+      
   </div>
 </div>
