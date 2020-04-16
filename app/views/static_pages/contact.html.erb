@@ -1,19 +1,22 @@
 <% provide(:title, "Contact") %>
 
-<div class="row text-center">
-      <div class="col-md-2"> </div>
+<div class="row text-center"
+>
+      <div class="col-md-2"></div>
       <div class="col-md-8">
         <h1 >Contact</h1>
         <div class="panel panel-default well">
           <div class="panel-body">
-            <form action="" class="form-horizontal" method="#">
+            <form id="my-form" action="https://formspree.io/xnqbydle"
+        method="POST" class="form-horizontal">
                 <div class="form-group">               
                     <div class="col-sm-12">
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-user"></i>
                             </div>
-                            <input type="text" class="form-control" id="inputName" placeholder="Enter your name">
+                            <input type="text" class="form-control" 
+                            id="inputName" placeholder="Enter your name">
                         </div>
                     </div>                
                 </div>
@@ -24,7 +27,8 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-envelope"></i>
                             </div>
-                            <input type="email" class="form-control" id="inputEmail1" placeholder="Enter email">
+                            <input type="email" class="form-control" 
+                            id="inputEmail1" placeholder="Enter email">
                         </div>
                     </div>                
                </div>
@@ -46,20 +50,91 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-comment fa-2"></i>                
                             </div>                  
-                            <textarea class="form-control" name="Comments" placeholder="Enter your message here"></textarea>
+                            <textarea class="form-control" name="Comments" 
+                            placeholder="Enter your message here"></textarea>
                         </div>                                    
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success btn-lg">Contact us</button>
+                        <button id="my-form-button" type="submit" 
+                        class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">Contact us</button>
+                          <p id="my-form-status"></p>
                     </div>
                 </div>
             </form>
           </div><!-- end panel-body -->
         </div><!-- end panel -->
       </div><!-- end col-md-8 -->
-      <!--<div class="col-md-2"> </div>-->
+      <!--<div class="col-md-2"></div>-->
     </div>
+    
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Thanks for your submission</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Thank you for contacting us today - we strive to respond to any queries within 1 working day. </p>
+        <p>Kind regards</p>
+        <p>The Reading Nook Team!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+
+    // get the form elements defined in your form HTML above
+    
+    var form = document.getElementById("my-form");
+    var button = document.getElementById("my-form-button");
+    var status = document.getElementById("my-form-status");
+
+    // Success and Error functions for after the form is submitted
+    
+    function success() {
+      form.reset();
+      button.style = "display: none ";
+      status.innerHTML = "Thanks!";
+    }
+
+    function error() {
+      status.innerHTML = "Oops! There was a problem.";
+    }
+
+    // handle the form submission event
+
+    form.addEventListener("submit", function(ev) {
+      ev.preventDefault();
+      var data = new FormData(form);
+      ajax(form.method, form.action, data, success, error);
+    });
+  });
+  
+  // helper function for sending an AJAX request
+
+  function ajax(method, url, data, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        success(xhr.response, xhr.responseType);
+      } else {
+        error(xhr.status, xhr.response, xhr.responseType);
+      }
+    };
+    xhr.send(data);
+  }
+</script>
