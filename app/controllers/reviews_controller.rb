@@ -8,6 +8,8 @@ def create
     #@review.user_id = params[:user_id]
     if @review.save
       flash[:info] = "Thanks for leaving a review"
+    else
+      flash[:danger] = "You have already reviewed this book!"
     end
     redirect_to item_path(@review.item)
   else
