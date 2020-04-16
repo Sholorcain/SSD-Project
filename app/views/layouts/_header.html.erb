@@ -38,11 +38,13 @@
               </ul>
             </li>
           <% end %>
+          
           <% if logged_in? %>
             <!--<li><%= link_to "Users", users_path %></li>-->
             <% if logged_in? and !current_user.admin? %>
               <li><%= link_to "My Orders", orders_path %></li>
             <%end%>
+            
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -54,34 +56,13 @@
                 <li><%= link_to "Log out", logout_path, method: :delete %></li>
               </ul>
             </li>
+            
           <% else %>
             <li><%= link_to "Log in", login_path %></li>
           <% end %>
-          <!--navbar cart display -->
-          <li class="li-cart">
-          <%if !session[:cart].blank? %>
-            <% cart = session[:cart]%>
-            <% if !cart.empty? %>
-                <% total = 0 %>
-                <% totalquantity = 0 %>
-                <% cart.each do |id, quantity| %>
-                  <% if Item.exists?(id)
-                    item = Item.find_by_id(id)%>
-                    <% number_to_currency(item.price, :unit =>"€") %>
-                    <% number_to_currency(quantity * item.price, :unit =>"€") %>
-                    <% total += quantity * item.price %> 
-                    <% totalquantity += quantity %>
-                  <% end %>
-                <%end%>
-              <a href="/cart" class="btn btn-default btn-m">
-                <span class="glyphicon glyphicon-shopping-cart"></span> </span><span class="badge"><%= totalquantity %></span><p><%= number_to_currency(total, :unit => "€") %> </p></a>
-            <% end %>
-          </li>
-          <% else %>
-          <a href="/cart" class="btn btn-default btn-m">
-                <span class="glyphicon glyphicon-shopping-cart"></span> </span><span class="badge">0</span><p><%= number_to_currency(0, :unit => "€") %> </p></a>
-          <% end %>
-           <!-- end of navbar cart display -->
+          
+          <%= render "shared/cartNav" %>
+          
         </ul>
         <%= render 'layouts/search' %>
       </div><!-- /.navbar-collapse -->
