@@ -1,18 +1,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar-inverse .navbar-nav > li > a {
-    color: white;
+.navbar-inverse .navbar-nav>li>a {
+  color: white;
 }
 
 /* navbar design*/
-  .navbar {
-    border-radius: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 4;
-  }
+
+.navbar {
+  border-radius: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 4;
+}
+
 /* end of navbar design */
 
 /* Brand name/logo design*/
@@ -31,12 +33,22 @@
 
 
 // its for putting a top/bottom margin between two divs
-.margin-top{
+.margin-top {
   margin-top: 50px;
 }
-.margin-bottom{
+
+.margin-bottom {
   margin-bottom: 50px;
 }
+
 /* end of Brand name/logo design*/
 
+.smlNavCart {
+  display: none;
+}
 
+@media screen and (min-width: 768px) {
+  .smlNavCart {
+    display: block;
+  }
+}

@@ -10,13 +10,16 @@
           <span class="icon-bar"></span>
         </button>
         <%= link_to "The Reading Nook", root_path, id:"logo",class:"navbar-brand" %>
+        
+        <!-- to load only when hamburger navbar width is on -->
+            <%= render "shared/cartNav", :class => "smlNavCart" %>
+
       </div>
   
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><%= link_to "Home", root_path %></li>
-          <!--<li><%= link_to "Cart", "/cart" %></li>-->
           <li><%= link_to "Catalogue", "/items" %></li>
           <li><%= link_to "Contact", contact_path %></li>
         </ul>
@@ -61,7 +64,7 @@
             <li><%= link_to "Log in", login_path %></li>
           <% end %>
           
-          <%= render "shared/cartNav" %>
+          <%= render "shared/cartNav", :class => "mainNavCart"%>
           
         </ul>
         <%= render 'layouts/search' %>
