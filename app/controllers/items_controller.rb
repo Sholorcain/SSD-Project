@@ -102,6 +102,7 @@ class ItemsController < ApplicationController
   end
   
   def search
+    @categories = Category.all
     @search_criteria =""
     if params[:q].eql? ""
       @search_criteria ="All"
