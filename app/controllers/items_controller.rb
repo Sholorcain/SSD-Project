@@ -114,7 +114,7 @@ class ItemsController < ApplicationController
       @items = Item.where("title ILIKE ?", st)
       
       # enable this for sqlite3
-      #@items = Item.where("LOWER(title) LIKE ?", @st.downcase).paginate(:page => params[:page], per_page: 9)
+      @items = Item.where("LOWER(title) LIKE ?", @st.downcase).paginate(:page => params[:page], per_page: 9)
     end
   end
 
