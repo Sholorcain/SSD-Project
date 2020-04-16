@@ -1,6 +1,13 @@
 class Item < ApplicationRecord
     has_many :reviews, dependent: :destroy
     
+    validates :category, presence: true
+    validates :title, presence:true, length: {minimum: 5, maximum:18}
+    validates :author, presence:true, length: {minimum: 5, maximum:30}
+    validates :description, presence:true, length: {minimum: 10, maximum:300}
+    validates :price, presence:true,numericality: true
+    validates :image_url, presence:true
+    
     def score
     self.reviews.average('rating')
     end
