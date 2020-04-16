@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   
   get '/checkout' => 'cart#checkout'
   get 'orders/payment_confirmation/:id', to: 'orders#payment_confirmation'
+  get 'sales', to: 'orders#sales'
+  get 'stockview', to: 'items#stockview'
 
   resources :categories
   resources :items do

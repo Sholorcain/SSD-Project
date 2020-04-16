@@ -7,6 +7,11 @@ class OrdersController < ApplicationController
     #@orders = Order.all
     @orders = Order.where(user_id: current_user.id)
   end
+  
+  def sales
+    @orders = Order.all.where(status: "Paid by Paypal")
+    render action: :sales
+  end
 
   # GET /orders/1
   # GET /orders/1.json

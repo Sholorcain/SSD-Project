@@ -93,9 +93,10 @@ class CartController < ApplicationController
    @cart = session[:cart] || {} # Get the content of the Cart
    @cart.each do | id, quantity |
     item = Item.find_by_id(id)
-    #item.quantity -= quantity
+    item.stock -= quantity
     @orderitem = @order.orderitems.build(:item_id => item.id, :title => item.title, :description => item.description, :quantity => quantity, :price=> item.price)
     @orderitem.save
+    item.save
    end
    @orders = Order.last
    @orderitems = Orderitem.where(order_id: Order.last)
