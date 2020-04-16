@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
     <div class="col-md-12">
-        <h1 class="text-center">Title: <%= @item.title %></h1>
+        <h2 class="text-center"><%= @item.title %></h2>
     </div>
     <div class="col-md-12">
         <div class="col-md-6">
@@ -81,6 +81,7 @@
         <!--<h4>Reviews (<%= @item.reviews.size %>)</h4>-->
         <%= render partial: 'items/review', collection: @item.reviews %>
     </div>
+    
 <div class="col-md-12">
     <hr/>
     <h3>[Sample review, could be like this.]</h3>
