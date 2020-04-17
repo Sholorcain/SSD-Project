@@ -2,7 +2,7 @@
   <% if @items.length == 0 %>
       <h2 class="text-center">No products were found matching your search</h2>
   <% else %>
-      <h1 class="text-center">Search Results For "<%= @search_criteria %>" </h1>
+      <h1 class="text-center">Search results for "<%= @search_criteria %>" </h1>
       <%= render 'items/catalogue'%>
   <% end %>
 </div>
