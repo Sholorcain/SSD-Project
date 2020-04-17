@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="row">
 <div class="table-responsive">
   <% if !@cart.empty? %>
-  <h1 class="text-center">Cart</h1>
+    <h1 class="text-center">Cart</h1>
     <table class="table">
       <% total = 0 %>
       <thead>
@@ -23,12 +23,11 @@
         
           <% @cart.each do |id, quantity| %>
             <tr class="active">
-              
               <!-- check if the item exists to avoid throwing an error and breaking the session cart -->
               <% if Item.exists?(id)
                   item = Item.find_by_id(id)%>
                   <!-- if item !exist, nothing will happen to alter the cart -->
-              <td><div class="text-center"><%= link_to (image_tag item.image_url, :style =>"height:80px;"), item %></div></td>
+              <td class="text-center"><%= link_to (image_tag item.image_url, :style =>"height:80px;"), item, :class=>"cart-remove-button" %></td>
               <td><h3><%= link_to item.title, item %></h3></td>
               <td> <a href="/cart/increase/<%= item.id %>"><h3 style="text-align:center;"><span class="glyphicon glyphicon-plus"></span></h3></a></td>
               <td><a href="/cart/decrease/<%= item.id %>"><h3 style="text-align:center;"><span class="glyphicon glyphicon-minus"></span></h3></a></td>
@@ -42,9 +41,9 @@
             
           <% end %>
         <tfoot>
-          <tr>
-            <td colspan="6"><h2 class="text-right"><b>Grand Total # </b></h2></td>
-            <td colspan="2"><h2 class="text-left"><b><%= number_to_currency(total, :unit => "€") %></b></h2></td>
+          <tr class="success">
+            <th colspan="6"><h2 class="text-right"><b>Grand Total # </b></h2></th>
+            <th colspan="2"><h2 class="text-left"><b><%= number_to_currency(total, :unit => "€") %></b></h2></th>
           </tr>
         </tfoot>
       </tbody>
@@ -53,21 +52,24 @@
   
    <!-- these design for checkout -->
   <% if @cart.empty? %>
-     <h1 class="text-center"> Your cart is empty! </h1>
-     <div class="text-center"><%= link_to "Vist the Catalogue", items_path, class: 'btn btn-md btn-primary' ,style: 'color: white;'%></div>
+    <div class="text-center">
+       <h1> Your cart is empty! </h1>
+       <h5><%= link_to "Vist the Catalogue", items_path, class: 'btn btn-lg btn-primary'%></h5>
+    </div>
   <%else%>
-    <div class="container text-center" style="margin-top:25px;">
-      <%= link_to "Continue Shopping", items_path, class: 'btn btn-md btn-primary' ,style: 'color: white;'%>
+    <div class="text-center" style="margin-top:25px;" id="cartBtnGroup">
+      <%= link_to "Continue Shopping", items_path, class: 'btn btn-lg btn-primary'%>
       
       <!-- User must be logged in to check out -->
       <% if logged_in? %>
-      <%= link_to "Checkout", checkout_path, class: 'btn btn-md btn-success',style: 'color: white;' %>
+        <%= link_to "Checkout", checkout_path, class: 'btn btn-lg btn-success' %>
       <% else %>
-      <%= link_to "Log In", login_path, class: 'btn btn-md btn-success',style: 'color: white;' %>
+        <%= link_to "Log In", login_path, class: 'btn btn-lg btn-success' %>
       <% end %>
       
-      <%= link_to "Empty Cart", clearcart_path, class: 'btn btn-md btn-danger',style: 'color: white;' %>
+      <%= link_to "Empty Cart", clearcart_path, class: 'btn btn-lg btn-danger' %>
     </div>
   <%end%>
   <!-- end of check link -->
+</div>
 </div>
