@@ -1,13 +1,13 @@
 require 'test_helper'
 # Following tests are from Ruby on Rails Tutorial (Rails 5) Michael Hartl
-
+#Tests validation of the model 
 class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
   end
-
+  
   test "should be valid" do
     assert @user.valid?
   end

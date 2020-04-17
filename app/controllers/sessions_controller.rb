@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+# Following session controller is from Ruby on Rails Tutorial (Rails 5) Michael Hartl
   def new
   end
 

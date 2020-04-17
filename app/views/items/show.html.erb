@@ -1,6 +1,5 @@
 <% provide(:title, @item.title) %>
 
-<p id="notice"><%= notice %></p>
 
     <div class="col-md-12">
         <h2 class="text-center"><%= @item.title %></h2>
@@ -79,7 +78,9 @@
             <h3> Login to review this book</h3>
         <% end %>
     </div>
+    
     <div class="col-md-12">
+        <hr>
         <h4 class = "text-center">Reviews (<%= @item.reviews.size %>)</h4>
         <%= render partial: 'items/review', collection: @item.reviews %>
     </div>

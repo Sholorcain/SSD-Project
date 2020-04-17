@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    #@orders = Order.all
     @orders = Order.where(user_id: current_user.id)
   end
   
@@ -16,12 +15,9 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    ################
-
    @order = Order.find(params[:id])
    @orderitems = Orderitem.where(order_id: @order)
 
-    ################
   end
 
   # GET /orders/new

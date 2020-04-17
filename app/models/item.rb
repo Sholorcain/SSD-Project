@@ -20,12 +20,11 @@ class Item < ApplicationRecord
         stock <= 0
     end
     
+    #Following scopes are used to sort the products
     scope :expensive, -> { order(price: :desc) }
     scope :cheapest, -> { order(price: :asc) }
+    #Groups review average rating and items tables so that we can sort by rating
     scope :bestrated, -> { (where("items.id in (select item_id from reviews)").group('items.id, items.title, items.author,items.description,items.price,items.image_url,items.category,items.stock').joins(:reviews).order('AVG(reviews.rating) DESC'))}
-    #scope :bestrated, -> { includes(:reviews).group('item_id').order('AVG(review.rating) desc')}
     scope :lowestrated, -> { (where("items.id in (select item_id from reviews)").group('items.id, items.title, items.author,items.description,items.price,items.image_url,items.category,items.stock').joins(:reviews).order('AVG(reviews.rating) ASC'))}
-
-    #scope :lowestrated, -> { order(title: :asc) }
     
 end

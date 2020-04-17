@@ -1,5 +1,7 @@
 module SessionsHelper
-
+  # Following session_helper is from Ruby on Rails Tutorial (Rails 5) Michael Hartl
+  # This was used instead of devise so more could be learned.
+  
   # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id
@@ -11,6 +13,7 @@ module SessionsHelper
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
   end
+  
   # Returns true if the given user is the current user.
   def current_user?(user)
     user == current_user

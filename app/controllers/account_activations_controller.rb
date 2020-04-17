@@ -1,5 +1,5 @@
 class AccountActivationsController < ApplicationController
-
+# Following activation controller is from Ruby on Rails Tutorial (Rails 5) Michael Hartl
   def edit
     user = User.find_by(email: params[:email])
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
