@@ -1,5 +1,4 @@
 <!--navbar cart display -->
-  <!--<li class="li-cart">-->
     <%if !session[:cart].blank? %>
       <% cart = session[:cart]%>
       <% if !cart.empty? %>
@@ -17,9 +16,8 @@
       <a href="/cart" class="btn btn-default btn-m">
         <span class="glyphicon glyphicon-shopping-cart"></span> </span><span class="badge"><%= totalquantity %></span><p><%= number_to_currency(total, :unit => "€") %> </p></a>
     <% end %>
-<!--  </li>-->
-<!--<% else %>-->
-<!--    <a href="/cart" class="btn btn-default btn-m">-->
-<!--      <span class="glyphicon glyphicon-shopping-cart"></span> </span><span class="badge">0</span><p><%= number_to_currency(0, :unit => "€") %> </p></a>-->
-<!--<% end %>-->
+  <% else %>
+    <a href="/cart" class="btn btn-default btn-m">
+     <span class="glyphicon glyphicon-shopping-cart"></span> </span><span class="badge">0</span><p><%= number_to_currency(0, :unit => "€") %> </p></a>
+  <% end %>
 <!-- end of navbar cart display -->

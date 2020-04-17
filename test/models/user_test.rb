@@ -1,4 +1,5 @@
 require 'test_helper'
+# Following tests are from Ruby on Rails Tutorial (Rails 5) Michael Hartl
 
 class UserTest < ActiveSupport::TestCase
 
