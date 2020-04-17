@@ -29,7 +29,8 @@
 @media (min-width: 1200px) {
     .carousel-caption {
         left: 35%;
-        right: 10%;
+        right: 15%;
+        bottom: 100px;
     }
 }
 
@@ -37,7 +38,7 @@
 @media (min-width: 992px) and (max-width:1199px) {
     .carousel-caption {
         left: 35%;
-        right: 8%;
+        bottom: 95px;
     }
     .col-lg-4 img{
         width: 60%;
@@ -50,6 +51,7 @@
     .carousel-caption {
         left: 45%;
         right: 6%;
+        bottom: 75px;
     }
     .col-lg-4 img{
         width: 50%;
@@ -59,9 +61,6 @@
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (max-width: 767px) {
-    // .item img {
-    //     width:100%;
-    // }
     .carousel-caption h1{
         display: none;
     }
