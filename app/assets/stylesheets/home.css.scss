@@ -16,6 +16,12 @@
     background-color: #5cb85c;
 }
 
+.item-description{
+    // width: 500px; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    overflow: hidden;
+}
 
 /* Meadia query*/
 
