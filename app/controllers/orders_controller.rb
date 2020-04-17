@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    if logged_in? and  current_user.admin?
+    if current_user.admin?
       @orders = Order.all
     else
       @orders = Order.where(user_id: current_user.id)
@@ -76,6 +76,8 @@ class OrdersController < ApplicationController
   def payment_confirmation
     @order = Order.find(params[:id])
     @order.update_attribute(:status, "Paid by Paypal")
+    @user = current_user
+    @user.send_order_email(@order)
   end
 
   private

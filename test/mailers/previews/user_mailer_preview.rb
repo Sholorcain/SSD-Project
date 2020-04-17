@@ -9,10 +9,10 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.account_activation(user)
   end
   
-  
-  # Preview this email at
-  # xxx/rails/mailers/user_mailer/password_reset
-  def password_reset
-    UserMailer.password_reset
+  def order_accepted
+    user = User.first
+    UserMailer.order_accepted(user)
   end
+  
+
 end

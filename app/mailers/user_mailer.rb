@@ -15,4 +15,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.password_reset.subject
   #
+  def order_accepted(user, order)
+    @user = user
+    @order = order
+    mail to: user.email, subject: "Order Successful"
+  end
 end

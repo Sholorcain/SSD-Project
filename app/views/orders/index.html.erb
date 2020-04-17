@@ -4,8 +4,11 @@
   <% if @orders.empty? %>
     <h1 class="text-center">You don't have any order to display</h1>
   <% else %>
+    <% if current_user.admin? %>
+      <h1 class="text-center">All Orders</h1>
+    <% else %>
     <h1 class="text-center">My Orders</h1>
-    
+    <% end %>
     <table class="table">
       <thead>
         <tr class="success">

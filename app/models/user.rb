@@ -62,6 +62,10 @@ class User < ApplicationRecord
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
   end
+  def send_order_email(order)
+    UserMailer.order_accepted(self,order).deliver_now
+  end
+  
   
   private
 
