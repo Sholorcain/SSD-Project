@@ -4,7 +4,11 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.where(user_id: current_user.id)
+    if logged_in? and  current_user.admin?
+      @orders = Order.all
+    else
+      @orders = Order.where(user_id: current_user.id)
+    end
   end
   
   def sales

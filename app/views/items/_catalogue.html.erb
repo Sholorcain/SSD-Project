@@ -8,7 +8,7 @@
 <% end %>
       <% @items.each do |item| %>
          <div class="col-sm-4 col-md-4 col-lg-4">
-            <h3 class="item-title"><%= item.title %></h3>
+            <h3 class="item-title item-description"><%= item.title %></h3>
             <p><%= link_to (image_tag item.image_url, :class => "", :size=>"280x446"), item %></p>
             <h4>Author: <%= item.author %></h4>
             <h4>Price: <%= number_to_currency(item.price, :unit => "€") %></h4>
