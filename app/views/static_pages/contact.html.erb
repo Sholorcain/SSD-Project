@@ -5,6 +5,7 @@
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <h1 >Contact</h1>
+        <p>We look forward to hearing any queries you may have about The Reading Nook</p>
         <div class="panel panel-default well">
           <div class="panel-body">
             <form id="my-form" action="https://formspree.io/xnqbydle"
@@ -27,7 +28,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-envelope"></i>
                             </div>
-                            <input type="email" class="form-control" 
+                            <input type="email" name="email" class="form-control" 
                             id="inputEmail1" placeholder="Enter email" required>
                         </div>
                     </div>                
@@ -59,7 +60,7 @@
                 <div class="form-group">
                     <div class="col-sm-12">
                         <button id="my-form-button" type="submit" 
-                        class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">Contact us</button>
+                        class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Contact us</button>
                           <p id="my-form-status"></p>
                     </div>
                 </div>
@@ -70,26 +71,26 @@
       <!--<div class="col-md-2"></div>-->
     </div>
     
-<div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Thanks for your submission</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Thank you for contacting us today - we strive to respond to any queries within 1 working day. </p>
-        <p>Kind regards</p>
-        <p>The Reading Nook Team!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   <!-- Start of Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-titler">We read you - loud and clear!</h4>
+          </div>
+          <div class="modal-body">
+            <p >Thank you for contacting us - we will aim to respond to queries within 2 working days.</p>
+            <p class="text-right" style="padding-right:10%">Kind regards,</p>
+            <p class="text-right" style="padding-right:10%;">The Reading Nook Team!</p>
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
 <script>
   window.addEventListener("DOMContentLoaded", function() {
@@ -105,11 +106,11 @@
     function success() {
       form.reset();
       button.style = "display: none ";
-      status.innerHTML = "Thanks!";
+      status.innerHTML = "Thanks for contacting us!";
     }
 
     function error() {
-      status.innerHTML = "Oops! There was a problem.";
+      status.innerHTML = "Oops! There was a problem. Please try again.";
     }
 
     // handle the form submission event
