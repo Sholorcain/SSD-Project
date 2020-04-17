@@ -1,5 +1,5 @@
 <div class="row">
-      <div class="col-md-2"></div>
+      <div class="col-md-2"> </div>
       <div class="col-md-8">
         <div class="panel panel-default well">
           <div class="panel-body">
@@ -13,24 +13,21 @@
                   <% end %>
                   </ul>
                 </div>
-              <% end %>            
+              <% end %>         
+              <p class="text-center"><%= link_to "Add  Category", new_category_path, :class => "btn btn-lg btn-success" %></p>
                 <div class="form-group">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <%= f.label :category %>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-archive"></i> 
                             </div>
                             <% categories = Category.all.map { |category| [category.title, category.id] } %>
-                            <%= f.select :category,options_for_select(categories), prompt: 'Select a category', class: "form-control", placeholder: "Enter your category", autofocus: true %>
-                        </div>                                    
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <%= link_to "Add new Category", new_category_path, :class => "btn btn-sm btn-success" %>
-                        </div>                                    
-                    </div>
+                            <%= f.select :category,options_for_select(categories), prompt: 'Select a category', style: "height: 55px;", class: "form-control", placeholder: "Enter your category", autofocus: true %>
+                        </div> 
                 </div>
+                </div>
+                
                 <div class="form-group">               
                     <div class="col-sm-12">
                         <%= f.label :title %>
@@ -106,14 +103,14 @@
                 
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <%= f.submit "Add item", class: "btn btn-success btn-lg" %>
+                        <%= f.submit "Add item", class: "btn btn-success btn-md" %>
                     </div>
                 </div>
             <%end%>
           </div><!-- end panel-body -->
         </div><!-- end panel -->
       </div><!-- end col-md-8 -->
-      <!--<div class="col-md-2"></div>-->
+      <!--<div class="col-md-2"> </div>-->
     </div>
 
 

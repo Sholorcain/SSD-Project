@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     end
   end
   def stockview
-    @items = Item.all.paginate(:page => params[:page], per_page: 30)
+    @items = Item.all.paginate(:page => params[:page], per_page: 10)
     render action: :stock
   end
 
