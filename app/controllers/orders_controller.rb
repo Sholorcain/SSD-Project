@@ -76,6 +76,8 @@ class OrdersController < ApplicationController
   def payment_confirmation
     @order = Order.find(params[:id])
     @order.update_attribute(:status, "Paid by Paypal")
+    @user = current_user
+    @user.send_order_email(@order)
   end
 
   private
