@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  
+  
   get 'orderitems/index'
   get 'orderitems/show'
   get 'orderitems/new'
   get 'orderitems/edit'
-  
-  
   get '/delete', to: 'order#delete'
 
 
@@ -12,36 +12,25 @@ Rails.application.routes.draw do
     resources:orderitems
   end
   
-  # can be enable later on
-  
-  # devise_for :users do 
-  #   resources :orders 
-  # end
-  
   get '/checkout' => 'cart#checkout'
   get 'orders/payment_confirmation/:id', to: 'orders#payment_confirmation'
   get 'sales', to: 'orders#sales'
-  get 'stockview', to: 'items#stockview'
+  
 
   resources :categories
   resources :items do
     collection do
-      get :expensive
-      get :cheapest
-      get :bestrated
-      get :lowestrated
       get '/cart/:id', to: 'cart#add'
-      get '/expensive/:category_filter', to: 'items#expensive' , :as => :expensive_filter
     end
     
     resources :reviews
     
   end
+  get 'stockview', to: 'items#stockview'
   get 'sessions/new'
 
   get 'users/new'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
   
   get 'category/:title', to: 'static_pages#category'

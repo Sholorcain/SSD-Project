@@ -110,10 +110,6 @@ class ItemsController < ApplicationController
     else
       @st = "%#{params[:q]}%"
       @search_criteria = params[:q]
-      # enable this for heroku
-      #@items = Item.where("title ILIKE ?", st)
-      
-      # enable this for sqlite3
       @items = Item.where("LOWER(title) LIKE ?", @st.downcase).paginate(:page => params[:page], per_page: 9)
     end
   end

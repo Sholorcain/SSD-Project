@@ -50,48 +50,5 @@
     </div>    
   </div>
   <div class="col-md-12">
-    <hr class="featurette-divider">
-  
-    <div class="row">
-      <h1 class="text-center">Featured Titles</h1>
-      <div class="marketing">
-        <!-- START THE FEATURETTES -->
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading" style="color:#009d00">Sunsets with Annie <span class="text-muted">by Gretchen Fergusson</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            <p><%= link_to "Full catalogue", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
-          </div>
-          <div class="col-md-5">
-            <%= image_tag ("sunsets.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
-          </div>
-        </div>
-        
-        <hr class="featurette-divider">
-        
-        <div class="row featurette">
-          <div class="col-md-7 col-md-push-5">
-            <h2 class="featurette-heading" style="color:#009d00">Feelings are Lost at Sea <span class="text-muted">by Jonathan Bynes</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            <p><%= link_to "Full catalogue", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
-          </div>
-          <div class="col-md-5 col-md-pull-7">
-            <%= image_tag ("feelings.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
-          </div>
-        </div>
-        
-        <hr class="featurette-divider">
-        
-        <div class="row featurette">
-          <div class="col-md-7">
-                  <h2 class="featurette-heading" style="color:#009d00">The Imperfections of Memory <span class="text-muted">by Annabelle Jones</span></h2>
-                  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                  <p><%= link_to "Full catalogue", items_path, class: 'btn btn-lg btn-success' ,style: 'color: white;'%></p>
-                </div>
-          <div class="col-md-5">
-            <%= image_tag ("imperfections.png"), size: "300x300", class: "featurette-image img-responsive center-block" %>
-          </div>
-        </div>
-      </div>
-    </div>
+   <%= render 'static_pages/featured'%>
   </div>

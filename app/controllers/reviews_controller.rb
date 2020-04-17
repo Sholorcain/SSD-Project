@@ -4,12 +4,10 @@ def create
   if logged_in?
     @review = Review.new(review_params)
     @review.item_id = params[:item_id]
-    #I guess user_id already gets set.
-    #@review.user_id = params[:user_id]
     if @review.save
       flash[:info] = "Thanks for leaving a review"
     else
-      flash[:danger] = "You have already reviewed this book!"
+      flash[:danger] = "You have already reviewed this book or made too short a comment!"
     end
     redirect_to item_path(@review.item)
   else
