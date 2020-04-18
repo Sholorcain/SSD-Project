@@ -9,12 +9,7 @@ class UsersController < ApplicationController
 
 
   def show
-    # @user = User.find(params[:id])
-    if current_user.admin?
-      @user = User.all
-    else
-      @user = User.find(params[:id])
-    end
+    @user = User.find(params[:id])
   end
 
   def new
