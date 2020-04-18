@@ -43,8 +43,11 @@
 
 /* end of Brand name/logo design*/
 
-
-h1, h2, h3, p, #logo {
+h1,
+h2,
+h3,
+p,
+#logo {
   font-family: 'Comfortaa', cursive;
 }
 
@@ -56,6 +59,7 @@ h1, h2, h3, p, #logo {
   margin-top: 25px;
   border-top: 1px gray solid;
 }
+
 main {
   min-height: calc(100vh - 160px);
 }
