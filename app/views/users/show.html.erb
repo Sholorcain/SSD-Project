@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-<div class="row">
+<div class="row text-center">
   <h1> Welcome, <%= @user.name %> <%= gravatar_for @user %></h1>
           <% if @user.orders.last.present? %>
 <div class="table-responsive">
@@ -52,7 +52,14 @@
             
         </div>	
     </div>
-  <div class="container-md profile-cont">
+ 
+
+
+<%else%>
+<h3>You do not have any orders to display yet!</h3>
+
+<%end%>
+ <div class="container-md profile-cont">
     <h3>To update your profile, please click on the button below</h3>
     <%= link_to "Update Profile", edit_user_path(current_user), class: 'btn btn-md btn-primary pull-right'%>
   </div >
@@ -64,12 +71,5 @@
     <%= link_to "My Orders", orders_path, class: 'btn btn-md btn-success pull-right' %>
   </div>
   <br>
-</div>
-
-<%else%>
-<h3>You do not have any orders to display yet!</h3>
-
-<%end%>
-
-	
+	</div>
 </div>
