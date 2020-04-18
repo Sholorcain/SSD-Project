@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy, :stockupdate]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :add_stock]
 
   # GET /items
   # GET /items.json
@@ -43,6 +43,12 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+  end
+  
+  def add_stock
+    @item.stock += params[:stock].to_i
+    @item.save
+    redirect_back(fallback_location: root_path)
   end
 
   # POST /items
@@ -89,10 +95,6 @@ class ItemsController < ApplicationController
 
   def lowestrated
     @items = @items.lowestrated
-  end
-  
-  def add_stock
-    @items.stock = @items.stock
   end
 
   # DELETE /items/1

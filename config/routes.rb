@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   get '/cart/remove/:id' => 'cart#remove'
   get '/cart/increase/:id' => 'cart#increase'
   get '/cart/decrease/:id' => 'cart#decrease'
+  get '/items/addstock/:id' => 'items#add_stock', :as => :items_add_stock
   resources :users
   
   

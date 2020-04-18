@@ -24,13 +24,13 @@
             <!-- admin function -->
             <% if logged_in? and current_user.admin? %>
                 <h4>Current Stock: <%= item.stock %></h4>
-                <%= form_for item, remote: true do |f| %>
+                <%= form_tag(items_add_stock_path(item.id), :method => "get") do %>	
                     <h4>
-                        <%= f.label :stock %>
-                        <%= f.text_field :stock %>
+                        <%= label_tag(:stock, "Stock") %>
+                        <%= text_field_tag(:stock, 0) %>
                     </h4>
-                    <h4><%= f.submit 'Update Stock' , :class => "btn btn-md btn-primary"%></h4>
-            <%end%>
+                    <h4><%= submit_tag "Update Stock", :class => "btn btn-md btn-primary" %></h4>
+                <%end%>
             <!-- end of admin function -->
       <% end %>
          <p>
