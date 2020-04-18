@@ -5,9 +5,9 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     if current_user.admin?
-      @orders = Order.all
+      @orders = Item.all.paginate(:page => params[:page], per_page: 10)
     else
-      @orders = Order.where(user_id: current_user.id)
+       @orders = Order.all.where(user_id: current_user.id).paginate(:page => params[:page], per_page: 10)
     end
   end
   

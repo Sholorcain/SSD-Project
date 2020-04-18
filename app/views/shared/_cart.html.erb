@@ -5,6 +5,7 @@
     <h1 class="text-center">Cart</h1>
     <table class="table">
       <% total = 0 %>
+      <% items = 0 %>
       <thead>
        <tr class="success">
          <!-- Table Headers for Cart-->
@@ -35,6 +36,7 @@
               <td><h3><%= quantity %></h3></td>
               <td><h3><%= number_to_currency(quantity * item.price, :unit =>"€") %></h3></td>
               <td class="text-center"><h3><a href="/cart/remove/<%= item.id %>" class="btn btn-md btn-danger" style= "color: white;">Remove</a></h3></td>
+              <% items += quantity %> 
               <% total += quantity * item.price %> 
               <% end %>
             </tr>
@@ -42,7 +44,7 @@
           <% end %>
         <tfoot>
           <tr class="success">
-            <th colspan="6"><h2 class="text-right"><b>Grand Total # </b></h2></th>
+            <th colspan="6"><h2 class="text-right"><b>Grand Total (<%= items %> items)  # </b></h2></th>
             <th colspan="2"><h2 class="text-left"><b><%= number_to_currency(total, :unit => "€") %></b></h2></th>
           </tr>
         </tfoot>
@@ -57,7 +59,7 @@
        <h5><%= link_to "Vist the Catalogue", items_path, class: 'btn btn-lg btn-primary'%></h5>
     </div>
   <%else%>
-    <div class="text-center" style="margin-top:25px;" id="cartBtnGroup">
+    <div class="text-center" style="margin:25px auto;" id="cartBtnGroup">
       <%= link_to "Continue Shopping", items_path, class: 'btn btn-lg btn-primary'%>
       
       <!-- User must be logged in to check out -->
