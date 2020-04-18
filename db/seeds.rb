@@ -50,7 +50,7 @@ Category.create!(
 Item.create!(
     title: "The Andromeda Boy",
     author: "Marceline Anderson",
-    description: "A new sci-fi epic from Marceline Anderson. After leaving the grey planet Frabenesh, a group of witches fly toward a distant speck. The speck gradually resolves into a moist, space house. Civil war strikes the galaxy, which is ruled by Boris Gobble, a rural zombie capable of decadence and even assassination. Terrified, a tender imp known as Annabelle Godfrey flees the Empire, with her protector, Harriet Fish.",
+    description: "A new sci-fi epic from Marceline Anderson. After leaving the distant planet Frabenesh, a group of space-farers fly toward a distant speck. The speck turns out to be an altogether more sinister planet, ruled by Boris Gobble, a ruthless oligarch capable of unimaginable evil. Terrified, a tender imp known as Annabelle Godfrey flees the Empire, with her protector, Harriet Fish, as civil war strikes the galaxy.",
     price: 12.99,
     image_url: "andromeda.png",
     category: "Fiction")
@@ -58,7 +58,7 @@ Item.create!(
 Item.create!(
     title: "Feelings are Lost at Sea",
     author: "Jonathan Bynes",
-    description: "The debut novel from Meath author Jonathan Bynes. Mark Thornton is a scrappy orphan raised by a spiteful sister. Eventually he gets a job working as a shopkeeper for the generous Lord DeVito of DeVito Bungalow. The unlikely couple rapidly succumb to a incredible passion.",
+    description: "The debut novel from Meath author Jonathan Bynes. Mark Thornton is a scrappy orphan raised by a spiteful headmaster. Eventually he gets a job working as a shopkeeper for the generous Lord DeVito of DeVito Bungalow. The unlikely couple rapidly succumb to an incredible passion.",
     price: 13.99,
     image_url: "feelings.png",
     category: "Fiction")
@@ -74,7 +74,7 @@ Item.create!(
 Item.create!(
     title: "Under the Hills",
     author: "J. Patterson",
-    description: "A new domestic noir from J. Patterson. One morning in a house in Canada, Clarke Parker opens a gift from his niece, Suki Walker, and Clarke knows their lives will never be the same again. Whilst trying to rebuild his life, Clarke witnesses a crime that leads him to question a new relationship. He becomes obsessed with enigmatic stranger Maud Greenway. What is her connection to Suki, and why has she turned up now?",
+    description: "A new domestic noir from J. Patterson. One morning in a house in Canada, Clarke Parker opens a gift from his niece, Susie Walker, and Clarke knows their lives will never be the same again. Whilst trying to rebuild his life, Clarke witnesses a crime that leads him to question a new relationship. He becomes obsessed with enigmatic stranger Maud Greenway. What is her connection to Suki, and why has she turned up now?",
     price: 11.99,
     image_url: "under.png",
     category: "Anthologies")
@@ -114,7 +114,7 @@ Item.create!(
 Item.create!(
     title: "Secrets",
     author: "Harry Rickets",
-    description: "The latest crime thriller from Harry Rickets. Mangled arms have been turning up all over Africa and the inhabitants are scared. Ten murders in ten weeks, all committed with a rifle, and still nobody has a clue who the greedy killer is. Lady Georgina Vader is a kindly homemaker with a fondness for playing the piano. She doesn't know it yet but she is the only one who can stop the arrogant killer.",
+    description: "The latest crime thriller from Harry Rickets. Mangled arms have been turning up all over Asia and the inhabitants are scared. Ten murders in ten weeks, all committed with a rifle, and still nobody has a clue who the ruthless killer is. Lady Georgina Vader is a kindly homemaker with a fondness for playing the piano. She doesn't know it yet but she is the only one who can stop the arrogant killer.",
     price: 10.99,
     image_url: "secrets.png",
     category: "Fiction")
@@ -138,7 +138,7 @@ Item.create!(
 Item.create!(
     title: "The Driver in the Dark",
     author: "A. K. Marchesi",
-    description: "A new crime thriller from A.K Marchesi. Mangled eyelashes have been turning up all over New York and the inhabitants are scared. Ten murders in ten weeks, all committed with a gun, and still nobody has a clue who the clumsy killer is.Prof Raymond Ferguson is a grubby and admirable housekeeper with a fondness for comedy. He doesn't know it yet but he is the only one who can stop the spiteful killer.",
+    description: "A new crime thriller from A.K Marchesi. Mangled eyelashes have been turning up all over New York and the inhabitants are scared. Ten murders in ten weeks, all committed with poison, and still nobody has a clue who the killer is.Prof Raymond Ferguson is a grubby and admirable housekeeper with a fondness for mischief. He doesn't know it yet but he is the only one who can stop the spiteful killer.",
     price: 10.99,
     image_url: "driver.png",
     category: "Fiction")
@@ -154,7 +154,7 @@ Item.create!(
 Item.create!(
     title: "The Missing Ride",
     author: "Mona Peterson",
-    description: "A riveting new mystery from Belfast writer Mona Peterson. The derelict, Cornish town of Bailey holds a secret. Polly Thornton has the perfect life working as a nurse in the city and bopping with her noble girlfriend, Doris Pitt. However, when she finds a stolen car in her garage, she begins to realise that things are not quite as they seem in the Thornton family.",
+    description: "A riveting new mystery from Belfast writer Mona Peterson. The derelict, Cornish town of Bailey holds a secret. Polly Thornton has the perfect life working as a nurse in the city and bopping with her girlfriend, Doris Pitt. However, when she finds a stolen car in her garage, she begins to realise that things are not quite as they seem in the Thornton family.",
     price: 10.99,
     image_url: "missing.png",
     category: "Fiction")
