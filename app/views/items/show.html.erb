@@ -71,20 +71,25 @@
             <!-- end of admin function -->
         </div>
     </div>
-    <div class="col-md-12">
-        <% if logged_in? %>
-            <%= render partial: 'reviews/form' %>
-        <% else %>
-            <h3> Login to review this book</h3>
-        <% end %>
-    </div>
     
     <div class="col-md-12">
         <hr>
         <h4 class = "text-center">Reviews (<%= @item.reviews.size %>)</h4>
+        <% if @item.reviews.size == 0 %>
+        <br>
+        <p class= "text-center">This book has no reviews yet - be the first to review this book!</p>
+        
+        <% end %>
         <%= render partial: 'items/review', collection: @item.reviews %>
     </div>
+    <div class="col-md-12">
+        <% if logged_in? %>
+            <%= render partial: 'reviews/form' %>
+        <% else %>
+        <br>
+            <p class="text-center"> <b>Log in</b> to review this book<p>
+        <% end %>
+    </div>
     
-<div class="col-md-12">
-    <hr/>
-</div>
+    
+    
