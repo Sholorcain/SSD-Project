@@ -85,9 +85,9 @@
                         disabled title="Please fill the required fields first" disabled="disabled" data-toggle="modal" data-target="#myModal" style="margin-top:20px;">Contact
                         us</button>
                     <p id="my-form-status" style="margin-top:10px"></p>
+                    <input type="hidden" name="_next" value="//site.io/thanks.html" />
                 </div>
-                <p id="my-form-status"></p>
-                
+
                 <br>
             </form>
           </div>
@@ -213,6 +213,8 @@
         };
         xhr.send(data);
     }
+    
+    
     
     //validation function - checks if the fields are filled before you can click the submit button
     $('.vcheck').change(function () {
