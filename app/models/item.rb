@@ -17,7 +17,7 @@ class Item < ApplicationRecord
     end
     
     def stock_limit
-    #    stock <= 0
+        stock <= 0
     end
     
     #Following scopes are used to sort the products
