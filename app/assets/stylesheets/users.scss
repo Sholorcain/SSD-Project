@@ -2,3 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@media (max-width: 767px){
+    .btn, .btn-md, .btn-primary, .btn-success {
+        margin-left: 22px;
+    }
+}
