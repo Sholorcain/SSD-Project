@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   get '/checkout' => 'cart#checkout'
   get 'orders/payment_confirmation/:id', to: 'orders#payment_confirmation'
-  get 'sales', to: 'orders#sales'
+  get '/sales', to: 'orders#sales'
   
 
   resources :categories
@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   get '/cart/remove/:id' => 'cart#remove'
   get '/cart/increase/:id' => 'cart#increase'
   get '/cart/decrease/:id' => 'cart#decrease'
+  get '/items/addstock/:id' => 'items#add_stock', :as => :items_add_stock
   resources :users
   
   

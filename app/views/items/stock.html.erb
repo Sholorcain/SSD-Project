@@ -31,10 +31,10 @@
                         <td><%= number_to_currency(number_with_precision(item.price, :precision => 2), :unit => "€") %></td>
                         <td><%= item.stock %></td>
                         <td class="text-center">
-                            <%= form_for item, remote: true do |f| %>
-                                <p><%= f.text_field :stock, :style=> "width:35px; height:35px; text-align:center;" %>
-                                <%= f.submit 'Update', :class=> "btn btn-md btn-primary" %></p>
-                           <% end %>
+                            <%= form_tag(items_add_stock_path(item.id), :method => "get") do %>	
+                                <%= text_field_tag :stock, 0, :style=> "width:35px; height:35px; text-align:center;" %>
+                                <%= submit_tag "Update", :class => "btn btn-md btn-primary" %></p>
+                            <%end%>
                         </td>
                         <td class="text-center">
                             <%= link_to 'Show', item,:class=> "btn btn-md btn-success" %>
