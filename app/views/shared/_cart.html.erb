@@ -50,6 +50,9 @@
         </tfoot>
       </tbody>
     </table>
+    <% if !logged_in? %>
+    <p class="text-center">Please note you must <b>log in</b> below to checkout.</p>
+  <%end%>
   <%end%>
   
    <!-- these design for checkout -->
