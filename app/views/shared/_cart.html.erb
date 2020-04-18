@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-<div class="table-responsive smartCart" style="letter-spacing: 1.5px;">
+<div class="table-responsive">
   <% if !@cart.empty? %>
     <h1 class="text-center">Cart</h1>
     <table class="table">
@@ -47,8 +47,8 @@
           <% end %>
         <tfoot>
           <tr class="success">
-            <th colspan="6"><h2 class="text-right"><b>Grand Total (<%= items %> items): </b></h2></th>
-            <th colspan="2"><h2 class="text-left"><b><%= number_to_currency(total, :unit => "€") %></b></h2></th>
+            <th colspan="6"><h2 class="text-right">Grand Total (<%= items %> items): </h2></th>
+            <th colspan="2"><h2 class="text-left"><%= number_to_currency(total, :unit => "€") %></h2></th>
           </tr>
         </tfoot>
       </tbody>
