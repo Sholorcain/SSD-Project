@@ -1,14 +1,14 @@
-  <div class = "text-center">
-  <h4><%= review.author_name %></h4>
-  <p><%= gravatar_for review.user %></p>
-  <p><%= review.user.created_at.to_date %></p>
-  <p class="review"><%= review.body %></p> 
+  <div class="container">
+    <h2>Review of <%= @item.title %></h2>
+    <br>
+    <p class="review"><%= review.body %></p> 
+    <p>Review by: <b><em><%= review.author_name %></em></b> on <%= review.user.created_at.to_date %></h4>
   <p>
     <% review.rating.to_i.times do  %>
-      <span class="glyphicon glyphicon-star"></span>
+      <span class="glyphicon glyphicon-star" style="font-size:20px"></span>
     <% end %>
     <% (5 - review.rating).times do %>
-      <span class="glyphicon glyphicon-star-empty"></span>
+      <span class="glyphicon glyphicon-star-empty" style="font-size:20px"></span>
       <% end %>
   </p>
   
@@ -20,4 +20,5 @@
       <%= link_to 'Delete Review', [review.item, review], class: "btn btn-md btn-danger",method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
   <%end%>
-  </div>
+<br>
+</div>
