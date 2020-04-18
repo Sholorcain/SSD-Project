@@ -79,7 +79,6 @@
         <%end%>
         
         <div class="text-center" style="margin:25px auto;">
-            <%= link_to "Back", orders_path, class: 'btn btn-lg btn-success',style: 'color: white;' %>
             <% if @user.orders.last.status.eql? "Pending" %>
                 <%= link_to "Edit", edit_order_path(@user.orders.last), class: 'btn btn-lg btn-warning' ,style: 'color: white;'%>
                 <%= link_to "Delete", order_path(id: @user.orders.last.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-lg btn-danger',style: 'color: white;' %>
