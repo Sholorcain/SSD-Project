@@ -32,7 +32,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-archive"></i> 
                             </div>
-                            <%= f.select :status,options_for_select(['','Pending', 'Paid by Paypal','Cancelled']), prompt: 'Select a payment status',id: "orderStatus", class: "form-control", autofocus: true %>
+                            <%= f.select :status,options_for_select(['Pending', 'Paid by Paypal','Cancelled']), prompt: 'Select a payment status',id: "orderStatus", class: "form-control", autofocus: true %>
                         </div> 
                 </div>
                 </div>

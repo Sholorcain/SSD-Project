@@ -3,10 +3,10 @@
         <h1 class="text-center">List of Items</h1>
         <div class="col-md-12">
             <div class="col-md-6">
-                <h4 class="text-left"><%= link_to 'New Item', new_item_path,:class=> "btn btn-lg btn-success" %></h4>
+                <h4 class="text-left"><%= link_to 'Add New Item', new_item_path,:class=> "btn btn-lg btn-success" %></h4>
             </div>
             <div class="col-md-6">
-                <h4 class="text-right"><%= link_to 'New Category', new_item_path,:class=> "btn btn-lg btn-primary" %></h4>
+                <h4 class="text-right"><%= link_to 'Add New Category', new_item_path,:class=> "btn btn-lg btn-primary" %></h4>
             </div>
         </div>
         <table class="table">
@@ -28,11 +28,12 @@
                         <td><%= item.id %></td>
                         <td><%= item.title %></td>
                         <td><%= item.category %></td>
-                        <td><%= item.price %></td>
+                        <td><%= number_to_currency(number_with_precision(item.price, :precision => 2), :unit => "€") %></td>
                         <td><%= item.stock %></td>
                         <td class="text-center">
                             <%= form_for item, remote: true do |f| %>
-                                <p><%= f.text_field :stock, :style=> "width:35px; height:35px; text-align:center;" %>
+                                <p><%#= f.text_field :stock, :style=> "width:35px; height:35px; text-align:center;" %>
+                                <%= f.text_field :stock, :value => item.stock %>
                                 <%= f.submit 'Update', :class=> "btn btn-md btn-primary" %></p>
                            <% end %>
                         </td>
