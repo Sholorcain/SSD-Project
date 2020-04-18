@@ -22,7 +22,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-archive"></i> 
                             </div>
-                            <% categories = Category.all.map { |category| [category.title, category.id] } %>
+                            <% categories = Category.all.map { |category| [category.title] } %>
                             <%= f.select :category,options_for_select(categories), prompt: 'Select a category', style: "height: 55px;", class: "form-control", placeholder: "Enter your category", autofocus: true %>
                         </div> 
                     </div>
