@@ -26,8 +26,11 @@
             <tr class="active">
               <!-- check if the item exists to avoid throwing an error and breaking the session cart -->
               <% if Item.exists?(id)
-                  item = Item.find_by_id(id)%>
+                  item = Item.find_by_id(id)
+                  if item.stock > 0%>
                   <!-- if item !exist, nothing will happen to alter the cart -->
+                  <!-- if item stock is empty, nothing will happen to alter the cart -->
+                  
               <td class="text-center"><%= link_to (image_tag item.image_url, :style =>"height:80px;"), item, :class=>"cart-remove-button" %></td>
               <td><h3><%= link_to item.title, item %></h3></td>
               <td> <a href="/cart/increase/<%= item.id %>"><h3 style="text-align:center;"><span class="glyphicon glyphicon-plus"></span></h3></a></td>
@@ -50,6 +53,10 @@
         </tfoot>
       </tbody>
     </table>
+    <% if !logged_in? %>
+    <p class="text-center">Please note you must <b>log in</b> below to checkout.</p>
+    <% end %>
+  <%end%>
   <%end%>
   
    <!-- these design for checkout -->
