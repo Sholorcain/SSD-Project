@@ -72,15 +72,10 @@
         </div>
     </div>
     
-    <div class="col-md-12">
-        <hr>
-        <h4 class = "text-center">Reviews (<%= @item.reviews.size %>)</h4>
-        <% if @item.reviews.size == 0 %>
-        <br>
-        <p class= "text-center">This book has no reviews yet - be the first to review this book!</p>
-        
-        <% end %>
-        <%= render partial: 'items/review', collection: @item.reviews %>
+    <div class="col-md-12">	
+        <hr>	
+        <h4 class = "text-center">Reviews (<%= @item.reviews.size %>)</h4>	
+        <%= render partial: 'items/review', collection: @item.reviews %>	
     </div>
     <div class="col-md-12">
         <% if logged_in? %>

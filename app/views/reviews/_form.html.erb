@@ -1,6 +1,5 @@
 <div class="container-fluid">
   <h3>Leave a Review</h3>
-  <form>
   <%= form_for [ @item, @review ] do |f| %>
     <p>
           <%= f.label :author_name, current_user.name   %><br/>
@@ -28,5 +27,4 @@
       <%= f.submit 'Submit', class: "btn btn-md btn-success" %>
     </p>
   <% end %>
-  </form>
 </div>
