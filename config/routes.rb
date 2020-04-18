@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :reviews
     
   end
-  get 'stockview', to: 'items#stockview'
+  get '/stockview', to: 'items#stockview'
   get 'sessions/new'
 
   get 'users/new'

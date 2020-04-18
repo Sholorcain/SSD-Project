@@ -90,6 +90,10 @@ class ItemsController < ApplicationController
   def lowestrated
     @items = @items.lowestrated
   end
+  
+  def add_stock
+    @items.stock = @items.stock
+  end
 
   # DELETE /items/1
   # DELETE /items/1.json
