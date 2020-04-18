@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-6">
             <h3>Author: <%= @item.author %></h3>
-            <h5>Description: <%= @item.description %></h5>
+            <br><h5><%= @item.description %></h5><br>
             <h4>Price: <%= number_to_currency(@item.price, :unit => "€") %></h4>
             <h4>Category: <%= @item.category %></h4>
             <h4>
