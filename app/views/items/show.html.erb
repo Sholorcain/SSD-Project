@@ -82,7 +82,7 @@
             <%= render partial: 'reviews/form' %>
         <% else %>
         <br>
-            <p class="text-center"> <b>Log in</b> to review this book<p>
+            <p class="text-center"> <b><a><%= link_to "Log in", login_path %></b></a> to review this book<p>
         <% end %>
     </div>
     
