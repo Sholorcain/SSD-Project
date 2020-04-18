@@ -50,7 +50,7 @@ Category.create!(
 Item.create!(
     title: "The Andromeda Boy",
     author: "Marceline Anderson",
-    description: "A new sci-fi epic from Marceline Anderson. After leaving the distant planet Frabenesh, a group of space-farers fly toward a distant speck. The speck turns out to be an altogether more sinister planet, ruled by Boris Gobble, a ruthless oligarch capable of unimaginable evil. Terrified, a tender imp known as Annabelle Godfrey flees the Empire, with her protector, Harriet Fish, as civil war strikes the galaxy.",
+    description: "A new sci-fi epic from Marceline Anderson. After leaving the distant planet Frabenesh, a group of space-farers fly toward a distant speck. The speck turns out to be an altogether more sinister planet, ruled by Boris Gobble, a ruthless oligarch capable of unimaginable evil. Terrified, a tender imp known as Annabelle Godfrey flees the Empire, with her protector, Harriet Fry, as civil war strikes the galaxy.",
     price: 12.99,
     image_url: "andromeda.png",
     category: "Fiction")
@@ -130,7 +130,7 @@ Item.create!(
 Item.create!(
     title: "The Snap Era",
     author: "E. Brown",
-    description: "E. Brown's exhaustive and definitive guide to the world of photography. Everything you ever wanted to know about lenses, stock, lighting and everything in betwee, along with all the evolving trends and defining moments from this immortal artform's fascinating history.",
+    description: "E. Brown's exhaustive and definitive guide to the world of photography. Everything you ever wanted to know about lenses, film stock, lighting and everything in betwee, along with all the evolving trends and defining moments from this immortal artform's fascinating history.",
     price: 10.99,
     image_url: "snapera.png",
     category: "Non-Fiction")
@@ -138,7 +138,7 @@ Item.create!(
 Item.create!(
     title: "The Driver in the Dark",
     author: "A. K. Marchesi",
-    description: "A new crime thriller from A.K Marchesi. Mangled eyelashes have been turning up all over New York and the inhabitants are scared. Ten murders in ten weeks, all committed with poison, and still nobody has a clue who the killer is.Prof Raymond Ferguson is a grubby and admirable housekeeper with a fondness for mischief. He doesn't know it yet but he is the only one who can stop the spiteful killer.",
+    description: "A new crime thriller from A.K Marchesi. Mangled torsos have been turning up all over New York and the inhabitants are scared. Ten murders in ten weeks, all committed with poison, and still nobody has a clue who the killer is.Prof Raymond Ferguson is a grubby and admirable housekeeper with a fondness for mischief. He doesn't know it yet but he is the only one who can stop the spiteful killer.",
     price: 10.99,
     image_url: "driver.png",
     category: "Fiction")
@@ -170,7 +170,7 @@ Item.create!(
 Item.create!(
     title: "Riptides",
     author: "Beverly Tan",
-    description: "Edited by Beverly Tan, Riptides collects some of the most thought-provoking, exciting and daring contemporary short science fiction in Ireland today. An essential anthology, featuring new work from Stephen Queen, David Chasely, Amanda O'Neil and Lucy Sims among many others.",
+    description: "Edited by Beverly Tan, Riptides collects some of the most thought-provoking, exciting and daring contemporary science fiction in Ireland today. An essential short story anthology, featuring new work from Stephen Queen, David Chasely, Amanda O'Neil and Lucy Sims among many others.",
     price: 10.99,
     image_url: "riptides.png",
     category: "Anthologies")
@@ -202,7 +202,7 @@ Item.create!(
 Item.create!(
     title: "Sunsets with Annie",
     author: "Gretchen Fergusson",
-    description: "The third collection from Monaghan-based poet Gretchen Fergusson. Gathering two year's worth of vital, moving poetry into one cohesive volumn, Fergusson touches on her usual themes of love, loss, faith and nostalgia. Featuring the Patrick Kavanagh Prize-winning poem 'When We Were Young'",
+    description: "The third collection from Monaghan-based poet Gretchen Fergusson. Gathering two year's worth of vital, moving poetry into one cohesive volumn, Fergusson touches on her usual themes of love, loss, innocence and nostalgia. Featuring the Patrick Kavanagh Prize-winning poem 'When We Were Young'",
     price: 10.99,
     image_url: "sunsets.png",
     category: "Poetry")
