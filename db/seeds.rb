@@ -13,6 +13,14 @@ User.create!(name:  "Example User",
              activated: true,
              activated_at: Time.zone.now)
              
+User.create!(name:  "Daniel Connell",
+             email: "example3@random.org",
+             password:              "password",
+             password_confirmation: "password",
+             admin: false,
+             activated: true,
+             activated_at: Time.zone.now)
+             
 Category.create!(
     title: "All"
 )
