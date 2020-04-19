@@ -1,6 +1,7 @@
 module UsersHelper
 
-  # Returns the Gravatar for the given user.
+  # Returns the Gravatar for the given user this is a wordpress profile image
+  # It uses the users email to generate the Gravatar id
   def gravatar_for(user, options = { size: 80 })
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     size = options[:size]

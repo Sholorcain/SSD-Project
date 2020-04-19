@@ -1,16 +1,18 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :payment_confirmation]
 
   # GET /orders
   # GET /orders.json
+  #Checks for admin and returns a select list of orders depending
   def index
     if current_user.admin?
       @orders = Order.all.paginate(:page => params[:page], per_page: 10)
     else
-       @orders = Order.all.where(user_id: current_user.id).paginate(:page => params[:page], per_page: 10)
+      @orders = Order.all.where(user_id: current_user.id).paginate(:page => params[:page], per_page: 10)
     end
   end
   
+  #Renders all sales that have the status paid
   def sales
     @orders = Order.all.where(status: "Paid by Paypal")
     render action: :sales
@@ -19,9 +21,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-   @order = Order.find(params[:id])
    @orderitems = Orderitem.where(order_id: @order)
-
   end
 
   # GET /orders/new
@@ -37,7 +37,6 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -73,8 +72,8 @@ class OrdersController < ApplicationController
     end
   end
   
+  #Sets the status of the order to paid and sends and email to the user about their order
   def payment_confirmation
-    @order = Order.find(params[:id])
     @order.update_attribute(:status, "Paid by Paypal")
     @user = current_user
     @user.send_order_email(@order)

@@ -1,20 +1,12 @@
 class UserMailer < ApplicationMailer
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.user_mailer.account_activation.subject
-  #
+  #Sends an email to the user with their activation details
   def account_activation(user)
     @user = user
     mail to: user.email, subject: "Account activation"
   end
-
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.user_mailer.password_reset.subject
-  #
+  
+  #Sends an email to the user upon creating and completing their order
   def order_accepted(user, order)
     @user = user
     @order = order
