@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :logged_in_user, only: [:stockview, :add_stock, :destroy]
-  before_action :admin_user, only: [:stockview, :add_stock, :destroy]
+  before_action :logged_in_user, only: [:stockview, :add_stock, :destroy, :create, :edit, :new, :update]
+  before_action :admin_user, only: [:stockview, :add_stock, :destroy, :create, :edit, :new, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy, :add_stock]
   before_action :set_category, only: [:index, :search]
   
