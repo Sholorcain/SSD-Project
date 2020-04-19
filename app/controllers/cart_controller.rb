@@ -59,7 +59,6 @@ class CartController < ApplicationController
   end
  end
  
- #??
  def remove
   id = params[:id]
   cart = session[:cart]

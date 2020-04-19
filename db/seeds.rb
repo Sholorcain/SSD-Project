@@ -102,7 +102,7 @@ Item.create!(
 Item.create!(
     title: "The Lives Inside Your Head",
     author: "Winston Brown",
-    description: "Winston Brown's second poetry collection, featuring a dazzling array of worth written between 2015 and 2019. The Cork-based poet demonstrates once again why he's one of the most exciting literary talents on the island.",
+    description: "Winston Brown's debut poetry collection, featuring a dazzling array of worth written between 2015 and 2019. The Cork-based poet demonstrates once again why he's one of the most exciting literary talents on the island.",
     price: 10.99,
     image_url: "head.png",
     category: "Poetry")
@@ -198,7 +198,7 @@ Item.create!(
 Item.create!(
     title: "Sunsets with Annie",
     author: "Gretchen Fergusson",
-    description: "The third collection from Monaghan-based poet Gretchen Fergusson. Gathering two year's worth of vital, moving poetry into one cohesive volumn, Fergusson touches on her usual themes of love, loss, innocence and nostalgia. Featuring the Patrick Kavanagh Prize-winning poem 'When We Were Young'",
+    description: "The debut collection from Monaghan-based poet Gretchen Fergusson. Gathering two year's worth of vital, moving poetry into one cohesive volumn, Fergusson touches on her usual themes of love, loss, innocence and nostalgia. Featuring the Patrick Kavanagh Prize-winning poem 'When We Were Young'",
     price: 10.99,
     image_url: "sunsets.png",
     category: "Poetry")
