@@ -26,8 +26,7 @@
             <tr class="active">
               <!-- check if the item exists to avoid throwing an error and breaking the session cart -->
               <% if Item.exists?(id)
-                  item = Item.find_by_id(id)
-                  if item.stock > 0%>
+                  item = Item.find_by_id(id)%>
                   <!-- if item !exist, nothing will happen to alter the cart -->
                   <!-- if item stock is empty, nothing will happen to alter the cart -->
                   
@@ -56,7 +55,6 @@
     <% if !logged_in? %>
     <p class="text-center">Please note you must <b>log in</b> below to checkout.</p>
     <% end %>
-  <%end%>
   <%end%>
   
    <!-- these design for checkout -->
