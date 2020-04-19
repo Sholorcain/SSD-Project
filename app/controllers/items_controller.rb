@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
+  before_action :logged_in_user, only: [:stockview, :add_stock, :destroy]
+  before_action :admin_user, only: [:stockview, :add_stock, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy, :add_stock]
   before_action :set_category, only: [:index, :search]
+  
   
   # GET /items
   # GET /items.json
@@ -139,5 +142,19 @@ class ItemsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def item_params
       params.require(:item).permit(:title, :author, :description, :price, :image_url, :category, :stock)
+    end
+    
+    # Checks that the user is logged in
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+    
+    # Checks if the user to an admin or redirects to home page
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

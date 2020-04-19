@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :logged_in_user, only: :sales
+  before_action :admin_user, only: :sales
   before_action :set_order, only: [:show, :edit, :update, :destroy, :payment_confirmation]
 
   # GET /orders
@@ -88,5 +90,19 @@ class OrdersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def order_params
       params.require(:order).permit(:order_date, :user_id, :status)
+    end
+    
+    # Checks that the user is logged in
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+    
+    # Checks if the user to an admin or redirects to home page
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end
