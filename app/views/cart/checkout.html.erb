@@ -8,8 +8,8 @@
             <thead>
                 <tr class="success">
                     <th colspan="2">
-                        <h4>Name # <%= @user.name %></h4>
-                        <h5>Address # <%= @user.email %></h5>
+                        <h4>Name: <%= @user.name %></h4>
+                        <h5>Email: <%= @user.email %></h5>
                     </th>
                     <th colspan="2">
                         <h5>Order No.: <%= @orders.id %></h5>
@@ -47,7 +47,7 @@
                 </tr>
             </tfoot>
         </table>
-        <h4>Please proceed to payment to finalize your order:</h5>
+        <h4>Please proceed to payment to finalize your order:</h4>
         <h5 class="text-center">
             <%= render'orders/paypal_link' %>
         </h5>
