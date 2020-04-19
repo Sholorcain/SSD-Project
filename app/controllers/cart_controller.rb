@@ -23,14 +23,6 @@ class CartController < ApplicationController
   redirect_to :action => :index
  end
  
- #Reduces item quantity in cart by 1
- def reduce
-  id = params[:id]
-  cart = session[:cart]
-  cart[id] = cart[id] - 1
-  redirect_to :action => :index
- end
- 
  #Increases item quantity in cart by 1
  def increase
   id = params[:id]
@@ -39,7 +31,7 @@ class CartController < ApplicationController
   redirect_to :action => :index
  end
  
- #Also reduces the item quantity in cary by 1
+ #Reduces the item quantity in cary by 1
  def decrease
   id = params[:id]
   cart = session[:cart]
