@@ -1,8 +1,7 @@
 var itemTitle;
 var itemID;
 
-function confirmAdd(itemID, itemTitle) {
-    this.itemTitle = itemTitle;
+function confirmAdd(itemID) {
     this.itemID = itemID;
     var xhttp = new XMLHttpRequest();
 
